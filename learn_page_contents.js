@@ -14,12 +14,15 @@ function learn(){
 	_middle.addElement('h2', 0, 'computingHeading').set('innerHTML', 'Computing');
 	_middle.addElement('a', 0, 'htmlCodingLink').set('className', 'qwvxxe')
 	.set('href', 'file:///C:/Users/Luis/Documents/Desktop/M/PenguinLearning/index.html/#htmlCoding')
-	.set('innerHTML', 'HTML Live interpreter')
+	.set('innerHTML', 'HTML Live editor')
 	.onEvent('click', function(){location.reload()});
 	_middle.addElement('br', 1);
 	_middle.addElement('a', 0, 'makingWebpagesLink').set('className', 'qwvxxe')
 	.set('href', 'file:///C:/Users/Luis/Documents/Desktop/M/PenguinLearning/index.html/#makingWebpages')
 	.set('innerHTML', 'HTML & CSS:Making webpages');
+	_middle.addElement('a', 0, 'jsEditorLink')
+	.set('className', 'qwvxxe').set('href', 'file:///C:/Users/Luis/Documents/Desktop/M/PenguinLearning/index.html/#jsCoding')
+	.set('innerHTML', 'JS Live editor;
 };
 if(location.hash == '#learn'){
 	learn();
