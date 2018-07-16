@@ -22,7 +22,7 @@ function learn(){
 	.set('innerHTML', 'HTML & CSS:Making webpages');
 	_middle.addElement('a', 0, 'jsEditorLink')
 	.set('className', 'qwvxxe').set('href', 'file:///C:/Users/Luis/Documents/Desktop/M/PenguinLearning/index.html/#jsCoding')
-	.set('innerHTML', 'JS Live editor;
+	.set('innerHTML', 'JS Live editor');
 };
 if(location.hash == '#learn'){
 	learn();
