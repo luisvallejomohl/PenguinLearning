@@ -33,7 +33,7 @@ function learn(){
 	_middle.addElement('br', 1);
 	
 	_middle.addElement('a', 0, 'jsEditorLink')
-	.set('className', 'qwvxxe').set('#jsCoding')
+	.set('className', 'qwvxxe').set('href', '#jsCoding')
 	.set('innerHTML', 'JS Live editor');
 };
 if(location.hash == '#learn'){
