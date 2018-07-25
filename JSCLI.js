@@ -31,6 +31,9 @@ function addButton(text, ID){
 function addInputBox(ID){
 	document.body.innerHTML += '<INPUT ID=\"' + ID + '\"/>';	
 };
+function inputValue(ID){
+	return document.getElementById(ID).value;
+};
 function addHeading(text, size, ID){
 	document.body.innerHTML += '<H' + size + ' ID=\"' + ID + '\"></H1>';
 	document.getElementById(ID).innerHTML = text;
