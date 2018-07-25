@@ -21,9 +21,14 @@ function learn(){
 	
 	_middle.addElement('br', 1);
 	
+	_middle.addElement('a', 0, 'introToJSLink').set('className', 'qwvxxe')
+	.set('href', '#introToJS').set('innerHTML', 'Intro to JS: Programming in JS');
+	
+	_middle.addElement('br', 1);
+	
 	_middle.addElement('a', 0, 'makingWebpagesLink').set('className', 'qwvxxe')
 	.set('href', '#makingWebpages')
-	.set('innerHTML', 'HTML & CSS:Making webpages');
+	.set('innerHTML', 'HTML & CSS: Making webpages');
 	
 	_middle.addElement('br', 1);
 	
