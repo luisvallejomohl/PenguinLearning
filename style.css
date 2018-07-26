@@ -10,7 +10,7 @@ footer{
 	padding:5px;
 }
 a:hover{
-color:darkcyan;
+	color:darkcyan;
 }
 .languageImage{
 	float:left;
@@ -35,7 +35,7 @@ header hr{
 	margin-top:0px;
 }
 #David{
-	border-radius:10;
+	border-radius:10%;
 }
 .bordered{
 	border:2px solid rgb(61, 61, 61);
