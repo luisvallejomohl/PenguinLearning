@@ -30,6 +30,7 @@ a:hover{
 }
 #logIn{
 	width:500px;
+	float:right;
 }
 header hr{
 	margin-top:0px;
