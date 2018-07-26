@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<!--
+PPPPPPP  EEEEEE   N     N   GGGGGGG   U     U    IIIIIII   N     N           L      EEEEEE       A       RRRRRR     N     N   IIIII N     N   GGGGGGG
+P     P  E        NN    N   G         U     U       I      NN    N           L      E           A A      R    R     NN    N     I   NN    N   G
+P     P  E        N N   N   G         U     U       I      N N   N           L      E          A   A     R    R     N N   N     I   N N   N   G
+PPPPPPP  EEEE     N  N  N   G    GGG  U     U       I      N  N  N           L      EEEE      AAAAAAA    RRRRRR     N  N  N     I   N  N  N   G    GGG
+P        E        N   N N   G     G   U     U       I      N   N N           L      E        A       A   R    R     N   N N     I   N   N N   G     G
+P        E        N    NN   G     G   U     U       I      N    NN           L      E       A         A  R    R     N    NN     I   N    NN   G     G
+P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLLLLL EEEEEE A           A R    R     N     N   IIIII N     N   GGGGGGG
+-->
+<HTML LANG="EN">
+	<HEAD>
+		<META CHARSET="ISO-8859-1"/>
+		<META NAME="AUTHOR" CONTENT="Luis Vallejo-Möhl"/>
+		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
+		<META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH; INITIAL-SCALE=1.0;"/>
+		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/style.css" REL="STYLESHEET"/>
+		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/colors.css" REL="STYLESHEET"/>
+		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/adblocker.css" REL="STYLESHEET"/>
+		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg" REL="ICON"/>
+
+		<!--[if lt IE 8]>
+			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
+		<![endif]-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/Penguins.js"></SCRIPT><!--Import the Penguins.js JS Library-->
+		<SCRIPT SRC="https://underscorejs.org/underscore.js"></SCRIPT><!--Import the Underscore.js JS Library-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--Import the jQuery JS Library-->
+		<TITLE>PenguinLearning</TITLE>
+	</HEAD>
+	<BODY>
+		<DIV CLASS="pink" ID="warningContainer" STYLE="background-color:rgb(255, 123, 123)">
+			<P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domain *rawgit.com is permitted.</P>
+			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.rawgit.com and *.penguinlearning.tk are permitted.</P>
+			<P ID="javaScript"><NOSCRIPT>It looks like you have disabled javaScript. Please enable javaScript to use PenguinLearning</NOSCRIPT></P>
+			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage or your browser does not support it. If you disabled it, please enable it, otherwise switch to a different browser to create an account and log in.</P>
+		</DIV>
+		<HEADER>
+			<A HREF="#" CLASS="qwvxxe" ID="dashboardImageLink">
+				<IMG SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
+			</A>
+			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
+				<A HREF="#learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
+				<A HREF="#" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
+			</SPAN>
+			<HR/>
+		</HEADER>
+		<MIDDLE>
+			Welcome to PenguinLearning. You can use PenguinLearning without being logged on, but being logged on lets you save your progress.
+			<BR/>
+			<FORM ID="accountCreate" CLASS="bordered" STYLE="position:absolute; left:5px; width:500px;">
+				New to PenguinLearning? Create an account here:<BR/>
+				Username:<INPUT ID="username" REQUIRED="TRUE"/><BR/>
+				Password:<INPUT ID="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
+				I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
+				<BUTTON>Create my account!</BUTTON>
+			</FORM>
+			<FORM ID="signIn" CLASS="bordered" STYLE="position:absolute; left:530px;">
+				Already have an account? Log in here:<BR/>
+				Username:<INPUT ID="Username" REQUIRED="TRUE"/><BR/>
+				Passsword:<INPUT ID="Password" REQUIRED="TRUE" TYPE="PASSWORD"/><BR/>
+				User ID:<INPUT ID="userID" REQUIRED="TRUE" TYPE="NUMBER PASSWORD"/><BR/>
+				I agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>:<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
+				<BUTTON ONCLICK="logIn()">Log in!</BUTTON>
+				You will automatically be logged out when you close this tab.
+				<SPAN CLASS="PINK"><P ID="credentialsIncorrect" STYLE="display:none">Username or password incorrect. Try again</P></SPAN>
+			</FORM>
+			<BR STYLE="font-size:10em;"/>
+			<FORM ID="credentialRecoverer">
+				Forgot your username or password? No big deal. Put your user ID here:<INPUT ID="userIDRecoverer"/>
+				<BR/>
+				<BUTTON ID="getCredentials">Tell me my username and password please!</BUTTON>
+			</FORM>
+
+		</MIDDLE>
+		<ARTICLE ID="termsAndConditions">
+			<H1>Terms and conditions</H1>
+			<H2>PLDU usernames</H2>
+			<P>
+				You can pick most usernames as usernames, but pldu1, pldu2 ... pldu9 are reserved.
+				Usernames that start with PLDU are reserved for users which are not really people. They are used for
+				the testing and development of PenguinLearning. PLDU stands for PenguinLearning Development Users.
+				Users that have a PLDU username as username will be cleared of points.
+			</P>
+			<H2>Privacy policy</H2>
+			<P>
+				We care about your privacy. We do not use any sort of Web Analytics or cookies, and we do not collect personal
+				information. However, we <EM>do</EM> 
+				need to store data in persistent storage. This, however, only includes:
+				<UL>
+					<LI>Points</LI>
+					<LI>Username</LI>
+					<LI>Password</LI>
+					<LI>User ID</LI>
+					<LI>Programming projects</LI>
+				</UL>
+				That's all. We do <EM><STRONG>NOT</STRONG></EM> do device fingerprinting, personalization, display ads etc.
+				However, this means that it is impossible to restore your account if you forget your User ID.
+			</P>
+			<P>By signing up you agree to abide by the Terms and Conditions.</P>
+		</ARTICLE>
+		<FOOTER>
+			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
+			<BR/>
+			Powered by HTML5, CSS3, JS and Github.
+			<BR/>
+			<IMG SRC="https://www.w3.org/html/logo/img/html5-topper.png" ALT="HTML was used. " CLASS="languageImage thumbnail" ID="HTML5Logo" TITLE="HTML5 logo"/>
+			<!--HTML5 Logo-->
+			<IMG SRC="https://techchurian.files.wordpress.com/2013/02/css3-logo.png" ALT="CSS was used, and" CLASS="languageImage thumbnail" ID="CSS3Logo" TITLE="CSS3 logo"/>
+			<!--CSS3 Logo-->
+			<DIV ID="javaScriptLogo" TITLE='javaScript "logo"'>
+				<BR/>
+				JS
+			</DIV>
+			<!--javaScript logo-->
+			<IMG SRC="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" ALT=" was used. We used GitHub as the hosting service." CLASS="thumbnail" TITLE="GitHub logo"/>
+			<!--GitHub logo-->
+        		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
+		</FOOTER>
+	</BODY>
+	<SCRIPT SRC="https://rawgit.com/luisvallejomohl/PenguinLearning/master/learn_page_contents.js"></SCRIPT>
+	<SCRIPT SRC="https://rawgit.com/luisvallejomohl/PenguinLearning/master/warning_remover.js"></SCRIPT>
+	<SCRIPT SRC="https://rawgit.com/luisvallejomohl/PenguinLearning/master/credential_recover.js"></SCRIPT>
+	<SCRIPT>
+function A(){
+	var _middle = __('middle');
+	var $middle = $(__('middle').toDOMNodeList[0]);
+	$middle.html('');
+	_middle.addElement('p', 0, 'newP')
+	.set('innerHTML', 'Welcome to PenguinLearning! You have ' + 
+			String(
+				JSON.parse(
+					localStorage.getItem('users')
+				)[
+					parseFloat(
+						sessionStorage.getItem('userID')
+					)
+				].points
+			)
+	 + ' points. Why not start learning!')
+	.set('ID', '');
+	_middle.addElement('img', 1, 'newImg')
+	.set('src', 'https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg')
+	.set('alt', 'David and ')
+	.set('title', 'David the Gentoo Penguin')
+	.set('height', '200')
+	.set('id', '');
+	_middle.addElement('img', 1, 'newImg')
+	.set('src', 'https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/Jane(Born%2018%20June).jpg')
+	.set('alt', 'Jane say... ')
+	.set('title', 'Jane the collosal squid')
+	.set('height', '200')
+	.set('id', '');
+	_middle.addElement('p', 1, 'everythingIsLearnable')
+	.set('innerHTML', '<H1><FONT COLOR="BLUE">Everything is learnable!</FONT></H1><BR><P><FONT COLOR="RED">Everything is learnable<BR>We all start from scratch<BR>Mozart had to go to music lessons<BR>Newton had to learn his 1 2 3s just like the rest of us<BR>There was a time when you couldn\'t count to 10<BR>And certainly couldn\'t do Algebra<BR>Everything is learnable<BR>It is important that you don\'t give up<BR>You keep trying,<BR>Until one day, you walk.<BR>Whoever you are,<BR>Wherever you are, <BR>You only need to know 1 thing:<BR><STRONG><EM>Everything is learnable</EM></STRONG></FONT></P>');
+};
+function B(){
+	var type = 'webpage';
+	var _middle = __('middle');
+	var $middle = $(_middle.toDOMNodeList[0]);
+	$middle.html('');
+	_middle.addElement('textarea', 0, 'codeEditor')
+	.set('innerHTML', `&#60;!DOCTYPE HTML&#62
+&#60;HTML&#62;
+&#60;/HTML&#62;`)
+	.style('background', 'black')
+	.style('fontFamily', 'monospace')
+	.style('color', 'white')
+	.style('float', 'left');
+	var iframe = _middle.addElement('iframe', 0, 'iframe')
+	.style('float', 'right')
+	.set('width', '500')
+	.set('height', '1000');
+	var newSpan = iframe.addElement('span', 0, 'newSpan');
+	newSpan.set('innerHTML', 'It looks like your browser does not support iframes, meaning that you cannot edit code on your browser. Please try again on a different browser. Sorry.')
+	.set('className', 'pink');
+	_middle.addElement('p', 0, 'newP').set('innerHTML', 'Project ID:')
+	.addElement('input', 1, 'projectIdInput');
+	_middle.addElement('button', 0, 'getExistingProjectButton').set('innerHTML', 'Get existing project').onEvent('click', function(){
+		$('#codeEditor').text(
+			JSON.parse(localStorage.getItem('users'))[
+				parseFloat(
+					sessionStorage.getItem('userID')
+				)
+			].projects[
+				parseFloat(
+					__('#projectIdInput').get('value')[0]
+				)
+			].content
+		);
+	});
+	$('#codeEditor').on('change', function(){
+		__('iframe').set('srcdoc', $('#codeEditor').text());
+	});
+};
+function C(){
+	var _middle = __('middle');
+	var usersDatabase = JSON.parse(localStorage.getItem('users'));
+	if(sessionStorage.getItem('userID') != null){
+		usersDatabase[parseFloat(sessionStorage.getItem('userID'))].projects.push({
+			type:'HTML', 
+			content:$('#codeEditor').text()
+		});
+		localStorage.setItem('users', JSON.stringify(usersDatabase));
+		_middle.addElement('p', 0, 'newP')
+		.set('innerHTML', 'The project ID for this project is ' + String(
+				usersDatabase[
+					parseFloat(
+						sessionStorage.getItem(
+							'userID'
+						)
+					)
+				].projects.length - 1
+			)
+		).set('id');
+	};
+};
+if(sessionStorage.getItem('userID') != null && location.hash === ''){
+	A();
+};
+function D(){
+	var _middle = PenguinsJS('middle');
+	var $middle = $(_middle.toDOMNodeList[0]);
+	$middle.html('');
+
+	_middle.addElement('iframe', 0, 'iframe')
+	.style('width', '500px')
+	.style('height', '2000px');
+
+	$('<textarea>')
+	.text('/' + '/Put your JS code here')
+	.attr('id', 'jsCodeEditor')
+	.css('float', 'left')
+	.css('color', 'rgb(255, 255, 255')
+	.css('background', 'black')
+	.css('font-family', 'monospace')
+	.appendTo('middle');
+	_middle.addElement('button', 0, 'saveButton').onEvent('click', function(){
+		var code = document.getElementById('codeEditor').value;
+		var users = JSON.parse(localStorage.getItem('users'));
+		var userID = parseFloat(sessionStorage.getItem('userID'));
+		users[userID].projects.push({
+			type:'javaScript', 
+			content:code,
+		});
+		_middle.addElement('p', 0, 'ap').set('innerHTML', 'The project ID for this project is ' + String(users[userID].projects.length - 1) + '.');
+	});
+};
+if(location.hash == '#htmlCoding'){
+	B();
+	PenguinsJS('middle').addElement('button', 0, 'newButton').set('innerHTML', 'Save my project!').onEvent('click', C);
+	$('#newButton').attr('id', '');
+}else if(location.hash == '#jsCoding'){
+	D();
+}else if(location.hash == '#makingWebpages'){
+	var _middle = PenguinsJS('middle');/*Penguins.js find the MIDDLE element*/
+	var $middle = $(_middle.toDOMNodeList[0]);/*jQuery convert _middle to a jQuery collection*/
+	$middle.html('');/*Clear the contents*/
+	_middle.addElement('h1', 0, 'heading').set('innerHTML', 'HTML & CSS:Making webpages');
+	var _videoList = _middle.addElement('ol', 1, 'videoList');
+	var $videoList = $(_videoList.toDOMNodeList[0]);
+	var videoList = $videoList[0];
+	_videoList.addElement('h2', 0, 'headin').set('innerHTML', 'Intro to HTML');
+	function addVideoLink(src, id, content){
+		_videoList.addElement('li', 0, id)
+		.addElement('a', 0, id.toLowerCase())
+		.set('href', src);
+		document.getElementById(id.toLowerCase()).innerHTML = content;
+	};
+	addVideoLink('https://www.useloom.com/share/557b97e0493841ddb4cbc16899d09cbb', 'A', 'Intro to HTML');
+	addVideoLink('https://www.useloom.com/share/ef843b6d55064eebbe3e452fa080dee0', 'B', 'Headings, paragraphs and rules');
+	addVideoLink('https://www.useloom.com/share/7d095389538d4dc1be7324151caa2e5f', 'C', 'Links and attributes');
+	addVideoLink('https://www.useloom.com/share/4e44c05dd982490f9cd02f6e8a8e283b', 'D', 'Lists');
+	addVideoLink('https://www.useloom.com/share/f59def241cdb48128ae88aa6a49bfe59', 'E', 'Images');
+	addVideoLink('https://www.useloom.com/share/4ded096089e343489f35903756aa88fc', 'F', 'EMphasizing text');
+	_videoList.addElement('h2', 0, 'headi').set('innerHTML', 'Meet CSS');
+	addVideoLink('https://www.useloom.com/share/222744611b9749268e1c2508d876a90a', 'G', 'Meet CSS');
+	addVideoLink('https://www.useloom.com/share/9d9d0c74e6dd462f9f25f80918ddd384', 'H', 'CSS fonts');
+	addVideoLink('https://www.useloom.com/share/7f3eaaea25d0447d86d61b7ed3cb9601', 'I', 'Meet IDs');
+	addVideoLink('https://www.useloom.com/share/3194035078d04af49b4aedd094173483', 'J', 'Classes');
+	addVideoLink('https://www.useloom.com/share/cdbcc40ab60a40aa8e2518f932f9a333', 'K', 'Scaling down images/text and floating');
+	_videoList.addElement('h2', 0, 'head').set('innerHTML', 'More HTML');
+	addVideoLink('https://www.useloom.com/share/97813722dd8046d494bce680b8a7a1f9', 'L', 'HTML Tables');
+	addVideoLink('https://www.useloom.com/share/72e34c956b22405c8055c27f66936eeb', 'M', 'SUPerscript text');
+	_videoList.addElement('h2', 0, 'hea').set('innerHTML', 'More CSS');
+	addVideoLink('https://www.useloom.com/share/0de287da915445e49e92476fe297caed', 'N', 'PenguinLearning with and without CSS');
+	addVideoLink('https://www.useloom.com/share/b13f65a3c3784863b569abac2d2ce8c1', 'O', 'Pseudoclasses');
+	addVideoLink('https://www.useloom.com/share/922798149cbe4f4baf3f21b9e61aa400', 'P', 'SPAN tags, italicizing text and boldening text');
+	_videoList.addElement('h2', 0, 'he').set('innerHTML', 'CSS Box Model');
+	addVideoLink('https://www.useloom.com/share/3dec82f21fbe40c7b15151d0f12efd50', 'Q', 'CSS Box model margin, border, and padding');	
+	addVideoLink('https://www.useloom.com/share/3eca8fcc3abb4306900af60274076de5', 'R', 'Top Right Bottom Left');
+	addVideoLink('https://www.useloom.com/share/3169ecdb56884b6380cb36ede827b97f', 'S', 'Drawing with HTML and CSS');
+	_videoList.addElement('h2', 0, '-h').set('innerHTML', 'Luis the troublemaker');
+	addVideoLink('https://www.useloom.com/share/bbc0c51c80bf4f7fafcad9135894a505', 'T', 'Und/ov erlining text and giving elements multiple classes');
+	addVideoLink('https://www.useloom.com/share/d3f1489b54e04146beb433c9964fcaae', 'U', 'More CSS selectors');
+	addVideoLink('https://www.useloom.com/share/c00643a8933a48d1b5ba80bbddbe1d16', 'V', 'Descendant selectors');
+	addVideoLink('https://www.useloom.com/share/6693ef869c2c40149150ee4618dd2564', 'W', 'Combining multiple selectors');
+	addVideoLink('https://www.useloom.com/share/ffaa0d185e1948708fc7906171413073', 'X', ':not() pseudoclass');
+	addVideoLink('https://www.useloom.com/share/fe402f8c2c124e168d4a0f22155830a6', 'Y', 'Adding an external stylesheet');
+
+	function addHundredPoints(){
+		var userID = parseFloat(sessionStorage.getItem('userID'));
+		var usersDB = JSON.parse(localStorage.getItem('users'));
+		usersDB[userID].points += 100;
+		localStorage.setItem('users', JSON.stringify(usersDB));
+		
+	};
+	$videoList.find('a')/*Video link scope*/
+	.attr('target', '_')
+	.addClass('qwvxxe')
+	.click(addHundredPoints);
+	videoList.id = undefined;
+};
+if(location.hash === '#introToJs'){
+	$('middle').html('');
+	$('<ol>').attr('id', 'videoList').appendTo('middle');
+	var _videoList = __('#videoList');
+	var videoList = _videoList.toDOMNodeList[0];
+	var $videoList = $(videoList);
+	function addVideoLink(src, id, content){
+		_videoList.addElement('li', 0, id)
+		.addElement('a', 0, id.toLowerCase())
+		.set('href', src);
+		document.getElementById(id.toLowerCase()).innerHTML = content;
+	};
+	$('<h2>').html('Functionality <EM>ONLY</EM> available on the PenguinLearning JS Editor').appendTo('#videoList');
+	addVideoLink('https://www.useloom.com/share/6c33b9e2f2e845fc9c4b3e77c8f14448', 'A', 'Images');
+	addVideoLink('https://www.useloom.com/share/32b575a7ee8349d1af90ebd416bddaef', 'B', 'Adding text');
+	addVideoLink('https://www.useloom.com/share/3297a731e7504a949bf50a7d36de2b91', 'C', 'Re-layouting the program');
+	addVideoLink('https://www.useloom.com/share/0664826010334cf8834b767514e04d7e', 'D', 'Debugging with dev tools and headings');
+	addVideoLink('https://www.useloom.com/share/18ae70414a004409b67fa679c0f26d22', 'E', 'Color');
+	addVideoLink('https://www.useloom.com/share/9131582f65944e4ea893460ea22ca2a5', 'F', 'Fonts');
+	$('<h2>').html('Variables').appendTo('#videoList');
+	addVideoLink('https://www.useloom.com/share/250e1833e6ca4066b3f5927834d97973', 'G', 'Variables');
+	addVideoLink('https://www.useloom.com/share/9f71ce98f38e44c0a0c33ae5d7272af7', 'H', 'Strings');
+	addVideoLink('https://www.useloom.com/share/e95ea21f6a324574bf444d916dd254be', 'I', 'Prefixing variable names');
+	addVideoLink('https://www.useloom.com/share/cd39104e17a04135a23e0d35669e4787', 'J', 'Changing variable values');
+	addVideoLink('https://www.useloom.com/share/1751bd9467664756b27594da2f8e8b8f', 'K', 'Debugging with try and catch');
+	addVideoLink('https://www.useloom.com/share/233890d79db74d02813e1b5c2c536918', 'L', 'Constants');
+	addVideoLink('https://www.useloom.com/share/e0c2813eb9d742b586477a7575a7d08f', 'M', 'Changing constants');
+	addVideoLink('https://www.useloom.com/share/3eb42813093d44fab2722a078844a888', 'N', 'Putting variables and constants into Math Expressions');
+	function addHundredPoints(){
+		var userID = parseFloat(sessionStorage.getItem('userID'));
+		var usersDB = JSON.parse(localStorage.getItem('users'));
+		usersDB[userID].points += 100;
+		localStorage.setItem('users', JSON.stringify(usersDB));
+		
+	};
+	$videoList.find('a')/*video link scope*/.addClass('qwvxxe').attr('target', '_').click(addHundredPoints);
+};
+	</SCRIPT>
+	<DATABASE>
+JS_EXECUTE username=__('#username').get('value')[0]; 
+JS_EXECUTE password=$('#password')[0].value; 
+WDL_GET users 
+WDL_ADDROW users~{
+username:username,
+password:password,
+points:0,
+projects:[]
+} 
+WDL_SAVE users 
+WDL_PROTECT TABLES
+</DATABASE>
+	<DATABASE>
+WDL_CREATEVARIABLE U~$('#Username').val() # Get_the_username 
+WDL_CREATEVARIABLE P~__('#Password').get('value')[0] # Get_the_password 
+WDL_CREATEVARIABLE userID~parseFloat($('#userID')[0].value) # Get_the_user_ID 
+WDL_CREATEVARIABLE trials~0 # Set_trials_to_0 
+WDL_GET users 
+WDL_CREATEVARIABLE usernameCorrect~U==users[userID].username 
+WDL_CREATEVARIABLE passwordCorrect~P==users[userID].password 
+JS_EXECUTE if(usernameCorrect&&passwordCorrect&&trials<3){
+sessionStorage.setItem('userID',String(userID));/*If_yes,_store_the_user_ID_in_sessionStorage*/
+A();
+}else{
+/*Otherwise,warn_the_user*/
+$('#credentialsIncorrect').css('display','block').addClass('pink');
+};
+</DATABASE>
+	<!--Start WDL Manager-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/WDL-v1.0.0.js"></SCRIPT>
+	<!--End WDL Manager-->
+	<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/accountCreate.js"></SCRIPT>
+	<SCRIPT>
+		var logIn = new Function(M[1]);
+		if(location.hash == '#jsCoding'){
+			var a = setInterval(function(){
+				$('iframe').attr('srcdoc', '<!DOCTYPE HTML>\
+<HTML>\
+<HEAD><META CHARSET="ASCII"><TITLE>PenguinLearning JS program</TITLE></HEAD>\
+<BODY>\
+<SCRIPT SRC="https://rawgit.com/luisvallejomohl/PenguinLearning/master/JSCLI.js"></S' + 'CRI' + 'PT>' + '<SCRIPT>' + $('#jsCodeEditor').val() + '</S' + 'CRI' + 'PT>\
+</BODY>\
+</' + 'HT' + 'ML' + '>');
+			}, 5000);
+			var newButton = document.createElement('button');
+			newButton.innerHTML = 'Stop executing my code!';
+			newButton.onclick = function(){
+				clearInterval(a);
+			};
+			newButton.id = 'abcdefghijklmnopqrstuvwxyz';
+			document.querySelector('middle').appendChild(newButton);
+		}else if(document.getElementById('abcdefghijklmnopqrstuvwxyz')){
+			document.getElementById('abcdefghijklmnopqrstuvwxyz').outerHTML = '';
+		};
+	</SCRIPT>
+	<SCRIPT>
+		//Change the icon of the page, in case the Freenom DNS changes the icon.
+		$('[rel*="icon"]').attr('href', 'https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg');
+
+		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
+	</SCRIPT>
+</HTML>
