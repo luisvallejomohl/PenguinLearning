@@ -406,9 +406,9 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 		};
 	</SCRIPT>
 	<SCRIPT>
-		//Change the icon of the page, in case the Freenom DNS changes the icon.
-		$('[rel*="icon"]').attr('href', 'https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg');
-
 		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
+		$(window).on('hashchange', function(){
+			location.reload();
+		});  //Automatically reload when the location hashchanges
 	</SCRIPT>
 </HTML>
