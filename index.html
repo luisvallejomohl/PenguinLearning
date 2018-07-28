@@ -166,7 +166,8 @@ function B(){
 	.style('background', 'black')
 	.style('fontFamily', 'monospace')
 	.style('color', 'white')
-	.style('float', 'left');
+	.style('float', 'left')
+	.set('srcdoc', $('#codeEditor').val());
 	var iframe = _middle.addElement('iframe', 0, 'iframe')
 	.style('float', 'right')
 	.set('width', '500')
