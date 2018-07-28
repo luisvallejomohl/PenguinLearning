@@ -312,7 +312,7 @@ if(location.hash == '#htmlCoding'){
 	.click(addHundredPoints);
 	videoList.id = undefined;
 };
-if(location.hash === '#introToJs'){
+if(location.hash === '#introToJS'){
 	$('middle').html('');
 	$('<ol>').attr('id', 'videoList').appendTo('middle');
 	var _videoList = __('#videoList');
@@ -409,9 +409,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 	<SCRIPT>
 		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', ''];
 		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
-		$(window).on('hashchange', function(){
-			location.reload();
-		});  //Automatically reload when the location hashchanges
+		onhashchange = function(){location.reload()};//Automatically reload when the location hash changes
 		if(_.contains(VALID_HASHES, location.hash)){}else{//If the URL is invalid:
 			__('middle').set('innerHTML', '');//Clear the contents
 			$('<h1>').html('404 Not found').appendTo('middle');//Add a heading saying '404 Not found'
