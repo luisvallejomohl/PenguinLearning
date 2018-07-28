@@ -166,8 +166,7 @@ function B(){
 	.style('background', 'black')
 	.style('fontFamily', 'monospace')
 	.style('color', 'white')
-	.style('float', 'left')
-	.set('srcdoc', $('#codeEditor').val());
+	.style('float', 'left');
 	var iframe = _middle.addElement('iframe', 0, 'iframe')
 	.style('float', 'right')
 	.set('width', '500')
@@ -190,9 +189,9 @@ function B(){
 			].content
 		);
 	});
-	$('#codeEditor').on('change', function(){
-		__('iframe').set('srcdoc', $('#codeEditor').text());
-	});
+	setInterval(function(){
+		__('iframe').set('srcdoc', $('#codeEditor').val());
+	}, 2000);
 };
 function C(){
 	var _middle = __('middle');
