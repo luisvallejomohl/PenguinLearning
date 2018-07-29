@@ -191,7 +191,42 @@ function B(){
 		);
 	});
 	setInterval(function(){
-		__('iframe').set('srcdoc', $('#codeEditor').val());
+		var HTMLCode = $('#codeEditor').val();
+		for(var item = 0; item < HTMLCode.length; item++){
+      HTMLCode = HTMLCode.replace('*astr*', '*');
+      HTMLCode = HTMLCode.replace(' ', '*spc*');
+      HTMLCode = HTMLCode.replace('<', '*lt*');
+      HTMLCode = HTMLCode.replace('>', '*gt*');
+      HTMLCode = HTMLCode.replace('\'', '*sqt*');
+      HTMLCode = HTMLCode.replace('\"'', *dbqt*', '\"');
+      HTMLCode = HTMLCode.replace('=', '*eql*', '=');
+      HTMLCode = HTMLCode.replace('+', '*pls*', '+');
+      HTMLCode = HTMLCode.replace('-', '*mns*', '-');
+      HTMLCode = HTMLCode.replace('/', '*slsh*', '/');
+      HTMLCode = HTMLCode.replace(';', '*smcln*', ';');
+      HTMLCode = HTMLCode.replace(':', '*cln*', ':');
+      HTMLCode = HTMLCode.replace('\\', '*bksl*', '\\');
+      HTMLCode = HTMLCode.replace(',', '*cma*', ',');
+      HTMLCode = HTMLCode.replace('.', '*dot*', '.');
+      HTMLCode = HTMLCode.replace('?', '*qstmk*', '?');
+      HTMLCode = HTMLCode.replace('|', '*abs*', '|');
+      HTMLCode = HTMLCode.replace('{', '*ocrlbc*', '{');
+      HTMLCode = HTMLCode.replace('}', '*ccrlbc*', '}');
+      HTMLCode = HTMLCode.replace('_', '*uscr*', '_');
+      HTMLCode = HTMLCode.replace('-', '*dsh*', '-');
+      HTMLCode = HTMLCode.replace('!', '*exc*', '!');
+      HTMLCode = HTMLCode.replace(''@', *at*', '@');
+      HTMLCode = HTMLCode.replace('#', '*hash*', '#');
+      HTMLCode = HTMLCode.replace('$", '*dlr*', '$');
+      HTMLCode = HTMLCode.replace('%', '*prc*', '%');
+      HTMLCode = HTMLCode.replace('^','*pow*', '^');
+      HTMLCode = HTMLCode.replace('&', '*and*', '&');
+      HTMLCode = HTMLCode.replace('(', '*obr*', '(');
+      HTMLCode = HTMLCode.replace(')', '*cbr*', ')');
+      HTMLCode = HTMLCode.replace('~', '*tld*', '~');
+      HTMLCode = HTMLCode.replace('`', '*bktc*', '`');
+		};
+		__('iframe').set('src', 'https://rawgit.com/luisvallejomohl/PenguinLearning/master/executionEnvironmement.htm?q=' + HTMLCode);
 	}, 2000);
 };
 function C(){
