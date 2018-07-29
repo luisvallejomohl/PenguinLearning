@@ -178,7 +178,7 @@ function B(){
 	_middle.addElement('p', 0, 'newP').set('innerHTML', 'Project ID:')
 	.addElement('input', 1, 'projectIdInput');
 	_middle.addElement('button', 0, 'getExistingProjectButton').set('innerHTML', 'Get existing project').onEvent('click', function(){
-		$('#codeEditor').text(
+		document.querySelector('#codeEditor').value = (
 			JSON.parse(localStorage.getItem('users'))[
 				parseFloat(
 					sessionStorage.getItem('userID')
@@ -215,9 +215,9 @@ function B(){
       HTMLCode = HTMLCode.replace('_', '*uscr*', '_');
       HTMLCode = HTMLCode.replace('-', '*dsh*', '-');
       HTMLCode = HTMLCode.replace('!', '*exc*', '!');
-      HTMLCode = HTMLCode.replace(''@', *at*', '@');
+      HTMLCode = HTMLCode.replace('@', '*at*', '@');
       HTMLCode = HTMLCode.replace('#', '*hash*', '#');
-      HTMLCode = HTMLCode.replace('$", '*dlr*', '$');
+      HTMLCode = HTMLCode.replace('$', '*dlr*', '$');
       HTMLCode = HTMLCode.replace('%', '*prc*', '%');
       HTMLCode = HTMLCode.replace('^','*pow*', '^');
       HTMLCode = HTMLCode.replace('&', '*and*', '&');
