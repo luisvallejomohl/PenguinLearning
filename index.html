@@ -12,9 +12,15 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 	<HEAD>
 		<META CHARSET="ISO-8859-1"/>
 		<META NAME="AUTHOR" CONTENT="Luis Vallejo-Möhl"/>
-		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
-		<META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH; INITIAL-SCALE=1.0;"/>
+		<META NAME="MOTTO" CONTENT="A free education for anyone on Earth"/>
+		<META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0"/>
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<SCRIPT>
+			if(location.protocol = 'http:'){ //If the site is insecure:
+				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
+			};
+		</SCRIPT>
+		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/style.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/adblocker.css" REL="STYLESHEET"/>
@@ -23,9 +29,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<!--[if lt IE 8]>
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
 		<![endif]-->
-		<SCRIPT>
-			location.protocol = 'https:'//Make sure the website has a secure protocol, because PenguinLearning actually cares about privacy
-		</SCRIPT>
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/Penguins.js"></SCRIPT><!--Import the Penguins.js JS Library-->
 		<SCRIPT SRC="https://underscorejs.org/underscore.js"></SCRIPT><!--Import the Underscore.js JS Library-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--Import the jQuery JS Library-->
@@ -454,7 +457,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', ''];
 		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
 		onhashchange = function(){location.reload()};//Automatically reload when the location hash changes
-		if(_.contains(VALID_HASHES, location.hash)){}else{//If the URL is invalid:
+		if(!_.contains(VALID_HASHES, location.hash)){//If the URL is invalid:
 			__('middle').set('innerHTML', '');//Clear the contents
 			$('<h1>').html('404 Not found').appendTo('middle');//Add a heading saying '404 Not found'
 			$('<p>').html('That\'s an error. The site could either be temporarily unavailable or moved to a new place. You can:').appendTo('middle');
