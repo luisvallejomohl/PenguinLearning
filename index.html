@@ -15,11 +15,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<META NAME="MOTTO" CONTENT="A free education for anyone on Earth"/>
 		<META NAME="VIEWPORT" CONTENT="WIDTH=DEVICE-WIDTH, INITIAL-SCALE=1.0"/>
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
-		<SCRIPT>
-			if(location.protocol = 'http:'){ //If the site is insecure:
-				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
-			};
-		</SCRIPT>
 		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/style.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/colors.css" REL="STYLESHEET"/>
@@ -469,6 +464,11 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 			$('<li>').html('Try again later').appendTo('#optionsList');
 			$('<li>').html('<A HREF="#" CLASS="qwvxxe">Go to the home page</A>').appendTo('#optionsList');
 			$('<p>').html('Sorry :(').appendTo('#optionsList');
+		};
+	</SCRIPT>
+	<SCRIPT>
+		if(location.protocol = 'http:'){ //If the site is insecure:
+			location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 		};
 	</SCRIPT>
 </HTML>
