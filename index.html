@@ -25,6 +25,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
 		<![endif]-->
 		<SCRIPT>
+			if($.browser.ie && parseFloat($.browser.version) <= 5){
+				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>');
+			};
 			if(location.protocol == 'http:'){ //If the site is insecure:
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
