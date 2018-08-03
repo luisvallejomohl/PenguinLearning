@@ -454,7 +454,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', ''];
 		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
 		onhashchange = function(){location.reload()};//Automatically reload when the location hash changes
-		if(_.contains(VALID_HASHES, location.hash)){}else{//If the URL is invalid:
+		if(!_.contains(VALID_HASHES, location.hash))//If the URL is invalid:
 			__('middle').set('innerHTML', '');//Clear the contents
 			$('<h1>').html('404 Not found').appendTo('middle');//Add a heading saying '404 Not found'
 			$('<p>').html('That\'s an error. The site could either be temporarily unavailable or moved to a new place. You can:').appendTo('middle');
