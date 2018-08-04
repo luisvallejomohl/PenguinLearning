@@ -25,9 +25,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
 		<![endif]-->
 		<SCRIPT>
-			if($.browser.ie && parseFloat($.browser.version) <= 5){
-				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>');
-			};
 			if(location.protocol == 'http:'){ //If the site is insecure:
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
@@ -36,6 +33,10 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://underscorejs.org/underscore.js"></SCRIPT><!--Import the Underscore.js JS Library-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--Import the jQuery JS Library-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.2.0.js"></SCRIPT><!--Import the jQuery Migrate plugin-->
+		<SCRIPT>
+			($.browser.ie) && (parseInt($.browser.version) < 6) //If the browser is IE < 6
+			? __('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
+		</SCRIPT>
 		<TITLE>PenguinLearning</TITLE>
 	</HEAD>
 	<BODY>
@@ -235,7 +236,7 @@ function B(){
       HTMLCode = HTMLCode.replace('(', '*obr*');
       HTMLCode = HTMLCode.replace(')', '*cbr*');
       HTMLCode = HTMLCode.replace('~', '*tld*');
-      HTMLCode = HTMLCode.replace('`', '*bktc*');
+      HTMLCode = HTMLCode.replace('\`', '*bktc*');
 		};
 		__('iframe').set('src', 'https://rawgit.com/luisvallejomohl/PenguinLearning/master/executionEnvironmement.htm?q=' + HTMLCode);
 	}, 2000);
