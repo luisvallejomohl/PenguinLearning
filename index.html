@@ -34,8 +34,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--Import the jQuery JS Library-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.2.0.js"></SCRIPT><!--Import the jQuery Migrate plugin-->
 		<SCRIPT>
-			($.browser.ie) && (parseInt($.browser.version) < 6) //If the browser is IE < 6
-			? __('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
+			if(($.browser.ie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
+				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
+			};
 		</SCRIPT>
 		<TITLE>PenguinLearning</TITLE>
 	</HEAD>
