@@ -20,6 +20,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg" REL="ICON"/>
+		<LINK HREF="" REL="DATABASE" LOCATION="footer">
 
 		<!--[if lt IE 8]>
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
@@ -96,7 +97,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			</P>
 			<H2>Privacy policy</H2>
 			<P>
-				We care about your privacy. We do not use any sort of Web Analytics, and we do not collect personal
+				We care about your privacy. We add a timestamp to the traffic database each time you visit. This is 
+				our Metrics tracking system. We use it to calculate traffic, and just that. We do not use any sort of 
+				Web Analytics(which is not the same as Metrics), and we do not collect personal
 				information. We do not store what videos you watch However, we <EM>do</EM> 
 				need to store data in persistent storage(which involves cookies). This, however, only includes:
 				<UL>
@@ -205,41 +208,7 @@ function B(){
 	});
 	setInterval(function(){
 		var HTMLCode = $('#codeEditor').val();
-		for(var item = 0; item < HTMLCode.length; item++){
-      HTMLCode = HTMLCode.replace('*astr*', '*');
-      HTMLCode = HTMLCode.replace(' ', '*spc*');
-      HTMLCode = HTMLCode.replace('<', '*lt*');
-      HTMLCode = HTMLCode.replace('>', '*gt*');
-      HTMLCode = HTMLCode.replace('\'', '*sqt*');
-      HTMLCode = HTMLCode.replace('\"', '*dbqt*');
-      HTMLCode = HTMLCode.replace('=', '*eql*');
-      HTMLCode = HTMLCode.replace('+', '*pls*');
-      HTMLCode = HTMLCode.replace('-', '*mns*');
-      HTMLCode = HTMLCode.replace('/', '*slsh*');
-      HTMLCode = HTMLCode.replace(';', '*smcln*');
-      HTMLCode = HTMLCode.replace(':', '*cln*');
-      HTMLCode = HTMLCode.replace('\\', '*bksl*');
-      HTMLCode = HTMLCode.replace(',', '*cma*');
-      HTMLCode = HTMLCode.replace('.', '*dot*');
-      HTMLCode = HTMLCode.replace('?', '*qstmk*');
-      HTMLCode = HTMLCode.replace('|', '*abs*');
-      HTMLCode = HTMLCode.replace('{', '*ocrlbc*');
-      HTMLCode = HTMLCode.replace('}', '*ccrlbc*');
-      HTMLCode = HTMLCode.replace('_', '*uscr*');
-      HTMLCode = HTMLCode.replace('-', '*dsh*');
-      HTMLCode = HTMLCode.replace('!', '*exc*');
-      HTMLCode = HTMLCode.replace('@', '*at*');
-      HTMLCode = HTMLCode.replace('#', '*hash*');
-      HTMLCode = HTMLCode.replace('$', '*dlr*');
-      HTMLCode = HTMLCode.replace('%', '*prc*');
-      HTMLCode = HTMLCode.replace('^','*pow*');
-      HTMLCode = HTMLCode.replace('&', '*and*');
-      HTMLCode = HTMLCode.replace('(', '*obr*');
-      HTMLCode = HTMLCode.replace(')', '*cbr*');
-      HTMLCode = HTMLCode.replace('~', '*tld*');
-      HTMLCode = HTMLCode.replace('\`', '*bktc*');
-		};
-		__('iframe').set('src', 'https://rawgit.com/luisvallejomohl/PenguinLearning/master/executionEnvironmement.htm?q=' + HTMLCode);
+		__('iframe').set('srcdoc', HTMLCode);
 	}, 2000);
 };
 function C(){
@@ -431,9 +400,9 @@ A();
 $('#credentialsIncorrect').css('display','block').addClass('pink');
 };
 </DATABASE>
-	<!--Start WDL Manager-->
-		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/WDL-v1.0.0.js"></SCRIPT>
-	<!--End WDL Manager-->
+	<!--Start WDL v1.1.1 Manager-->
+		<SCRIPT SRC="https://cdn.rawgit.com/webpage-database-language/WDL/master/WDL-v1.1.1.js"></SCRIPT>
+	<!--End WDL v1.1.1 Manager-->
 	<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/accountCreate.js"></SCRIPT>
 	<SCRIPT>
 		var logIn = new Function(M[1]);
@@ -475,5 +444,8 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 			$('<li>').html('<A HREF="#" CLASS="qwvxxe">Go to the home page</A>').appendTo('#optionsList');
 			$('<p>').html('Sorry :(').appendTo('#optionsList');
 		};
+	</SCRIPT>
+	<SCRIPT>
+		(new Function(WDL.functions[0]))() //Call the WDL in metrics.wdl
 	</SCRIPT>
 </HTML>
