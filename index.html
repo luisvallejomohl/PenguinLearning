@@ -405,7 +405,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 	<!--End WDL v1.1.1 Manager-->
 	<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/accountCreate.js"></SCRIPT>
 	<SCRIPT>
-		var logIn = new Function(M[1]);
+		var logIn = WDL.functions[0];
 		if(location.hash == '#jsCoding'){
 			var a = setInterval(function(){
 				$('iframe').attr('srcdoc', '<!DOCTYPE HTML>\
