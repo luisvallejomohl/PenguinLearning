@@ -5,4 +5,4 @@ year:date.getYear()+1900,
 month:months[date.getMonth()],
 day:date.getDay()
 } 
-JS_EXECUTE localStorage.traffic=traffic
+JS_EXECUTE localStorage.traffic=JSON.stringify(traffic)
