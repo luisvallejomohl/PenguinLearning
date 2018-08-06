@@ -3,6 +3,6 @@ WDL_CREATEVARIABLE months~['January','February','March','April','May','June','Ju
 WDL_ADDROW traffic~{
 year:date.getYear()+1900,
 month:months[date.getMonth()],
-day:date.getDay(),
+day:date.getDay()
 } 
-WDL_SAVE traffic
+JS_EXECUTE localStorage.traffic = traffic
