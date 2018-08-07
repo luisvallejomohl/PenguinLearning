@@ -447,6 +447,35 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 		};
 	</SCRIPT>
 	<SCRIPT>
+		if(location.hash === '#traffic'){
+			var traffic = JSON.parse(localStorage.getItem('traffic'));
+			$('middle').html(`Year:<INPUT ID="year"/>
+<BR/>
+Month:<SELECT NAME="MONTH">
+<OPTION VALUE="1">January</OPTION>
+<OPTION VALUE="2">February</OPTION>
+<OPTION VALUE="3">March</OPTION>
+<OPTION VALUE="4">April</OPTION>
+<OPTION VALUE="5">May</OPTION>
+<OPTION VALUE="6">June</OPTION>
+<OPTION VALUE="7">July</OPTION>
+<OPTION VALUE="8">August</OPTION>
+<OPTION VALUE="9">September</OPTION>
+<OPTION VALUE="10">October</OPTION>
+<OPTION VALUE="11">November</OPTION>
+<OPTION VALUE="12">December</OPTION>
+</SELECT>
+<BR/>
+<BUTTON ID="getTrafficButton">Calculate the traffic!</BUTTON>
+Traffic result:<SPAN CLASS="traffic"></SPAN>
+Total traffic: ` + traffic.length);
+			$('#getTrafficButton').on('click', function(){
+				const MONTH = $('[name="month"]').val();
+				const YEAR = $('#year').val();
+			});
+		};
+	</SCRIPT>
+	<SCRIPT>
 		WDL.functions[0]() //Call the WDL in metrics.wdl
 	</SCRIPT>
 </HTML>
