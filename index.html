@@ -175,12 +175,11 @@ function A(){
 	.set('innerHTML', '<H1><FONT COLOR="BLUE">Everything is learnable!</FONT></H1><BR><P><FONT COLOR="RED">Everything is learnable<BR>We all start from scratch<BR>Mozart had to go to music lessons<BR>Newton had to learn his 1 2 3s just like the rest of us<BR>There was a time when you couldn\'t count to 10<BR>And certainly couldn\'t do Algebra<BR>Everything is learnable<BR>It is important that you don\'t give up<BR>You keep trying,<BR>Until one day, you walk.<BR>Whoever you are,<BR>Wherever you are, <BR>You only need to know 1 thing:<BR><STRONG><EM>Everything is learnable</EM></STRONG></FONT></P>');
 	var deleteAccountButton = document.createElement('button');
 	deleteAccountButton.onclick = function(){
-			if(confirm('Are you sure you sure you want to delete your account? This action CANNOT be undone!!!')){
-				var users = JSON.parse(localStorage.getItem('users'));
-				var userID = parseFloat(sessionStorage.getItem('userID'));
-				users[userID] = undefined;
-				localStorage.setItem('users', JSON.stringify(users));
-			};
+		if(confirm('Are you sure you sure you want to delete your account? This action CANNOT be undone!!!')){
+			var users = JSON.parse(localStorage.getItem('users'));
+			var userID = parseFloat(sessionStorage.getItem('userID'));
+			users[userID] = undefined;
+			localStorage.setItem('users', JSON.stringify(users));
 		};
 	};
 	middle.appendChild(deleteAccountButton);
