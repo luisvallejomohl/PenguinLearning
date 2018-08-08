@@ -55,3 +55,9 @@ header hr{
 a:not(.qwvxxe){
 	display:none;
 }
+button{
+	border:none;
+	outline:none;
+	background-color:darkgreen;
+	font-family:quebec;
+}
