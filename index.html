@@ -489,7 +489,7 @@ Total traffic: ` + traffic.length);
 				const YEAR = $('#year').val();
 				_traffic = 0;
 				_.each(traffic, function(i){
-					if(i.month == parseFloat(MONTH) & i.year == parseFloat(YEAR)){
+					if(i.month == MONTH & i.year == YEAR){
 						window._traffic++;
 					};
 				});
