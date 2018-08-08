@@ -462,7 +462,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 	</SCRIPT>
 	<SCRIPT>
 		if(location.hash === '#traffic'){
-			var traffic = JSON.parse(localStorage.getItem('traffic'));
+			window.traffic=$.parseJSON(eval('loca'+'lSto'+"rage['tr'+'af'+''+''+\"fi\"+''+''+'c']"));
 			$('middle').html(`Year:<INPUT ID="year"/>
 <BR/>
 Month:<SELECT NAME="MONTH">
@@ -486,6 +486,13 @@ Total traffic: ` + traffic.length);
 			$('#getTrafficButton').on('click', function(){
 				const MONTH = $('[name="month"]').val();
 				const YEAR = $('#year').val();
+				_traffic = 0;
+				_.each(traffic, function(i){
+					if(i.month === MONTH && i.year === YEAR){
+						window._traffic++;
+					};
+				});
+				$(this).html(_traffic);
 			});
 		};
 	</SCRIPT>
