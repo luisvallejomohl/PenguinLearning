@@ -444,7 +444,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 		};
 	</SCRIPT>
 	<SCRIPT>
-		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', ''];
+		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', '', '#traffic', '#sitemap'];
 		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
 		onhashchange = function(){location.reload()};//Automatically reload when the location hash changes
 		if(!_.contains(VALID_HASHES, location.hash)){//If the URL is invalid:
@@ -500,6 +500,9 @@ Total traffic: ` + traffic.length);
 				});
 				$('span.traffic').html(_traffic);
 			});
+		};
+		if(location.hash == '#sitemap'){
+			location.replace('https://rawgit.com/luisvallejomohl/PenguinLearning/master/sitemap.xml');
 		};
 	</SCRIPT>
 	<SCRIPT>
