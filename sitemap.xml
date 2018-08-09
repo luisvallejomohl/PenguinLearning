@@ -20,4 +20,8 @@
 		<loc>http://www.penguinlearning.tk/?q=#htmlCoding</loc>
 		<priority>0.1</priority>
 	</url>
+	<url>
+		<loc>http://www.penguinlearning.tk/?q=#</loc>
+		<priority>0.5</priority>
+	</url>
 </urlset>
