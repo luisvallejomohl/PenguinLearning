@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<META CHARSET="ISO-8859-1">
+		<LINK HREF="https://raw.githubusercontent.com/luisvallejomohl/PenguinLearning/master/favicon.ico">
+		<TITLE>PenguinLearning Database Savior</TITLE>
+	</HEAD>
+	<BODY>
+		This is the PenguinLearning database savior. It prevents all the accounts to be destroyed when cookies are disabled or when you are on incognito mode.
+		<SCRIPT>
+			document.domain = 'rawgit.com'//SET the domain TO 'rawgit.com'
+			var users = JSON.parse(location.search.split('=')[1])//SET users TO REQUEST_INPUT q
+			localStorage.users = JSON.stringify(users);	//SAVE q TO localStorage
+			var thankYouMsg = new XMLHttpRequest();
+			thankYouMsg.open('POST', 'https://rawgit.com/luisvallejomohl/PenguinLearning/master/index.html', true);
+			thankYouMsg.send('msg=thank+you&msgauthor=database+savior');//SEND A 'thank you' TO PenguinLearning
+		</SCRIPT>
+	</BODY>
+</HTML>
