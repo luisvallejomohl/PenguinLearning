@@ -21,7 +21,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/favicon.ico" REL="SHORTCUT ICON"/>
-		<LINK HREF="https://rawgit.com/luisvallejomohl/PenguinLearning/master/metrics.wdl" REL="DATABASE" LOCATION="footer">
+		<LINK HREF="https://raw.githubusercontent.com/luisvallejomohl/PenguinLearning/master/metrics.wdl" REL="DATABASE" LOCATION="footer">
 
 		<!--[if lt IE 8]>
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
@@ -112,8 +112,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					<LI>Programming projects</LI>
 				</UL>
 				That's all. We do <EM><STRONG>NOT</STRONG></EM> store your IP address, and we do <EM><STRONG>NOT</EM></STRONG> 
-				display ads or sell your information to third parties. You may delete at any time, and your account's row in our
-				users databases will be permanently deleted. However, your visit timestamps are still logged to the traffic database.
+				display ads or sell your information to third parties. You may delete your account at any time, and your account's row in our
+				users database will be permanently deleted. However, your visit timestamps are still logged to the traffic database.
 			</P>
 			<P>By signing up you agree to abide by the Terms and Conditions.</P>
 		</ARTICLE>
@@ -398,7 +398,6 @@ points:0,
 projects:[]
 } 
 WDL_SAVE users 
-WDL_PROTECT * # Make_sure_all_databases_are_undeletable
 </DATABASE>
 	<DATABASE>
 WDL_CREATEVARIABLE U~$('#Username').val() # Get_the_username 
@@ -445,7 +444,6 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 	</SCRIPT>
 	<SCRIPT>
 		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', '', '#traffic', '#sitemap'];
-		localStorage.__proto__.removeItem = function(){}; //Make all databases undeletable
 		onhashchange = function(){location.reload()};//Automatically reload when the location hash changes
 		if(!_.contains(VALID_HASHES, location.hash)){//If the URL is invalid:
 			__('middle').set('innerHTML', '');//Clear the contents
@@ -463,7 +461,7 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 	</SCRIPT>
 	<SCRIPT>
 		if(location.hash === '#traffic'){
-			window.traffic=$.parseJSON(eval('loca'+'lSto'+"rage['tr'+'af'+''+''+\"fi\"+''+''+'c']"));
+			window.traffic = $.parseJSON(eval('loca'+'lSto'+"rage['tr'+'af'+''+''+\"fi\"+''+''+'c']"));
 			$('middle').html(`
 <H1>Traffic Calculator</H1>
 <P>Since we first started on August 2018, PenguinLearning has had traffic (in the begginning, only by me!!!). In this page, you can see the
