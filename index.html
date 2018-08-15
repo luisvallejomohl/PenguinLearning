@@ -504,6 +504,17 @@ Total traffic: ` + traffic.length);
 		};
 	</SCRIPT>
 	<SCRIPT>
+		if(location.hash == '#learn'){
+			document.title = 'Learn | PenguinLearning';
+		};
+		if(location.hash == '#htmlCoding'){
+			document.title = 'HTML Editor | PenguinLearning';
+		};
+		if(location.hash == '#jsCoding'){
+			document.title = 'JS Editor | PenguinLearning';
+		};
+	</SCRIPT>
+	<SCRIPT>
 		WDL.functions[0]() //Call the WDL in metrics.wdl
 	</SCRIPT>
 </HTML>
