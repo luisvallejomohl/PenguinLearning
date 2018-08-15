@@ -3,25 +3,22 @@
 	<HEAD>
 		<META CHARSET="ISO-8869-1">
 		<TITLE>PenguinLearning database reader</TITLE>
-		<LINK HREF="https://raw.githubusercontent.com/luisvallejomohl/PenguinLearning/master/favicon.ico" REL="SHORTCUT ICON">
+		<LINK HREF="https://penguinlearning.tk/favicon.ico" REL="SHORTCUT ICON">
 	</HEAD>
 	<BODY>
 	</BODY>
 	<SCRIPT>
-		const INTEGRITY = (location.search == '?djegfb=732qhcf&dje=375jd73g&e=sdh3gnhfgw28vj');
-		if(INTEGRITY == true){
-			var xmlRequest = new XMLHttpRequest();
-			xmlRequest.open(
-				'GET', 
-				'https://penguinlearning.tk/databaseSavior.htm?djegfb=732qhcf&dje=375jd73g&e=sdh37gnhfgw28vj',
-				true
-			);
-			xmlRequest.onreadystatechange = function(){
-				if(this.readyState == 4 && this.status == 200){
-					document.body.textContent = this.responseText
-				};
+		var xmlRequest = new XMLHttpRequest();
+		xmlRequest.open(
+			'GET', 
+			'https://penguinlearning.tk/databaseSavior.htm?djegfb=732qhcf&dje=375jd73g&e=sdh37gnhfgw28vj',
+			true
+		);
+		xmlRequest.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				document.body.innerHTML = this.responseText
 			};
-			xmlRequest.send();
 		};
+		xmlRequest.send();
 	</SCRIPT>
 </HTML>
