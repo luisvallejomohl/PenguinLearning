@@ -8,13 +8,12 @@
 	<BODY>
 	</BODY>
 	<SCRIPT>
-		var integrity = (location.search == '?djegfb=732qhcf&dje=375jd73g&e=sdh3gnhfgw28vj');
-		document.domain = 'rawgit.com';
-		if(integrity == true){
+		const INTEGRITY = (location.search == '?djegfb=732qhcf&dje=375jd73g&e=sdh3gnhfgw28vj');
+		if(INTEGRITY == true){
 			var xmlRequest = new XMLHttpRequest();
 			xmlRequest.open(
-				'SEND', 
-				'https://rawgit.com/luisvallejomohl/PenguinLearning/master/databaseSavior.htm?djegfb=732qhcf&dje=375jd73g&e=sdh37gnhfgw28vj',
+				'GET', 
+				'https://penguinlearning.tk/databaseSavior.htm?djegfb=732qhcf&dje=375jd73g&e=sdh37gnhfgw28vj',
 				true
 			);
 			xmlRequest.onreadystatechange = function(){
