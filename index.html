@@ -18,12 +18,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
 		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
 		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
+		<LINK HREF="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" REL="STYLESHEET"/><!--Bootstrap v3.3.7(CSS)-->
 		<LINK HREF="/style.css" REL="STYLESHEET"/>
 		<LINK HREF="/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
-		<LINK HREF="/metrics.wdl" REL="DATABASE" LOCATION="footer">
-
+		<LINK HREF="/metrics.wdl" REL="DATABASE" LOCATION="footer"/>
 		<!--[if lt IE 8]>
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
 		<![endif]-->
@@ -36,6 +36,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://rawgit.com/luisvallejomohl/Penguins.js/master/Penguins.js"></SCRIPT><!--Import the Penguins.js JS Library-->
 		<SCRIPT SRC="https://underscorejs.org/underscore.js"></SCRIPT><!--Import the Underscore.js JS Library-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.2.0.js"></SCRIPT><!--Import the jQuery Migrate plugin-->
+		<SCRIPT SRC="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></SCRIPT><!--Bootstrap v3.3.7(JS)-->
 		<SCRIPT>
 			var date = new Date() //Define the date variable. It will be used later in metrics.wdl (which has not been executed yet)
 			if(($.browser.ie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
@@ -64,23 +65,27 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<MIDDLE>
 			Welcome to PenguinLearning. You can use PenguinLearning without being logged on, but being logged on lets you save your progress.
 			<BR/>
-			<FORM ID="accountCreate" CLASS="bordered" STYLE="position:absolute; left:5px; width:500px;">
-				New to PenguinLearning? Create an account here:<BR/>
-				Username:<INPUT ID="username" REQUIRED="TRUE"/><BR/>
-				Password:<INPUT ID="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
-				I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
-				<BUTTON>Create my account!</BUTTON>
-			</FORM>
-			<FORM ID="signIn" CLASS="bordered" STYLE="position:absolute; left:530px;">
-				Already have an account? Log in here:<BR/>
-				Username:<INPUT ID="Username" REQUIRED="TRUE"/><BR/>
-				Passsword:<INPUT ID="Password" REQUIRED="TRUE" TYPE="PASSWORD"/><BR/>
-				User ID:<INPUT ID="userID" REQUIRED="TRUE" TYPE="NUMBER PASSWORD"/><BR/>
-				I agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>:<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
-				<BUTTON ONCLICK="logIn()">Log in!</BUTTON>
-				You will automatically be logged out when you close this tab.
-				<SPAN CLASS="PINK"><P ID="credentialsIncorrect" STYLE="display:none">Username or password incorrect. Try again</P></SPAN>
-			</FORM>
+			<DIV CLASS="row"  ID="formContainer">
+				<FORM ID="accountCreate" CLASS="bordered col-sm-4" STYLE="position:absolute; left:5px; width:500px;">
+					New to PenguinLearning? Create an account here:<BR/>
+					Username:<INPUT ID="username" REQUIRED="TRUE"/><BR/>
+					Password:<INPUT ID="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
+					I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
+					<BUTTON>Create my account!</BUTTON>
+				</FORM>
+				<FORM ID="signIn" CLASS="bordered col-sm-4" STYLE="position:absolute; left:530px;">
+					Already have an account? Log in here:<BR/>
+					Username:<INPUT ID="Username" REQUIRED="TRUE"/><BR/>
+					Passsword:<INPUT ID="Password" REQUIRED="TRUE" TYPE="PASSWORD"/><BR/>
+					User ID:<INPUT ID="userID" REQUIRED="TRUE" TYPE="NUMBER PASSWORD"/><BR/>
+					I agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>:<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
+					<BUTTON ONCLICK="logIn()">Log in!</BUTTON>
+					You will automatically be logged out when you close this tab.
+					<SPAN CLASS="PINK">
+						<P ID="credentialsIncorrect" STYLE="display:none">Username or password incorrect. Try again</P>
+					</SPAN>
+				</FORM>
+			</DIV>
 			<BR STYLE="font-size:10em;"/>
 			<FORM ID="credentialRecoverer">
 				Forgot your username or password? No big deal. Put your user ID here:<INPUT ID="userIDRecoverer"/>
