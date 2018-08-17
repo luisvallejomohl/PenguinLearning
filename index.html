@@ -45,11 +45,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
    				var expires = 'expires=Sat, 19 Aug 2028 00:00:00 UTC'; //Use a date that is very far away and will not have to be updated soon
     				document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 			};
+			setCookie('_dsg_4s3_cfluid', localStorage.getItem('users'));
 		</SCRIPT>
-		<DATABASE>
-WDL_GET users 
-JS_EXECUTE setCookie('_dsg_4s3_cfluid',users)
-		</DATABASE>
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
