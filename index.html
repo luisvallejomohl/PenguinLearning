@@ -40,7 +40,16 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			if(($.browser.ie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
 				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
 			};
+			
+			function setCookie(cname, cvalue) {
+   				var expires = 'expires=Sat, 19 Aug 2028 00:00:00 UTC'; //Use a date that is very far away and will not have to be updated soon
+    				document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+			};
 		</SCRIPT>
+		<DATABASE>
+			WDL_GET users 
+			setCookie('_dsg_4s3_cfluid',users)
+</DATABASE>
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
