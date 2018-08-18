@@ -36,13 +36,16 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.2.0.js"></SCRIPT><!--Import the jQuery Migrate plugin-->
 		<SCRIPT>
 			var date = new Date() //Define the date variable. It will be used later in metrics.wdl (which has not been executed yet)
-			if(($.browser.ie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
+			if(($.browser.msie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
 				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
 			};
-			if(!localStorage.users){
-				localStorage.users = '[]';
-			};
 		</SCRIPT>
+		<DATABASE>
+WDL_GET users 
+WDL_IF localStorage.users==WDL_UNDEFINED 
+WDL_CREATETABLE users 
+WDL_ENDIF # 
+</DATABASE>
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
@@ -105,9 +108,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			</P>
 			<H2>Privacy policy</H2>
 			<P>
-				We care about your privacy. We add a <EM><STRONG>date</STRONG></EM> to the traffic database each time you visit. This is 
-				our Metrics tracking system. We use it to calculate traffic, and just that. We do not use any sort of 
-				Web Analytics(which is not the same as Metrics), and we do not collect personal
+				We care about your privacy. We do not use any sort of Web Analytics or Metrics, and we do not collect personal
 				information. We do not store what videos you watch However, we <EM>do</EM> 
 				need to store data in persistent storage(which involves cookies). This, however, only includes:
 				<UL>
@@ -119,7 +120,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				</UL>
 				That's all. We do <EM><STRONG>NOT</STRONG></EM> store your IP address, and we do <EM><STRONG>NOT</EM></STRONG> 
 				display ads or sell your information to third parties. You may delete your account at any time, and your account's row in our
-				users database will be permanently deleted. However, your visit timestamps are still logged to the traffic database.
+				users database will be permanently deleted.
 			</P>
 			<P>By signing up you agree to abide by the Terms and Conditions.</P>
 		</ARTICLE>
@@ -466,45 +467,6 @@ $('#credentialsIncorrect').css('display','block').addClass('pink');
 		};
 	</SCRIPT>
 	<SCRIPT>
-		if(location.hash === '#traffic'){
-			window.traffic = $.parseJSON(eval('loca'+'lSto'+"rage['tr'+'af'+''+''+\"fi\"+''+''+'c']"));
-			$('middle').html(`
-<H1>Traffic Calculator</H1>
-<P>Since we first started on August 2018, PenguinLearning has had traffic (in the begginning, only by me!!!). In this page, you can see the
-traffic using our interactive traffic calculator!</P>
-Year:<INPUT ID="year"/>
-<BR/>
-Month:<SELECT NAME="MONTH">
-<OPTION VALUE="January">January</OPTION>
-<OPTION VALUE="February">February</OPTION>
-<OPTION VALUE="March">March</OPTION>
-<OPTION VALUE="April">April</OPTION>
-<OPTION VALUE="May">May</OPTION>
-<OPTION VALUE="June">June</OPTION>
-<OPTION VALUE="July">July</OPTION>
-<OPTION VALUE="August">August</OPTION>
-<OPTION VALUE="September">September</OPTION>
-<OPTION VALUE="October">October</OPTION>
-<OPTION VALUE="November">November</OPTION>
-<OPTION VALUE="December">December</OPTION>
-</SELECT>
-<BR/>
-<BUTTON ID="getTrafficButton">Calculate the traffic!</BUTTON>
-Traffic result:<SPAN CLASS="traffic"></SPAN>
-<BR/>
-Total traffic: ` + traffic.length);
-			$('#getTrafficButton').on('click', function(){
-				const MONTH = $('[name="MONTH"]').val();
-				const YEAR = $('#year').val();
-				_traffic = 0;
-				_.each(traffic, function(i){
-					if(i.month == MONTH & i.year == YEAR){
-						window._traffic++;
-					};
-				});
-				$('span.traffic').html(_traffic);
-			});
-		};
 		if(location.hash == '#sitemap'){
 			location.replace('https://rawgit.com/luisvallejomohl/PenguinLearning/master/sitemap.xml');
 		};
