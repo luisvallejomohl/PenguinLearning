@@ -22,7 +22,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
-		<LINK HREF="/metrics.wdl" REL="DATABASE" LOCATION="footer"/>
 		<!--[if lt IE 8]>
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
 		<![endif]-->
@@ -40,12 +39,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			if(($.browser.ie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
 				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
 			};
-			
-			function setCookie(cname, cvalue) {
-   				var expires = 'expires=Sat, 19 Aug 2028 00:00:00 UTC'; //Use a date that is very far away and will not have to be updated soon
-    				document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+			if(!localStorage.users){
+				localStorage.users = '[]';
 			};
-			setCookie('_dsg_4s3_cfluid', localStorage.getItem('users'));
 		</SCRIPT>
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
@@ -171,13 +167,13 @@ function A(){
 	 + ' points. Why not start learning!')
 	.set('ID', '');
 	_middle.addElement('img', 1, 'newImg')
-	.set('src', 'https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/David(Born%2011%20June).jpg')
+	.set('src', '/David(Born%2011%20June).jpg')
 	.set('alt', 'David and ')
 	.set('title', 'David the Gentoo Penguin')
 	.set('height', '200')
 	.set('id', '');
 	_middle.addElement('img', 1, 'newImg')
-	.set('src', 'https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/Jane(Born%2018%20June).jpg')
+	.set('src', '/Jane(Born%2018%20June).jpg')
 	.set('alt', 'Jane say... ')
 	.set('title', 'Jane the collosal squid')
 	.set('height', '200')
@@ -523,8 +519,5 @@ Total traffic: ` + traffic.length);
 		if(location.hash == '#jsCoding'){
 			document.title = 'JS Editor | PenguinLearning';
 		};
-	</SCRIPT>
-	<SCRIPT>
-		WDL.functions[0]() //Call the WDL in metrics.wdl
 	</SCRIPT>
 </HTML>
