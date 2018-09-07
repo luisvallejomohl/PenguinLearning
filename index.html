@@ -99,12 +99,14 @@ WDL_ENDIF #
 		</MIDDLE>
 		<ARTICLE ID="termsAndConditions">
 			<H1>Terms and conditions</H1>
-			<H2>PLDU usernames</H2>
+			<H2>Projects</H2>
 			<P>
-				You can pick most usernames as usernames, but pldu1, pldu2 ... pldu9 are reserved.
-				Usernames that start with PLDU are reserved for users which are not really people. They are used for
-				the testing and development of PenguinLearning. PLDU stands for PenguinLearning Development Users.
-				Users that have a PLDU username as username will be cleared of points.
+				Programming pages may <EM><STRONG>NOT</STRONG></EM> contain:
+				<UL>
+					<LI>Abusive or hurtful behaviour against other users</LI>
+					<LI>Plagiarism (When you use code from other projects without giving credit to the creator of the code you copied)</LI>
+				</UL>
+				Pages that contain those things may be flagged. If they are flagged 10 times, they will be deleted.
 			</P>
 			<H2>Privacy policy</H2>
 			<P>
@@ -119,8 +121,8 @@ WDL_ENDIF #
 					<LI>Programming projects</LI>
 				</UL>
 				That's all. We do <EM><STRONG>NOT</STRONG></EM> store your IP address, and we do <EM><STRONG>NOT</EM></STRONG> 
-				display ads or sell your information to third parties. You may delete your account at any time, and your account's row in our
-				users database will be permanently deleted.
+				display ads or sell your information to third parties. We do <EM><STRONG>NOT</EM></STRONG> have access to your account's information. You may delete your account at any time, and your account's row in our
+				users database will be permanently deleted. Note that you can only log on on the device you created your account with.
 			</P>
 			<P>By signing up you agree to abide by the Terms and Conditions.</P>
 		</ARTICLE>
@@ -145,342 +147,19 @@ WDL_ENDIF #
         		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
 		</FOOTER>
 	</BODY>
-	<SCRIPT SRC="/learn_page_contents.js"></SCRIPT>
-	<SCRIPT SRC="/warning_remover.js"></SCRIPT>
-	<SCRIPT SRC="/credential_recover.js"></SCRIPT>
+	<!--Start WDL v1.2.0 Manager-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/WDL/v1.2.0/WDL-v1.2.0.js">
+		</SCRIPT>
+	<!--End WDL v1.2.0 Manager-->
 	<SCRIPT>
-function A(){
-	var _middle = __('middle');
-	var middle = _middle.toDOMNodeList[0];
-	var $middle = $(middle);
-	$middle.html('');
-	_middle.addElement('p', 0, 'newP')
-	.set('innerHTML', 'Welcome to PenguinLearning! You have ' + 
-			String(
-				JSON.parse(
-					localStorage.getItem('users')
-				)[
-					parseFloat(
-						sessionStorage.getItem('userID')
-					)
-				].points
-			)//Expansion and indentation makes the code more readable, and PenguinLearning is not one of those websites that makes their source code unreadable
-	 + ' points. Why not start learning!')
-	.set('ID', '');
-	_middle.addElement('img', 1, 'newImg')
-	.set('src', '/David(Born%2011%20June).jpg')
-	.set('alt', 'David and ')
-	.set('title', 'David the Gentoo Penguin')
-	.set('height', '200')
-	.set('id', '');
-	_middle.addElement('img', 1, 'newImg')
-	.set('src', '/Jane(Born%2018%20June).jpg')
-	.set('alt', 'Jane say... ')
-	.set('title', 'Jane the collosal squid')
-	.set('height', '200')
-	.set('id', '');
-	_middle.addElement('p', 1, 'everythingIsLearnable')
-	.set('innerHTML', '<H1><FONT COLOR="BLUE">Everything is learnable!</FONT></H1><BR><P><FONT COLOR="RED">Everything is learnable<BR>We all start from scratch<BR>Mozart had to go to music lessons<BR>Newton had to learn his 1 2 3s just like the rest of us<BR>There was a time when you couldn\'t count to 10<BR>And certainly couldn\'t do Algebra<BR>Everything is learnable<BR>It is important that you don\'t give up<BR>You keep trying,<BR>Until one day, you walk.<BR>Whoever you are,<BR>Wherever you are, <BR>You only need to know 1 thing:<BR><STRONG><EM>Everything is learnable</EM></STRONG></FONT></P>');
-	var deleteAccountButton = document.createElement('button');
-	deleteAccountButton.innerHTML = 'Delete my account(Be careful, this action <EM><STRONG>CANNOT</STRONG></EM> be undone!!!)';
-	deleteAccountButton.style.backgroundColor = 'red';
-	deleteAccountButton.onclick = function(){
-		if(confirm('Are you sure you sure you want to delete your account? This action CANNOT be undone!!!')){
-			var users = JSON.parse(localStorage.getItem('users'));
-			var userID = parseFloat(sessionStorage.getItem('userID'));
-			users[userID] = undefined;
-			localStorage.setItem('users', JSON.stringify(users));
-		};
-	};
-	middle.appendChild(deleteAccountButton);
+document.getElementById('javaScript').style.display = 'none';/*Make the 'Please enable javaScript' message invisible*/
+if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined' && typeof _ != 'undefined'){/*If all the JS Libraries are available, */
+	__('#libraries').set('outerHTML', '');/*Make the 'We are having trouble loading javaScript libraries' message invisible*/
 };
-function B(){
-	var type = 'webpage';
-	var _middle = __('middle');
-	var $middle = $(_middle.toDOMNodeList[0]);
-	$middle.html('');
-	_middle.addElement('textarea', 0, 'codeEditor')
-	.set('innerHTML', `&#60;!DOCTYPE HTML&#62
-&#60;HTML&#62;
-&#60;/HTML&#62;`)
-	.style('background', 'black')
-	.style('fontFamily', 'monospace')
-	.style('color', 'white')
-	.style('float', 'left');
-	var iframe = _middle.addElement('iframe', 0, 'iframe')
-	.style('float', 'right')
-	.set('width', '500')
-	.set('height', '1000');
-	var newSpan = iframe.addElement('span', 0, 'newSpan');
-	newSpan.set('innerHTML', 'It looks like your browser does not support iframes, meaning that you cannot edit code on your browser. Please try again on a different browser. Sorry.')
-	.set('className', 'pink');
-	_middle.addElement('p', 0, 'newP').set('innerHTML', 'Project ID:')
-	.addElement('input', 1, 'projectIdInput');
-	_middle.addElement('button', 0, 'getExistingProjectButton').set('innerHTML', 'Get existing project').onEvent('click', function(){
-		document.querySelector('#codeEditor').value = (
-			JSON.parse(localStorage.getItem('users'))[
-				parseFloat(
-					sessionStorage.getItem('userID')
-				)
-			].projects[
-				parseFloat(
-					__('#projectIdInput').get('value')[0]
-				)
-			].content
-		);
-	});
-	setInterval(function(){
-		var HTMLCode = $('#codeEditor').val();
-		__('iframe').set('srcdoc', HTMLCode);
-	}, 2000);
+if(typeof localStorage !== 'undefined' && typeof sessionStorage !== 'undefined'){
+	document.getElementById('localStorage').style.display = 'none';/*Make the 'You cannot log on using this browser' message invisible*/
 };
-function C(){
-	var _middle = __('middle');
-	var usersDatabase = JSON.parse(localStorage.getItem('users'));
-	if(sessionStorage.getItem('userID') != null){
-		usersDatabase[parseFloat(sessionStorage.getItem('userID'))].projects.push({
-			type:'HTML', 
-			content:$('#codeEditor').text()
-		});
-		localStorage.setItem('users', JSON.stringify(usersDatabase));
-		_middle.addElement('p', 0, 'newP')
-		.set('innerHTML', 'The project ID for this project is ' + String(
-				usersDatabase[
-					parseFloat(
-						sessionStorage.getItem(
-							'userID'
-						)
-					)
-				].projects.length - 1
-			)
-		).set('id');
-	};
-};
-if(sessionStorage.getItem('userID') != null && location.hash === ''){
-	A();
-};
-function D(){
-	var _middle = PenguinsJS('middle');
-	var $middle = $(_middle.toDOMNodeList[0]);
-	$middle.html('');
-
-	_middle.addElement('iframe', 0, 'iframe')
-	.style('width', '500px')
-	.style('height', '2000px');
-
-	$('<textarea>')
-	.text('/' + '/Put your JS code here')
-	.attr('id', 'jsCodeEditor')
-	.css('float', 'left')
-	.css('color', 'rgb(255, 255, 255')
-	.css('background', 'black')
-	.css('font-family', 'monospace')
-	.appendTo('middle');
-	_middle.addElement('button', 0, 'saveButton').onEvent('click', function(){
-		var code = document.getElementById('codeEditor').value;
-		var users = JSON.parse(localStorage.getItem('users'));
-		var userID = parseFloat(sessionStorage.getItem('userID'));
-		users[userID].projects.push({
-			type:'javaScript', 
-			content:code,
-		});
-		_middle.addElement('p', 0, 'ap').set('innerHTML', 'The project ID for this project is ' + String(users[userID].projects.length - 1) + '.');
-	});
-};
-if(location.hash == '#htmlCoding'){
-	B();
-	PenguinsJS('middle').addElement('button', 0, 'newButton').set('innerHTML', 'Save my project!').onEvent('click', C);
-	$('#newButton').attr('id', '');
-}else if(location.hash == '#jsCoding'){
-	D();
-}else if(location.hash == '#makingWebpages'){
-	var _middle = PenguinsJS('middle');/*Penguins.js find the MIDDLE element*/
-	var $middle = $(_middle.toDOMNodeList[0]);/*jQuery convert _middle to a jQuery collection*/
-	$middle.html('');/*Clear the contents*/
-	_middle.addElement('h1', 0, 'heading').set('innerHTML', 'HTML & CSS:Making webpages');
-	var _videoList = _middle.addElement('ol', 1, 'videoList');
-	var $videoList = $(_videoList.toDOMNodeList[0]);
-	var videoList = $videoList[0];
-	_videoList.addElement('h2', 0, 'headin').set('innerHTML', 'Intro to HTML');
-	function addVideoLink(src, id, content){
-		_videoList.addElement('li', 0, id)
-		.addElement('a', 0, id.toLowerCase())
-		.set('href', src);
-		document.getElementById(id.toLowerCase()).innerHTML = content;
-	};
-	addVideoLink('https://www.useloom.com/share/557b97e0493841ddb4cbc16899d09cbb', 'A', 'Intro to HTML');
-	addVideoLink('https://www.useloom.com/share/ef843b6d55064eebbe3e452fa080dee0', 'B', 'Headings, paragraphs and rules');
-	addVideoLink('https://www.useloom.com/share/7d095389538d4dc1be7324151caa2e5f', 'C', 'Links and attributes');
-	addVideoLink('https://www.useloom.com/share/4e44c05dd982490f9cd02f6e8a8e283b', 'D', 'Lists');
-	addVideoLink('https://www.useloom.com/share/f59def241cdb48128ae88aa6a49bfe59', 'E', 'Images');
-	addVideoLink('https://www.useloom.com/share/4ded096089e343489f35903756aa88fc', 'F', 'EMphasizing text');
-	_videoList.addElement('h2', 0, 'headi').set('innerHTML', 'Meet CSS');
-	addVideoLink('https://www.useloom.com/share/222744611b9749268e1c2508d876a90a', 'G', 'Meet CSS');
-	addVideoLink('https://www.useloom.com/share/9d9d0c74e6dd462f9f25f80918ddd384', 'H', 'CSS fonts');
-	addVideoLink('https://www.useloom.com/share/7f3eaaea25d0447d86d61b7ed3cb9601', 'I', 'Meet IDs');
-	addVideoLink('https://www.useloom.com/share/3194035078d04af49b4aedd094173483', 'J', 'Classes');
-	addVideoLink('https://www.useloom.com/share/cdbcc40ab60a40aa8e2518f932f9a333', 'K', 'Scaling down images/text and floating');
-	_videoList.addElement('h2', 0, 'head').set('innerHTML', 'More HTML');
-	addVideoLink('https://www.useloom.com/share/97813722dd8046d494bce680b8a7a1f9', 'L', 'HTML Tables');
-	addVideoLink('https://www.useloom.com/share/72e34c956b22405c8055c27f66936eeb', 'M', 'SUPerscript text');
-	_videoList.addElement('h2', 0, 'hea').set('innerHTML', 'More CSS');
-	addVideoLink('https://www.useloom.com/share/0de287da915445e49e92476fe297caed', 'N', 'PenguinLearning with and without CSS');
-	addVideoLink('https://www.useloom.com/share/b13f65a3c3784863b569abac2d2ce8c1', 'O', 'Pseudoclasses');
-	addVideoLink('https://www.useloom.com/share/922798149cbe4f4baf3f21b9e61aa400', 'P', 'SPAN tags, italicizing text and boldening text');
-	_videoList.addElement('h2', 0, 'he').set('innerHTML', 'CSS Box Model');
-	addVideoLink('https://www.useloom.com/share/3dec82f21fbe40c7b15151d0f12efd50', 'Q', 'CSS Box model margin, border, and padding');	
-	addVideoLink('https://www.useloom.com/share/3eca8fcc3abb4306900af60274076de5', 'R', 'Top Right Bottom Left');
-	addVideoLink('https://www.useloom.com/share/3169ecdb56884b6380cb36ede827b97f', 'S', 'Drawing with HTML and CSS');
-	_videoList.addElement('h2', 0, '-h').set('innerHTML', 'Luis the troublemaker');
-	addVideoLink('https://www.useloom.com/share/bbc0c51c80bf4f7fafcad9135894a505', 'T', 'Und/ov erlining text and giving elements multiple classes');
-	addVideoLink('https://www.useloom.com/share/d3f1489b54e04146beb433c9964fcaae', 'U', 'More CSS selectors');
-	addVideoLink('https://www.useloom.com/share/c00643a8933a48d1b5ba80bbddbe1d16', 'V', 'Descendant selectors');
-	addVideoLink('https://www.useloom.com/share/6693ef869c2c40149150ee4618dd2564', 'W', 'Combining multiple selectors');
-	addVideoLink('https://www.useloom.com/share/ffaa0d185e1948708fc7906171413073', 'X', ':not() pseudoclass');
-	addVideoLink('https://www.useloom.com/share/fe402f8c2c124e168d4a0f22155830a6', 'Y', 'Adding an external stylesheet');
-
-	function addHundredPoints(){
-		var userID = parseFloat(sessionStorage.getItem('userID'));
-		var usersDB = JSON.parse(localStorage.getItem('users'));
-		usersDB[userID].points += 100;
-		localStorage.setItem('users', JSON.stringify(usersDB));
 		
-	};
-	$videoList.find('a')/*Video link scope*/
-	.attr('target', '_')
-	.addClass('qwvxxe')
-	.click(addHundredPoints);
-	videoList.id = undefined;
-};
-if(location.hash === '#introToJS'){
-	$('middle').html('');
-	$('<ol>').attr('id', 'videoList').appendTo('middle');
-	var _videoList = __('#videoList');
-	var videoList = _videoList.toDOMNodeList[0];
-	var $videoList = $(videoList);
-	function addVideoLink(src, id, content){
-		_videoList.addElement('li', 0, id)
-		.addElement('a', 0, id.toLowerCase())
-		.set('href', src);
-		document.getElementById(id.toLowerCase()).innerHTML = content;
-	};
-	$('<h2>').html('Functionality <EM>ONLY</EM> available on the PenguinLearning JS Editor').appendTo('#videoList');
-	addVideoLink('https://www.useloom.com/share/6c33b9e2f2e845fc9c4b3e77c8f14448', 'A', 'Images');
-	addVideoLink('https://www.useloom.com/share/32b575a7ee8349d1af90ebd416bddaef', 'B', 'Adding text');
-	addVideoLink('https://www.useloom.com/share/3297a731e7504a949bf50a7d36de2b91', 'C', 'Re-layouting the program');
-	addVideoLink('https://www.useloom.com/share/0664826010334cf8834b767514e04d7e', 'D', 'Debugging with dev tools and headings');
-	addVideoLink('https://www.useloom.com/share/18ae70414a004409b67fa679c0f26d22', 'E', 'Color');
-	addVideoLink('https://www.useloom.com/share/9131582f65944e4ea893460ea22ca2a5', 'F', 'Fonts');
-	$('<h2>').html('Variables').appendTo('#videoList');
-	addVideoLink('https://www.useloom.com/share/250e1833e6ca4066b3f5927834d97973', 'G', 'Variables');
-	addVideoLink('https://www.useloom.com/share/9f71ce98f38e44c0a0c33ae5d7272af7', 'H', 'Strings');
-	addVideoLink('https://www.useloom.com/share/e95ea21f6a324574bf444d916dd254be', 'I', 'Prefixing variable names');
-	addVideoLink('https://www.useloom.com/share/cd39104e17a04135a23e0d35669e4787', 'J', 'Changing variable values');
-	addVideoLink('https://www.useloom.com/share/1751bd9467664756b27594da2f8e8b8f', 'K', 'Debugging with try and catch');
-	addVideoLink('https://www.useloom.com/share/233890d79db74d02813e1b5c2c536918', 'L', 'Constants');
-	addVideoLink('https://www.useloom.com/share/e0c2813eb9d742b586477a7575a7d08f', 'M', 'Changing constants');
-	addVideoLink('https://www.useloom.com/share/3eb42813093d44fab2722a078844a888', 'N', 'Putting variables and constants into Math Expressions');
-	$('<h2>').html('Strings').appendTo('#videoList');
-	addVideoLink('https://www.useloom.com/share/1850a742764e4679a7726327a35b9bcb', 'O', 'Getting user input with Pop-up boxes');
-	addVideoLink('https://www.useloom.com/share/35fadf4eeeaf4a2da8a98cffd2072ebf', 'P', 'Evaluating a string');
-	addVideoLink('https://www.useloom.com/share/3d3966ff743e430ebde90726d3050cba', 'Q', 'Converting numbers to Strings');
-	function addHundredPoints(){
-		var userID = parseFloat(sessionStorage.getItem('userID'));
-		var usersDB = JSON.parse(localStorage.getItem('users'));
-		usersDB[userID].points += 100;
-		localStorage.setItem('users', JSON.stringify(usersDB));
-		
-	};
-	$videoList.find('a')/*video link scope*/.addClass('qwvxxe').attr('target', '_').click(addHundredPoints);
-};
-	</SCRIPT>
-	<DATABASE>
-JS_EXECUTE username=__('#username').get('value')[0]; 
-JS_EXECUTE password=$('#password')[0].value; 
-WDL_GET users 
-WDL_ADDROW users~{
-username:username,
-password:password,
-points:0,
-projects:[]
-} 
-WDL_SAVE users 
-</DATABASE>
-	<DATABASE>
-WDL_CREATEVARIABLE U~$('#Username').val() # Get_the_username 
-WDL_CREATEVARIABLE P~__('#Password').get('value')[0] # Get_the_password 
-WDL_CREATEVARIABLE userID~parseFloat($('#userID')[0].value) # Get_the_user_ID 
-WDL_CREATEVARIABLE trials~0 # Set_trials_to_0 
-WDL_GET users 
-WDL_CREATEVARIABLE usernameCorrect~U==users[userID].username 
-WDL_CREATEVARIABLE passwordCorrect~P==users[userID].password 
-JS_EXECUTE if(usernameCorrect&&passwordCorrect&&trials<3){
-sessionStorage.setItem('userID',String(userID));/*If_yes,_store_the_user_ID_in_sessionStorage*/
-A();
-}else{
-/*Otherwise,warn_the_user*/
-$('#credentialsIncorrect').css('display','block').addClass('pink');
-};
-</DATABASE>
-	<!--Start WDL v1.1.4 Manager-->
-		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/WDL/v1.1.4/WDL-v1.1.4.js"></SCRIPT>
-	<!--End WDL v1.1.4 Manager-->
-	<SCRIPT>WDL.functions[0]()</SCRIPT>
-	<SCRIPT SRC="/accountCreate.js"></SCRIPT>
-	<SCRIPT>
-		var logIn = WDL.functions[2];
-		if(location.hash == '#jsCoding'){
-			var a = setInterval(function(){
-				$('iframe').attr('srcdoc', '<!DOCTYPE HTML>\
-<HTML>\
-<HEAD><META CHARSET="ASCII"><TITLE>PenguinLearning JS program</TITLE></HEAD>\
-<BODY>\
-<SCRIPT SRC="https://www.penguinlearning.tk/JSCLI.js"></S' + 'CRI' + 'PT>' + '<SCRIPT>' + $('#jsCodeEditor').val() + '</S' + 'CRI' + 'PT>\
-</BODY>\
-</' + 'HT' + 'ML' + '>');
-			}, 5000);
-			var newButton = document.createElement('button');
-			newButton.innerHTML = 'Stop executing my code!';
-			newButton.onclick = function(){
-				clearInterval(a);
-			};
-			newButton.id = 'abcdefghijklmnopqrstuvwxyz';
-			document.querySelector('middle').appendChild(newButton);
-		}else if(document.getElementById('abcdefghijklmnopqrstuvwxyz')){
-			document.getElementById('abcdefghijklmnopqrstuvwxyz').outerHTML = '';
-		};
-	</SCRIPT>
-	<SCRIPT>
-		const VALID_HASHES = ['#', '#learn', '#jsCoding', '#htmlCoding', '#introToJS', '#makingWebpages', '', '#traffic', '#sitemap'];
-		onhashchange = function(){location.reload()};//Automatically reload when the location hash changes
-		if(!_.contains(VALID_HASHES, location.hash)){//If the URL is invalid:
-			__('middle').set('innerHTML', '');//Clear the contents
-			$('<h1>').html('404 Not found').appendTo('middle');//Add a heading saying '404 Not found'
-			$('<p>').html('That\'s an error. The site could either be temporarily unavailable or moved to a new place. You can:').appendTo('middle');
-			$('<ul>').attr('id', 'optionsList').appendTo('middle');//Add a list of options
-			$('<li>').attr('id', 'reloadButton').appendTo('#optionsList');
-			$('<button>').html('Reload').click(function(){
-				location.reload()
-			}).appendTo('#reloadButton');
-			$('<li>').html('Try again later').appendTo('#optionsList');
-			$('<li>').html('<A HREF="#" CLASS="qwvxxe">Go to the home page</A>').appendTo('#optionsList');
-			$('<p>').html('Sorry :(').appendTo('#optionsList');
-		};
-	</SCRIPT>
-	<SCRIPT>
-		if(location.hash == '#sitemap'){
-			location.replace('https://rawgit.com/luisvallejomohl/PenguinLearning/master/sitemap.xml');
-		};
-	</SCRIPT>
-	<SCRIPT>
-		if(location.hash == '#learn'){
-			document.title = 'Learn | PenguinLearning';
-		};
-		if(location.hash == '#htmlCoding'){
-			document.title = 'HTML Editor | PenguinLearning';
-		};
-		if(location.hash == '#jsCoding'){
-			document.title = 'JS Editor | PenguinLearning';
-		};
+WDL.functions[0]()
 	</SCRIPT>
 </HTML>
