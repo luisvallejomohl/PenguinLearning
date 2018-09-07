@@ -26,6 +26,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/PenguinLearning/master/HTML5Shiv.js"></SCRIPT>		
 		<![endif]-->
 		<SCRIPT>
+			document.createElement('database');
 			if(location.protocol == 'http:'){ //If the site is insecure:
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
@@ -35,9 +36,10 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://underscorejs.org/underscore.js"></SCRIPT><!--Import the Underscore.js JS Library-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.2.0.js"></SCRIPT><!--Import the jQuery Migrate plugin-->
 		<SCRIPT>
-			if(($.browser.msie) && (parseInt($.browser.version) < 6)){ //If the browser is IE < 6:
-				__('warningContainer').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'); //Tell the user to switch browsers
-			};
+			($.browser.msie) && (parseInt($.browser.version) < 6) //If the browser is IE < 6:
+				? __('#warning-container').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>'):; //Tell the user to switch browsers
+			($.browser.chrome) && (parseInt($.browser.version) < 59)
+				? __('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Microsoft Edge. Sorry.</P>'):;
 		</SCRIPT>
 		<DATABASE>
 WDL_GET users 
@@ -147,6 +149,8 @@ WDL_ENDIF #
         		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
 		</FOOTER>
 	</BODY>
+	<DATABASE>
+	</DATABASE>
 	<!--Start WDL v1.2.0 Manager-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/WDL/v1.2.0/WDL-v1.2.0.js">
 		</SCRIPT>
@@ -155,11 +159,10 @@ WDL_ENDIF #
 document.getElementById('javaScript').style.display = 'none';/*Make the 'Please enable javaScript' message invisible*/
 if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined' && typeof _ != 'undefined'){/*If all the JS Libraries are available, */
 	__('#libraries').set('outerHTML', '');/*Make the 'We are having trouble loading javaScript libraries' message invisible*/
-};
-if(typeof localStorage !== 'undefined' && typeof sessionStorage !== 'undefined'){
+}
+if(!navigator.cookieEnabled){
 	document.getElementById('localStorage').style.display = 'none';/*Make the 'You cannot log on using this browser' message invisible*/
-};
-		
-WDL.functions[0]()
+}		
+WDL.functions[0]();
 	</SCRIPT>
 </HTML>
