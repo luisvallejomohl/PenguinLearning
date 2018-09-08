@@ -41,13 +41,13 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
 		</SCRIPT>
-		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT>
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
-				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 65/64).</P>'); //Tell the user to switch browsers</P>'); //Tell the user to switch browsers
-			});
-		</SCRIPT>
-		<SCRIPT>
+				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 65/64).</P>'); //Tell the user to switch browser
 		</SCRIPT>
 		<DATABASE>
 WDL_GET users 
@@ -84,7 +84,7 @@ WDL_ENDIF #
 					Username:<INPUT NAME="username" REQUIRED="TRUE"/><BR/>
 					Password:<INPUT NAME="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
 					I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX"/>
-					<BUTTON>Create my account!</BUTTON>
+					<INPUT TYPE="SUBMIT">Create my account!</INPUT>
 				</FORM>
 				<FORM ID="signIn" STYLE="position:absolute; left:50vw;">
 					Already have an account? Log in here:<BR/>
@@ -184,7 +184,8 @@ if(!navigator.cookieEnabled){
 	document.getElementById('localStorage').style.display = 'none';/*Make the 'You cannot log on using this browser' message invisible*/
 }		
 WDL.functions[0]();
-		
-document.
+	</SCRIPT>
+	<SCRIPT>
+		$('#accountCreate').on('submit', WDL.functions[1]);
 	</SCRIPT>
 </HTML>
