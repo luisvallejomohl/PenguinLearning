@@ -62,7 +62,7 @@ WDL_ENDIF #
 		<DIV CLASS="pink" ID="warningContainer">
 		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
 			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
-			<P ID="javaScript"><NOSCRIPT>It looks like you have disabled javaScript. Please enable javaScript to use PenguinLearning</NOSCRIPT></P>
+			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
 			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
 		</DIV>
 		<HEADER>
@@ -81,16 +81,15 @@ WDL_ENDIF #
 			<DIV ID="formContainer">
 				<FORM ID="accountCreate" STYLE="position:absolute; left:5px; width:50vw;">
 					New to PenguinLearning? Create an account here:<BR/>
-					Username:<INPUT NAME="username" REQUIRED="TRUE"/><BR/>
-					Password:<INPUT NAME="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
+					Username:<INPUT NAME="username" REQUIRED/><BR/>
+					Password:<INPUT NAME="password" TYPE="PASSWORD" REQUIRED/><BR/>
 					I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX"/>
 					<BUTTON>Create my account!</BUTTON>
 				</FORM>
 				<FORM ID="signIn" STYLE="position:absolute; left:50vw; width:50vw;">
 					Already have an account? Log in here:<BR/>
-					Username:<INPUT NAME="username" REQUIRED="TRUE"/><BR/>
-					Passsword:<INPUT NAME="password" REQUIRED="TRUE" TYPE="PASSWORD"/><BR/>
-					User ID:<INPUT ID="userID" REQUIRED="TRUE" TYPE="NUMBER PASSWORD"/><BR/>
+					Username:<INPUT NAME="username" REQUIRED/><BR/>
+					Passsword:<INPUT NAME="password" REQUIRED TYPE="PASSWORD"/><BR/>
 					I agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>:<INPUT TYPE="CHECKBOX"/>
 					<BUTTON ONCLICK="logIn()">Log in!</BUTTON>
 					You will automatically be logged out when you close this tab.
@@ -158,7 +157,7 @@ WDL_ENDIF #
 		</FOOTER>
 	</BODY>
 	<DATABASE>
-WDL_IF $('#accountCreate').find('[type=checkbox]')[0].checked 
+WDL_IF $('#accountCreate').find('[type=CHECKBOX]')[0].checked 
 WDL_GET users 
 WDL_CREATEVARIABLE username~$('#accountCreate').find('[name=username]').val() 
 WDL_CREATEVARIABLE password~$('#accountCreate').find('[name=password]').val() 
@@ -169,23 +168,52 @@ WDL_ADDROW users~{
 "projects":[],
 } 
 WDL_SAVE users 
-WDL_ENDIF % 
+WDL_ENDIF ^ 
+	</DATABASE>
+	<DATABASE>
+WDL_GET users 
+WDL_CREATEVARIABLE username~__('#signIn').find('[name=username]').get('value')[0] 
+WDL_CREATEVARIABLE password~$('#signIn').find('[name=password]').get('value')[0] 
+JS_EXECUTE try{ 
+WDL_LOOP users.length 
+WDL_IF users[item].username==username&&users[item].password==password 
+WDL_CREATEVARIABLE userID~item 
+WDL_ENDIF ^ 
+WDL_ENDLOOP ^ 
+JS_EXECUTE catch(e){ 
+JS_EXECUTE } 
 	</DATABASE>
 	<!--Start WDL v1.2.0 Manager-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/WDL/v1.2.0/WDL-v1.2.0.js">
 		</SCRIPT>
 	<!--End WDL v1.2.0 Manager-->
 	<SCRIPT>
-document.getElementById('javaScript').style.display = 'none';/*Make the 'Please enable javaScript' message invisible*/
-if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined' && typeof _ != 'undefined'){/*If all the JS Libraries are available, */
-	__('#libraries').set('outerHTML', '');/*Make the 'We are having trouble loading javaScript libraries' message invisible*/
+document.getElementById('javaScript').style.display = 'none'; /*Make the 'Please enable javaScript' message invisible*/
+if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined' && typeof _ != 'undefined'){ /*If all the JS Libraries are available, */
+	__('#libraries').set('outerHTML', ''); /*Make the 'We are having trouble loading javaScript libraries' message invisible*/
 }
 if(!navigator.cookieEnabled){
-	document.getElementById('localStorage').style.display = 'none';/*Make the 'You cannot log on using this browser' message invisible*/
-}		
-WDL.functions[0]();
+	document.getElementById('localStorage').style.display = 'none'; /*Make the 'You cannot log on using this browser' message invisible*/
+}
+eval(M[0]);
 	</SCRIPT>
 	<SCRIPT>
-		$('#accountCreate').on('submit', WDL.functions[1]);
+	try {
+        	var $_console$$ = console;
+        		Object.defineProperty(window, 'console', {
+        			get: function() {
+        				if ($_console$$._commandLineAPI)
+        					throw 'For security reasons, the script console is disabled. Sorry.';
+					return $_console$$
+				},
+				set: function($val$$) {
+					$_console$$ = $val$$
+				}
+			})
+	} catch ($ignore$$) {
+	}
+	</SCRIPT>
+	<SCRIPT>
+		__('#accountCreate').find('button').onEvent('click', WDL.functions[1]);
 	</SCRIPT>
 </HTML>
