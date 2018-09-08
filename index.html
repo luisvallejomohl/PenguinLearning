@@ -16,32 +16,38 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
 		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<!--[if gt IE 8]>
+			<SCRIPT>
+				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER',]
+				for(var item = 0; item < newHTML5BlockElements.length; item++){
+					document.createElement(newHTML5BlockElements[item]);
+				}
+			</SCRIPT>
+			<STYLE>
+				article, header, footer{
+					display:block;
+				}
+			</STYLE>
+		<![endif]-->
 		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
 		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
 		<LINK HREF="/style.css" REL="STYLESHEET"/>
 		<LINK HREF="/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
-		<!--[if lt IE 8]>
-			<SCRIPT SRC="https://cdn.rawgit.com/aFarkas/html5shiv/3.7.3/src/html5shiv.js"></SCRIPT>
-		<![endif]-->
 		<SCRIPT>
 			document.createElement('database');//Extend support for older browsers
 			if(location.protocol == 'http:'){ //If the site is insecure:
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
 		</SCRIPT>
-		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--Import the jQuery JS Library-->
-		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Import the Penguins.js JS Library-->
-		<SCRIPT SRC="https://underscorejs.org/underscore.js"></SCRIPT><!--Import the Underscore.js JS Library-->
-		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.2.0.js"></SCRIPT><!--Import the jQuery Migrate plugin-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT>
 		<SCRIPT>
-			($.browser.msie) && (parseInt($.browser.version) < 6) //If the browser is IE < 6:
-				? __('#warning-container').add('<P>PenguinLearning is not supported on IE < 6. Sorry.</P>')
-				:; //Tell the user to switch browsers
-			($.browser.chrome) && (parseInt($.browser.version) < 59)
-				? __('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Microsoft Edge. Sorry.</P>')
-				:;
+			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
+				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 65/64).</P>'); //Tell the user to switch browsers</P>'); //Tell the user to switch browsers
+			});
+		</SCRIPT>
+		<SCRIPT>
 		</SCRIPT>
 		<DATABASE>
 WDL_GET users 
@@ -53,39 +59,39 @@ WDL_ENDIF #
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
-		<DIV CLASS="pink" ID="warningContainer" STYLE="background-color:rgb(255, 123, 123)">
-			<P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
+		<DIV CLASS="pink" ID="warningContainer">
+		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
 			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
 			<P ID="javaScript"><NOSCRIPT>It looks like you have disabled javaScript. Please enable javaScript to use PenguinLearning</NOSCRIPT></P>
 			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
 		</DIV>
 		<HEADER>
-			<A HREF="#" CLASS="qwvxxe" ID="dashboardImageLink">
+			<A HREF="./" CLASS="qwvxxe" ID="dashboardImageLink">
 				<IMG SRC="/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
 			</A>
 			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
-				<A HREF="#learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
-				<A HREF="#" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
+				<A HREF="./learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
+				<A HREF="./" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
 			</SPAN>
 			<HR/>
 		</HEADER>
 		<MIDDLE>
 			Welcome to PenguinLearning. You can use PenguinLearning without being logged on, but being logged on lets you save your progress.
 			<BR/>
-			<DIV CLASS="row"  ID="formContainer">
-				<FORM ID="accountCreate" CLASS="bordered col-sm-4" STYLE="position:absolute; left:5px; width:500px;">
+			<DIV ID="formContainer">
+				<FORM ID="accountCreate" STYLE="position:absolute; left:5px; width:50vw;">
 					New to PenguinLearning? Create an account here:<BR/>
-					Username:<INPUT ID="username" REQUIRED="TRUE"/><BR/>
-					Password:<INPUT ID="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
-					I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
+					Username:<INPUT NAME="username" REQUIRED="TRUE"/><BR/>
+					Password:<INPUT NAME="password" TYPE="PASSWORD" REQUIRED="TRUE"/><BR/>
+					I have read and agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>(they are super short!):<INPUT TYPE="CHECKBOX"/>
 					<BUTTON>Create my account!</BUTTON>
 				</FORM>
-				<FORM ID="signIn" CLASS="bordered col-sm-4" STYLE="position:absolute; left:530px;">
+				<FORM ID="signIn" STYLE="position:absolute; left:50vw;">
 					Already have an account? Log in here:<BR/>
-					Username:<INPUT ID="Username" REQUIRED="TRUE"/><BR/>
-					Passsword:<INPUT ID="Password" REQUIRED="TRUE" TYPE="PASSWORD"/><BR/>
+					Username:<INPUT NAME="username" REQUIRED="TRUE"/><BR/>
+					Passsword:<INPUT NAME="password" REQUIRED="TRUE" TYPE="PASSWORD"/><BR/>
 					User ID:<INPUT ID="userID" REQUIRED="TRUE" TYPE="NUMBER PASSWORD"/><BR/>
-					I agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>:<INPUT TYPE="CHECKBOX" REQUIRED="TRUE"/>
+					I agree to the <A HREF="#termsAndConditions" CLASS="qwvxxe">terms and conditions</A>:<INPUT TYPE="CHECKBOX"/>
 					<BUTTON ONCLICK="logIn()">Log in!</BUTTON>
 					You will automatically be logged out when you close this tab.
 					<SPAN CLASS="PINK">
@@ -115,7 +121,7 @@ WDL_ENDIF #
 			<H2>Privacy policy</H2>
 			<P>
 				We care about your privacy. We do not use any sort of Web Analytics or Metrics, and we do not collect personal
-				information. We do not store what videos you watch However, we <EM>do</EM> 
+				information. We do not store what videos you watch. However, we <EM>do</EM> 
 				need to store data in persistent storage(which involves cookies). This, however, only includes:
 				<UL>
 					<LI>Points</LI>
@@ -152,6 +158,18 @@ WDL_ENDIF #
 		</FOOTER>
 	</BODY>
 	<DATABASE>
+WDL_IF $('#accountCreate').find('[type=checkbox]')[0].checked 
+WDL_GET users 
+WDL_CREATEVARIABLE username~$('#accountCreate').find('[name=username]').val() 
+WDL_CREATEVARIABLE password~$('#accountCreate').find('[name=password]').val() 
+WDL_ADDROW users~{
+"username":username,
+"password":password,
+"points":0,
+"projects":[],
+} 
+WDL_SAVE users 
+WDL_ENDIF % 
 	</DATABASE>
 	<!--Start WDL v1.2.0 Manager-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/WDL/v1.2.0/WDL-v1.2.0.js">
@@ -166,5 +184,7 @@ if(!navigator.cookieEnabled){
 	document.getElementById('localStorage').style.display = 'none';/*Make the 'You cannot log on using this browser' message invisible*/
 }		
 WDL.functions[0]();
+		
+document.
 	</SCRIPT>
 </HTML>
