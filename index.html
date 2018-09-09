@@ -202,8 +202,9 @@ if(!navigator.cookieEnabled){
 eval(M[0]);
 	</SCRIPT>
 	<SCRIPT>
-		//DISABLE console.log, console.table, console.error, console.warn, alert
-		PL_DEFINE.DISABLE=function(c){console.log=function(){};console.table=console.log;console.error=console.table;console.warn=console.error;alert=function(){}};PL_DEFINE.DISABLE(this.DEV_TOOLS);
+		PL_DEFINE.DEV_TOOLS=console;PL_DEFINE.DISABLE=function(){console.log=function(){},console.table=
+		console.log,console.error=console.log,console.warn=console.log,alert=console.log},PL_DEFINE.DISABLE
+		(this.DEV_TOOLS);
 	</SCRIPT>
 	<SCRIPT>
 		__('#accountCreate').find('button').onEvent('click', WDL.functions[1]);
@@ -214,7 +215,8 @@ eval(M[0]);
 			// GET JSON.parse(localStorage.users) AS users
 			var users = JSON.parse(localStorage.users);
 			// SET points TO users[userID].points
-			var points = users[userID].points
-			// SET document.querySelector('middle') TO [correct HTML]
+			var points = users[userID].points;
+			// SET document.querySelector('middle').innerHTML TO [correct HTML]
+		}
 	</SCRIPT>
 </HTML>
