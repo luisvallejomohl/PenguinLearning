@@ -36,6 +36,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
 		<SCRIPT>
+			window.PL_DEFINE = {};
+			
 			document.createElement('database');//Extend support for older browsers
 			if(location.protocol == 'http:'){ //If the site is insecure:
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
@@ -180,6 +182,7 @@ WDL_IF users[item].username==username&&users[item].password==password
 WDL_CREATEVARIABLE userID~item 
 WDL_ENDIF ^ 
 WDL_ENDLOOP ^ 
+JS_EXECUTE sessionStorage.setItem('userID',userID); 
 JS_EXECUTE }catch(e){ # Username_or_password_is_incorrect 
 JS_EXECUTE __('#credentialsIncorrect').style('display','inline'); 
 JS_EXECUTE } 
@@ -200,9 +203,18 @@ eval(M[0]);
 	</SCRIPT>
 	<SCRIPT>
 		//DISABLE console.log, console.table, console.error, console.warn, alert
+		PL_DEFINE.DISABLE=function(c){console.log=function(){};console.table=console.log;console.error=console.table;console.warn=console.error;alert=function(){}};PL_DEFINE.DISABLE(this.DEV_TOOLS);
 	</SCRIPT>
 	<SCRIPT>
 		__('#accountCreate').find('button').onEvent('click', WDL.functions[1]);
-		var logIn = WDL.functions[2];
+		function logIn(){
+			WDL.functions[2]();
+			// GET userID FROM sessionStorage
+			var userID = parseFloat(sessionStorage.userID);
+			// GET JSON.parse(localStorage.users) AS users
+			var users = JSON.parse(localStorage.users);
+			// SET points TO users[userID].points
+			var points = users[userID].points
+			// SET document.querySelector('middle') TO [correct HTML]
 	</SCRIPT>
 </HTML>
