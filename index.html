@@ -199,20 +199,7 @@ if(!navigator.cookieEnabled){
 eval(M[0]);
 	</SCRIPT>
 	<SCRIPT>
-	try {
-        	var $_console$$ = console;
-        		Object.defineProperty(window, 'console', {
-        			get: function() {
-        				if ($_console$$._commandLineAPI)
-        					throw 'For security reasons, the dev console is disabled. Sorry.';
-					return $_console$$
-				},
-				set: function($val$$) {
-					$_console$$ = $val$$
-				}
-			})
-	} catch ($ignore$$) {
-	}
+		//DISABLE console.log, console.table, console.error, console.warn, alert
 	</SCRIPT>
 	<SCRIPT>
 		__('#accountCreate').find('button').onEvent('click', WDL.functions[1]);
