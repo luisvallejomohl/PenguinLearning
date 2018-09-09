@@ -180,7 +180,8 @@ WDL_IF users[item].username==username&&users[item].password==password
 WDL_CREATEVARIABLE userID~item 
 WDL_ENDIF ^ 
 WDL_ENDLOOP ^ 
-JS_EXECUTE catch(e){ 
+JS_EXECUTE }catch(e){ # Username_or_password_is_incorrect 
+JS_EXECUTE __('#credentialsIncorrect').style('display','inline'); 
 JS_EXECUTE } 
 	</DATABASE>
 	<!--Start WDL v1.2.0 Manager-->
@@ -203,7 +204,7 @@ eval(M[0]);
         		Object.defineProperty(window, 'console', {
         			get: function() {
         				if ($_console$$._commandLineAPI)
-        					throw 'For security reasons, the script console is disabled. Sorry.';
+        					throw 'For security reasons, the dev console is disabled. Sorry.';
 					return $_console$$
 				},
 				set: function($val$$) {
@@ -215,5 +216,6 @@ eval(M[0]);
 	</SCRIPT>
 	<SCRIPT>
 		__('#accountCreate').find('button').onEvent('click', WDL.functions[1]);
+		var logIn = WDL.functions[2];
 	</SCRIPT>
 </HTML>
