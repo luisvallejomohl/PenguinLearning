@@ -140,7 +140,7 @@ WDL_ENDIF #
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
 			<BR/>
-			This service is open source, so you can view it on <A HREF="https://github.com/penguinlearning/penguinlearning.github.io" TARGET="_" CLASS="qwvxxe">GitHub</A>
+			This service is open source, so you can view it on <A HREF="https://github.com/luisvallejomohl/PenguinLearning" TARGET="_" CLASS="qwvxxe">GitHub</A>
 			<BR/>
 			Powered by HTML5, CSS3, JS and Github.
 			<BR/>
@@ -202,21 +202,25 @@ if(!navigator.cookieEnabled){
 eval(M[0]);
 	</SCRIPT>
 	<SCRIPT>
-		PL_DEFINE.DEV_TOOLS=console;PL_DEFINE.DISABLE=function(){console.log=function(){},console.table=
-		console.log,console.error=console.log,console.warn=console.log,alert=console.log},PL_DEFINE.DISABLE
-		(this.DEV_TOOLS);
+		(function(){PL_DEFINE.DEV_TOOLS=console;PL_DEFINE.DISABLE=function(){console.log=function(){};console.table=
+		console.log;console.error=console.log;console.warn=console.log;var alert,prompt,confirm=console.log};PL_DEFINE.DISABLE
+		(PL_DEFINE.DEV_TOOLS)})()
 	</SCRIPT>
 	<SCRIPT>
 		__('#accountCreate').find('button').onEvent('click', WDL.functions[1]);
 		function logIn(){
 			WDL.functions[2]();
 			// GET userID FROM sessionStorage
-			var userID = parseFloat(sessionStorage.userID);
+			const USER_ID = parseFloat(sessionStorage.userID);
 			// GET JSON.parse(localStorage.users) AS users
-			var users = JSON.parse(localStorage.users);
+			const USERS = JSON.parse(localStorage.users);
 			// SET points TO users[userID].points
-			var points = users[userID].points;
-			// SET document.querySelector('middle').innerHTML TO [correct HTML]
+			const POINTS = users[userID].points;
+			// SET $('middle')[0].innerHTML TO [correct HTML]
+			$('middle')[0].innerHTML = `<H1>Welcome to PenguinLearning!</H1>
+<P>You have` + POINTS + `points. Want to gain more points? <A HREF="./learn">LEARN!</A>
+<IMG SRC=".\David(Born 11 June).jpg" WIDTH=200><IMG SRC=".\Norman(Born 5 July).jpg" WITH=200>
+<H1><FONT COLOR=GOLD>Everything is learnable!</FONT></H1>`;
 		}
 	</SCRIPT>
 </HTML>
