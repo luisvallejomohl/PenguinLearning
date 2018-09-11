@@ -175,7 +175,7 @@ WDL_ENDIF ^
 	<DATABASE>
 WDL_GET users 
 WDL_CREATEVARIABLE username~__('#signIn').find('[name=username]').get('value')[0] 
-WDL_CREATEVARIABLE password~$('#signIn').find('[name=password]').get('value')[0] 
+WDL_CREATEVARIABLE password~$('#signIn').find('[name=password]').val() 
 JS_EXECUTE try{ 
 WDL_LOOP users.length 
 WDL_IF users[item].username==username&&users[item].password==password 
@@ -196,7 +196,7 @@ document.getElementById('javaScript').style.display = 'none'; /*Make the 'Please
 if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined' && typeof _ != 'undefined'){ /*If all the JS Libraries are available, */
 	__('#libraries').set('outerHTML', ''); /*Make the 'We are having trouble loading javaScript libraries' message invisible*/
 }
-if(!navigator.cookieEnabled){
+if(navigator.cookieEnabled){
 	document.getElementById('localStorage').style.display = 'none'; /*Make the 'You cannot log on using this browser' message invisible*/
 }
 eval(M[0]);
