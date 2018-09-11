@@ -42,6 +42,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			if(location.protocol == 'http:'){ //If the site is insecure:
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
+			
+			//If you arrived via. a Facebook callback, it may have appended #_=_ to the URL. This is just extra messiness in the URL, so get rid of it.
+			location.replace(location.href.split('#')[0])
 		</SCRIPT>
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
