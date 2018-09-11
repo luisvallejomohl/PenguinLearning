@@ -221,7 +221,7 @@ eval(M[0]);
 			// GET JSON.parse(localStorage.users) AS users
 			const USERS = JSON.parse(localStorage.users);
 			// SET points TO users[userID].points
-			const POINTS = users[userID].points;
+			const POINTS = USERS[USER_ID].points;
 			// SET $('middle')[0].innerHTML TO [correct HTML]
 			$('middle')[0].innerHTML = `<H1>Welcome to PenguinLearning!</H1>
 <P>You have ` + POINTS + ` points. Want to gain more points? <A HREF="./learn" CLASS=qwvxxe>LEARN!</A>
@@ -230,6 +230,21 @@ eval(M[0]);
 <IMG SRC="./David(Born 11 June).jpg" WIDTH=200><IMG SRC="./Norman(Born 5 July).jpg" WIDTH=200>
 <H1><FONT COLOR=DARKCYAN>Everything is learnable!</FONT></H1>`;
 		}
+		PL_DEFINE.signIn = function(){
+			const USER_ID = sessionStorage.getItem('userID');
+			const USERS = JSON.parse(localStorage.users);
+			const POINTS = USERS[USER_ID].points;
+			__('middle').set('innerHTML', `<H1>Welcome to PenguinLearning!</H1>
+<P>You have ` + POINTS + ` points. Want to gain more points? <A HREF="./learn" CLASS=qwvxxe>LEARN!</A>
+<BR>
+<BR>
+<IMG SRC="./David(Born 11 June).jpg" WIDTH=200><IMG SRC="./Norman(Born 5 July).jpg" WIDTH=200>
+<H1><FONT COLOR=DARKCYAN>Everything is learnable!</FONT></H1>`);
+		}
+		//IF sessionStorage.userID ISN'T UNDEFINED:
+		if(sessionStorage.userID != undefined)
+			//CALL PL_DEFINE.signIn
+			PL_DEFINE.signIn();
 	</SCRIPT>
 	<SCRIPT>
 		onloadend = PL_DEFINE.removeLoadingMsg;
