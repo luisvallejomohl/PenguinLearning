@@ -76,6 +76,12 @@ WDL_ENDIF #
 				<A HREF="./" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
 			</SPAN>
 			<HR/>
+			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
+			<SCRIPT>
+				PL_DEFINE.removeLoadingMsg = function(){
+					$('#loadingMsg').remove();
+				}
+			</SCRIPT>
 		</HEADER>
 		<MIDDLE>
 			Welcome to PenguinLearning. You can use PenguinLearning without being logged on, but being logged on lets you save your progress.
@@ -222,5 +228,8 @@ eval(M[0]);
 <IMG SRC=".\David(Born 11 June).jpg" WIDTH=200><IMG SRC=".\Norman(Born 5 July).jpg" WITH=200>
 <H1><FONT COLOR=GOLD>Everything is learnable!</FONT></H1>`;
 		}
+	</SCRIPT>
+	<SCRIPT>
+		onloadend = PL_DEFINE.removeLoadingMsg();
 	</SCRIPT>
 </HTML>
