@@ -43,8 +43,13 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
 			};
 			
-			//If you arrived via. a Facebook callback, it may have appended #_=_ to the URL. This is just extra messiness in the URL, so get rid of it.
-			location.replace(location.href.split('#')[0])
+			/*If you arrived via a Facebook callback, it may 
+			have appended #_=_ to the URL. This URL is just
+			extra messiness, so get rid of it.
+			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
+			*/
+			if(location.hash == '#_=_')
+				location.replace('github.com/luisvallejomohl/PenguinLearning/edit/master/index.html');
 		</SCRIPT>
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
