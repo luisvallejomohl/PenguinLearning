@@ -29,7 +29,7 @@ a:hover{
 	display:none;
 }
 #signIn, #accountCreate{
-	width:40vw;
+	width:45vw;
 	float:right;
 	border:3px solid black;
 }
