@@ -37,7 +37,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
 		<SCRIPT>
 			Object.defineProperty(window, 'PL_DEFINE', {
-				writable: false;
+				writable: false
 			});
 			document.createElement('database');//Extend support for older browsers
 			if(location.protocol == 'http:'){ //If the site is insecure:
@@ -45,12 +45,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			};
 			
 			/*If you arrived via a Facebook callback, it may 
-			have appended #_=_ to the URL. This URL is just
+			have appended #_=_ to the URL. The #_=_ is just
 			extra messiness, so get rid of it.
 			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
 			*/
 			if(location.hash == '#_=_')
-				location.replace('github.com/luisvallejomohl/PenguinLearning/edit/master/index.html');
+				location.replace(location.href.split('#')[0]);
 		</SCRIPT>
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
