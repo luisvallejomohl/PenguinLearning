@@ -29,7 +29,7 @@ a:hover{
 	display:none;
 }
 #signIn, #accountCreate{
-	width:500px;
+	width:50vw;
 	float:right;
 	border:3px solid black;
 }
@@ -37,8 +37,7 @@ header hr{
 	margin-top:0px;
 }
 #David{
-	-moz-border-radius:10%;
-	-webkit-border-radius:10%;
+	border-radius:10%;
 }
 .bordered{
 	border:2px solid rgb(61, 61, 61);
