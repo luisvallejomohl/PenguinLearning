@@ -28,7 +28,7 @@ a:hover{
 #resources{
 	display:none;
 }
-#logIn{
+#signIn, #accountCreate{
 	width:500px;
 	float:right;
 }
