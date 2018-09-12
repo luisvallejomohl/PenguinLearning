@@ -61,13 +61,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
 				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
 		</SCRIPT>
-		<DATABASE>
-WDL_GET users 
-WDL_IF localStorage.users==WDL_UNDEFINED 
-WDL_CREATETABLE users 
-WDL_SAVE users 
-WDL_ENDIF # 
-</DATABASE>
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
