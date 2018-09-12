@@ -37,7 +37,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
 		<SCRIPT>
 			Object.defineProperty(window, 'PL_DEFINE', {
-				writable: false
+				value: {},
+				writable: false,
 			});
 			document.createElement('database');//Extend support for older browsers
 			if(location.protocol == 'http:'){ //If the site is insecure:
