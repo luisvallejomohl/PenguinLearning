@@ -73,9 +73,9 @@ WDL_ENDIF #
 	<BODY>
 		<DIV CLASS="pink" ID="warningContainer">
 		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
-			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
+			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.rawgit.com, code.jquery.com and underscorejs.org are permitted.</P>
 			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
-			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
+			<P ID="localStorage">It looks like you have disabled cookies or your browser does not support them. If you disabled cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
 		</DIV>
 		<HEADER>
 			<A HREF="./" CLASS="qwvxxe" ID="dashboardImageLink">
@@ -117,4 +117,15 @@ WDL_ENDIF #
         		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
 		</FOOTER>
 	</BODY>
+	<SCRIPT>
+		/*<!--*/
+		onload = PL_DEFINE.removeLoadingMsg;
+		__('#javaScript').set('innerHTML', '');
+		if(window.jQuery && window.PenguinsJS && window._){
+			__('#libraries').set('innerHTML', '');
+		};
+		if(navigator.cookieEnabled){
+			__('#localStorage').set('innerHTML', '');
+		}
+	</SCRIPT>
 </HTML>
