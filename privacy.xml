@@ -4,7 +4,7 @@
 		<!--There is no age restriction on PenguinLearning-->
 	</age-restriction>
 	<data-mined>
-		<data-type>Projects</data-type>
+		<data-type>Points</data-type>
 	</data-mined>
 	<data-provided>
 		<data-type>Username</data-type>
@@ -13,7 +13,6 @@
 	</data-provided>
 	<data-recievers>
 		<reciever>You</reciever>
-		<reciever>People who use your computer</reciever>
 	</data-recievers>
 	<security>Mixed</security>
 </PXML>
