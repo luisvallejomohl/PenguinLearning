@@ -16,6 +16,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
 		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.0/Penguins.js"></SCRIPT>
 		<!--[if gt IE 8]>
 			<SCRIPT>
 				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER', 'MIDDLE',]
@@ -30,9 +31,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			</STYLE>
 		<![endif]-->
 		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
-		<STYLE>
-			body{font-family:'Quebec'}
-		</STYLE>
+		<LINK HREF="./style.css" REL="STYLESHEET"/>
+		<LINK HREF="./adblocker.css" REL="STYLESHEET"/>
+		<SCRIPT>
+			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
+				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
+		</SCRIPT>
 		<TITLE>Introduction to Physics | PenguinLearning</TITLE>
 	</HEAD>
 	<BODY>
@@ -40,8 +44,17 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			<H1>Introduction to Physics</H1>
 			<HR>
 			<H2>What is physics?</H2>
-			<P>Physics is a natural science. It's primary goal is to understand motion, energy and concepts related. Astronomy is also sometimes included in physics. There are many branches of physics.</P>
-			<IMG SRC="physics_tree.png"  CLASS=qwvxxe ALT="Yes there are.">
+			<P>Physics is a natural science. It's primary goal is to understand motion, energy and concepts related. Astronomy is also sometimes included in physics. There are many branches of physics.
+				<IMG SRC="physics_tree.png" ALT="Yes there are." CLASS="leftFloat" ID="physics-tree" WIDTH=400>
+			</P>
 		</ARTICLE>
 	</BODY>
+	<SCRIPT>
+		_('#physics-tree').onEvent('click', function(){
+			this.set('width', 1000);
+			this.onEvent('click', function(){
+				this.set('width', 4000);
+			}
+		})
+	</SCRIPT>
 </HTML>
