@@ -52,11 +52,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		</ARTICLE>
 	</BODY>
 	<SCRIPT>
-		_('#physics-tree').onEvent('click', function(){
-			this.set('width', 1000);
-			this.onEvent('click', function(){
-				this.set('width', 4000);
-			})
+	_('#physics-tree').onEvent('click', function(){
+        	var a = _('#physics-tree');
+		a.set('width', 1000);
+		a.onEvent('click', function(){
+			a.set('width', 400);
 		})
+        })
 	</SCRIPT>
 </HTML>
