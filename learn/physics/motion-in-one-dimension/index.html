@@ -117,11 +117,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		/*<!--*/
 		onload = PL_DEFINE.removeLoadingMsg;
 		__('#javaScript').set('innerHTML', '');
-		if(window.jQuery && window.PenguinsJS && window._){
+		setInterval(console.clear, 1000);
+		if(window.jQuery && window.PenguinsJS && window._)
 			__('#libraries').set('innerHTML', '');
-		};
 		if(navigator.cookieEnabled){
-			__('#localStorage').set('innerHTML', '');
+			__('#localStorage').set('innerHTML', '')
 		}
+		//-->
 	</SCRIPT>
 </HTML>
