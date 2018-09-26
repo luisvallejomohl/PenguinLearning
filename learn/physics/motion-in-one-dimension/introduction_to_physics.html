@@ -87,26 +87,29 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<MIDDLE>
 			<ARTICLE>
 				<H1>Introduction to Physics</H1>
-				<HR>
+				<HR/>
 				<H2>What is physics?</H2>
 				<P>Physics is a natural science. It's primary goal is to understand motion, energy and concepts related. Astronomy is also sometimes included in physics. There are many branches of physics.
 					<IMG SRC="physics_tree.png" ALT="Yes there are." CLASS="leftFloat" ID="physics-tree" WIDTH=400/>
 				</P>
+				<H2>What <A HREF="https://www.dictionary.com/browse/prerequisite">prerequisites</A> do you need to learn physics?</H2>
+				<P>Good question. To learn physics, you need a solid understanding of Algebra and a trigonometry to a basic level. In some derivations, you may need calculus to a basic level.</P>
+
 			</ARTICLE>
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
-			<BR/>
+			<BR>
 			This service is open source, so you can view it on <A HREF="https://github.com/luisvallejomohl/PenguinLearning" TARGET="_" CLASS="qwvxxe">GitHub</A>
-			<BR/>
+			<BR>
 			Powered by HTML5, CSS3, JS and Github.
-			<BR/>
+			<BR>
 			<IMG SRC="https://www.w3.org/html/logo/img/html5-topper.png" ALT="HTML was used. " CLASS="languageImage thumbnail" ID="HTML5Logo" TITLE="HTML5 logo"/>
 			<!--HTML5 Logo-->
 			<IMG SRC="https://techchurian.files.wordpress.com/2013/02/css3-logo.png" ALT="CSS was used, and" CLASS="languageImage thumbnail" ID="CSS3Logo" TITLE="CSS3 logo"/>
 			<!--CSS3 Logo-->
 			<DIV ID="javaScriptLogo" TITLE='javaScript "logo"'>
-				<BR/>
+				<BR>
 				JS
 			</DIV>
 			<!--javaScript logo-->
@@ -124,7 +127,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			})
 		});
 		setInterval(console.clear, 500);
-		onload = PL_DEFINE.removeLoadingMsg;document.getElementById('javaScript').style.display = 'none'; /*Make the 'Please enable javaScript' message invisible*/
+		onload = PL_DEFINE.removeLoadingMsg;
+		document.getElementById('javaScript').style.display = 'none'; /*Make the 'Please enable javaScript' message invisible*/
 		if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined'){ /*If all the JS Libraries are available, */
 			_('#libraries').set('outerHTML', ''); /*Make the 'We are having trouble loading javaScript libraries' message invisible*/
 		}
