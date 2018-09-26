@@ -8,7 +8,7 @@ P        E        N   N N   G     G   U     U       I      N   N N           L  
 P        E        N    NN   G     G   U     U       I      N    NN           L      E       A         A  R    R     N    NN     I   N    NN   G     G
 P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLLLLL EEEEEE A           A R    R     N     N   IIIII N     N   GGGGGGG
 -->
-<HTML LANG=EN>
+<HTML LANG="EN">
 	<HEAD>
 		<META CHARSET="ISO-8859-1"/>
 		<META NAME="AUTHOR" CONTENT="Luis Vallejo-Möhl"/>
@@ -16,9 +16,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
 		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
-		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
-		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
-		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.0/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<!--[if gt IE 8]>
 			<SCRIPT>
 				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER', 'MIDDLE',]
@@ -32,32 +29,102 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				}
 			</STYLE>
 		<![endif]-->
+		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
 		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
 		<LINK HREF="/style.css" REL="STYLESHEET"/>
+		<LINK HREF="/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
+		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
+		<SCRIPT>
+			Object.defineProperty(window, 'PL_DEFINE', {
+				value: {}
+			});
+			document.createElement('database');//Extend support for older browsers
+			if(location.protocol == 'http:'){ //If the site is insecure:
+				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
+			};
+			
+			/*If you arrived via a Facebook callback, it may 
+			have appended #_=_ to the URL. The #_=_ is just
+			extra messiness, so get rid of it.
+			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
+			*/
+			if(location.hash == '#_=_')
+				location.replace(location.href.split('#')[0]);
+		</SCRIPT>
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
 				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
 		</SCRIPT>
-		<TITLE>Introduction to Physics | PenguinLearning</TITLE>
+		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
-		<ARTICLE>
-			<H1>Introduction to Physics</H1>
-			<HR>
-			<H2>What is physics?</H2>
-			<P>Physics is a natural science. It's primary goal is to understand motion, energy and concepts related. Astronomy is also sometimes included in physics. There are many branches of physics.
-				<IMG SRC="physics_tree.png" ALT="Yes there are." CLASS="leftFloat" ID="physics-tree" WIDTH=400>
-			</P>
-		</ARTICLE>
+		<DIV CLASS="pink" ID="warningContainer">
+		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
+			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
+			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
+			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
+		</DIV>
+		<HEADER>
+			<A HREF="/" CLASS="qwvxxe" ID="dashboardImageLink">
+				<IMG SRC="/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
+			</A>
+			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
+				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
+				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe" STYLE="background-color:purple">DASHBOARD</A>
+			</SPAN>
+			<HR/>
+			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
+			<SCRIPT>
+				PL_DEFINE.removeLoadingMsg = function(){
+					$('#loadingMsg').remove();
+				}
+			</SCRIPT>
+		</HEADER>
+		<MIDDLE>
+			<ARTICLE>
+				<H1>Introduction to Physics</H1>
+				<HR/>
+				<H2>What is physics?</H2>
+				<P>Physics is a natural science. It's primary goal is to understand motion, energy and concepts related. Astronomy is also sometimes included in physics. There are many branches of physics.
+					<IMG SRC="physics_tree.png" ALT="Yes there are." CLASS="leftFloat" ID="physics-tree" WIDTH=400/>
+				</P>
+			</ARTICLE>
+		</MIDDLE>
+		<FOOTER>
+			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
+			<BR/>
+			This service is open source, so you can view it on <A HREF="https://github.com/luisvallejomohl/PenguinLearning" TARGET="_" CLASS="qwvxxe">GitHub</A>
+			<BR/>
+			Powered by HTML5, CSS3, JS and Github.
+			<BR/>
+			<IMG SRC="https://www.w3.org/html/logo/img/html5-topper.png" ALT="HTML was used. " CLASS="languageImage thumbnail" ID="HTML5Logo" TITLE="HTML5 logo"/>
+			<!--HTML5 Logo-->
+			<IMG SRC="https://techchurian.files.wordpress.com/2013/02/css3-logo.png" ALT="CSS was used, and" CLASS="languageImage thumbnail" ID="CSS3Logo" TITLE="CSS3 logo"/>
+			<!--CSS3 Logo-->
+			<DIV ID="javaScriptLogo" TITLE='javaScript "logo"'>
+				<BR/>
+				JS
+			</DIV>
+			<!--javaScript logo-->
+			<IMG SRC="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" ALT=" was used. We used GitHub as the hosting service." CLASS="thumbnail" TITLE="GitHub logo"/>
+			<!--GitHub logo-->
+        		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
+		</FOOTER>
 	</BODY>
 	<SCRIPT>
-	_('#physics-tree').onEvent('click', function(){
-        	var a = _('#physics-tree');
-		a.set('width', 1000);
-		a.onEvent('click', function(){
-			a.set('width', 400);
-		})
-        })
+		_('#physics-tree').onEvent('click', function(){
+			var a = _('#physics-tree');
+			a.set('width', 1000);
+			a.onEvent('click', function(){
+				a.set('width', 400);
+			})
+		});
+		setInterval(console.clear, 500);
+		onload = PL_DEFINE.removeLoadingMsg
 	</SCRIPT>
 </HTML>
