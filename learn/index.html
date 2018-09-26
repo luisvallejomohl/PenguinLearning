@@ -45,8 +45,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			};
 			
 			/*If you arrived via a Facebook callback, it may 
-			have appended #_=_ to the URL. The #_=_ is just
-			extra messiness, so get rid of it.
+			have appended #_=_ to the URL. The #_=_ confuses us
+			with variable declarations, so get rid of it
 			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
 			*/
 			if(location.hash == '#_=_')
@@ -87,6 +87,13 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		</HEADER>
 		<MIDDLE>
 			<H1>What do you want to learn?</H1>
+			<H2>Science</H2>
+			<H3>Physics</H3>
+			<UL>
+				<LI>
+					<A HREF="/learn/physics/motion-in-one-dimension/">Motion in one dimension</A>
+				</LI>
+			</UL>
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
