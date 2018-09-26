@@ -54,7 +54,6 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		</SCRIPT>
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
-		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
@@ -75,7 +74,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			</A>
 			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
 				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
-				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe" STYLE="background-color:purple">DASHBOARD</A>
+				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
 			</SPAN>
 			<HR/>
 			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
@@ -125,6 +124,13 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			})
 		});
 		setInterval(console.clear, 500);
-		onload = PL_DEFINE.removeLoadingMsg
+		onload = PL_DEFINE.removeLoadingMsg;document.getElementById('javaScript').style.display = 'none'; /*Make the 'Please enable javaScript' message invisible*/
+		if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined'{ /*If all the JS Libraries are available, */
+			_('#libraries').set('outerHTML', ''); /*Make the 'We are having trouble loading javaScript libraries' message invisible*/
+		}
+		if(navigator.cookieEnabled){
+			document.getElementById('localStorage').style.display = 'none'; /*Make the 'You cannot log on using this browser' message invisible*/
+		}
+		eval(M[0]);
 	</SCRIPT>
 </HTML>
