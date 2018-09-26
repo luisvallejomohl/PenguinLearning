@@ -100,8 +100,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				</P>
 				<H2>What <A HREF="https://www.dictionary.com/browse/prerequisite" CLASS=qwvxxe TARGET=_>prerequisites</A> do you need to learn physics?</H2>
 				<P>
-					Good question. To learn physics, you need a solid understanding of Algebra and an understanding of trigonometry to a basic level. In some derivations, you may need calculus to a basic level.</P>
-
+					Good question. To learn physics, you need a solid understanding of Algebra and an understanding of trigonometry to a basic level. In some derivations, you may need calculus to a basic level.
+				</P>
+				<H2>Why study physics?</H2>
+				<P>
+					Physics is commonly applied in engineering. Without physics, there woudn't be engineering. Without engineering, there woudn't be electrical engineering. Without electrical engineering, their would be no computers, and without computers you wouldn't be reading this article! Without physics, you wouldn't be here on PenguinLearning!
+				</P>
 			</ARTICLE>
 		</MIDDLE>
 		<FOOTER>
@@ -142,6 +146,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		if(navigator.cookieEnabled){
 			document.getElementById('localStorage').style.display = 'none'; /*Make the 'You cannot log on using this browser' message invisible*/
 		}
-		eval(M[0]);
+		if(localStorage.users == undefined){
+			localStorage.users = '[]';
+		}
 	</SCRIPT>
 </HTML>
