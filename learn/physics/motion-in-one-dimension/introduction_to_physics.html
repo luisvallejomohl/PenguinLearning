@@ -130,9 +130,10 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		</FOOTER>
 	</BODY>
 	<SCRIPT>
-		_('#physics-tree').onEvent('click', function(){
-			var a = _('#physics-tree');
+		_('#physics-tree').onEvent('click', function(e){
+			var a = e.target
 			a.set('width', 1000);
+			a.set('title', 'Click to shrink image');
 			a.onEvent('click', function(){
 				a.set('width', 400);
 			})
