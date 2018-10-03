@@ -53,7 +53,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				location.replace(location.href.split('#')[0]);
 		</SCRIPT>
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
-		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.3.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
 		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
@@ -72,28 +72,28 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							var timeIntervalClear = clearInterval(timeInterval);
 						}else{
 							var time = parseFloat(_time_container.get('innerHTML')[0]);
-							time += 0.01;
+							time += 0.1;
 							_time_container.set('innerHTML', String(time));
 						}
-					}, 1);
+					}, 100);
 					var positionInterval = setInterval(function(){
 						if(completed){
 							var timeIntervalClear = clearInterval(positionInterval);
 						}else{
 							var position = parseFloat(_position_container.get('innerHTML')[0]);
-							position += 0.02;
+							position += 0.2;
 							_position_container.set('innerHTML', String(position))
 						}
-					}, 1);
+					}, 100);
 					var displacementInterval = setInterval(function(){
 						if(completed){
 							var timeIntervalClear = clearInterval(positionInterval);
 						}else{
 							var displacement = parseFloat(_displacement_container.get('innerHTML')[0]);
-							displacement += 0.02;
+							displacement += 0.2;
 							_displacement_container.set('innerHTML', String(displacement))
 						}
-					}, 1);
+					}, 100);
 					delete window.completed;
 				});
 			});
