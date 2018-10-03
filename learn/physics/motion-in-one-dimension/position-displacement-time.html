@@ -89,7 +89,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					}, 100);
 					var positionInterval = setInterval(function(){
 						if(completed){
-							var timeIntervalClear = clearInterval(positionInterval);
+							var positionIntervalClear = clearInterval(positionInterval);
 						}else{
 							var position = parseFloat(_position_container.get('innerHTML')[0]);
 							position += 0.2;
@@ -98,7 +98,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					}, 100);
 					var displacementInterval = setInterval(function(){
 						if(completed){
-							var timeIntervalClear = clearInterval(positionInterval);
+							var displacementIntervalClear = clearInterval(displacementInterval);
 						}else{
 							var displacement = parseFloat(_displacement_container.get('innerHTML')[0]);
 							displacement += 0.2;
@@ -139,6 +139,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				PL_DEFINE.removeLoadingMsg = function(){
 					$('#loadingMsg').remove();
 				}
+				onload = PL_DEFINE.removeLoadingMsg
 			</SCRIPT>
 		</HEADER>
 		<MIDDLE>
@@ -188,5 +189,4 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
         		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
 		</FOOTER>
 	</BODY>
-
 </HTML>
