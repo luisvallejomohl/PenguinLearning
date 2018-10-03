@@ -103,7 +103,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 						if(completed){
 							var timeIntervalClear = clearInterval(positionInterval);
 						}else{
-							var position = parseFloat(_time_container.get('innerHTML')[0]);
+							var position = parseFloat(_position_container.get('innerHTML')[0]);
 							position += 0.002;
 							_position_container.set('innerHTML', String(position))
 						}
@@ -112,9 +112,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 						if(completed){
 							var timeIntervalClear = clearInterval(positionInterval);
 						}else{
-							var displacement = parseFloat(_time_container.get('innerHTML')[0]);
+							var displacement = parseFloat(_displacement_container.get('innerHTML')[0]);
 							displacement += 0.002;
-							_displacement_container.set('innerHTML', String(position))
+							_displacement_container.set('innerHTML', String(displacement))
 						}
 					}, 1);
 					delete window.completed
