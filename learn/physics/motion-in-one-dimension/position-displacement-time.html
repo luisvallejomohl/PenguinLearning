@@ -16,6 +16,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
 		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
 		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/>
 		<!--[if gt IE 8]>
 			<SCRIPT>
 				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER', 'MIDDLE',]
@@ -29,18 +30,17 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				}
 			</STYLE>
 		<![endif]-->
-		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
-		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
-		<LINK HREF="/style.css" REL="STYLESHEET"/>
-		<LINK HREF="/colors.css" REL="STYLESHEET"/>
-		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
-		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
 		<STYLE>
 			/*Assume all <B> elements are formulae, and should be displayed with the Times New Roman font*/
 			b{
 				font-family:'Times New Roman'
 			}
 		</STYLE>
+		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
+		<LINK HREF="/style.css" REL="STYLESHEET"/>
+		<LINK HREF="/colors.css" REL="STYLESHEET"/>
+		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
+		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
 		<SCRIPT>
 			Object.defineProperty(window, 'PL_DEFINE', {
 				value: {}
@@ -99,7 +99,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 						}else{
 							var displacement = parseFloat(_displacement_container.get('innerHTML')[0]);
 							displacement += 0.2;
-							_displacement_container.set('innerHTML', String(displacement))
+							_displacement_container.set('innerHTML', String(displacement));
+							_cube.style('left', 
+								parseFloat(
+									_cube.get('style')[0].get('left')[0]
+								)
+							)
 						}
 					}, 100);
 					delete window.completed;
@@ -154,7 +159,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				<BR/>
 				Time: <SPAN CLASS="time-container"><B>[<SPAN CLASS="time">0</SPAN> <VAR>s</VAR>]</B></SPAN>
 				<BR/>
-				<IMG SRC="cube" ALT="Unfortunately, you cannot view this animation on a screen reader. Sorry." ID="cube"/>
+				<IMG SRC="Cube.png" ALT="Unfortunately, you cannot view this animation on a screen reader. Sorry." ID="cube"/>
 			</P>
 		</MIDDLE>
 		<FOOTER>
