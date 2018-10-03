@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<HTML:html HTML:xmlns="http://www.w3.org/1999/xhtml">
+<HTML:html xmlns:HTML="http://www.w3.org/1999/xhtml">
 	<HTML:head>
 		<HTML:meta charset="ISO-8859-1"/>
 		<HTML:title>My funny XHTML page</HTML:title>
