@@ -101,9 +101,11 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							displacement += 0.2;
 							_displacement_container.set('innerHTML', String(displacement));
 							_cube.style('left', 
-								parseFloat(
-									_cube.get('style')[0].get('left')[0]
-								)
+								String(
+									parseFloat(
+										_cube.get('style')[0].get('left')[0]
+									) + 2
+								) + 'px'
 							)
 						}
 					}, 100);
