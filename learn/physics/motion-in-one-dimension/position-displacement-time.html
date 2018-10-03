@@ -35,6 +35,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<LINK HREF="/colors.css" REL="STYLESHEET"/>
 		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
 		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
+		<STYLE>
+			/*Assume all <B> elements are formulae, and should be displayed with the Times New Roman font*/
+			b{
+				font-family:'Times New Roman'
+			}
+		</STYLE>
 		<SCRIPT>
 			Object.defineProperty(window, 'PL_DEFINE', {
 				value: {}
@@ -66,6 +72,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					var _displacement_container = new PenguinsJS('.displacement');
 					var _position_container = new PenguinsJS('.position');
 					var _time_container = new PenguinsJS('.time');
+					var _cube = new PenguinsJS('#cube')
+					_cube.style('position', 'absolute')
 					var timeInterval = setInterval(function(){
 						window.completed = (time === 5);
 						if(completed){
@@ -136,7 +144,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			<HR/>
 			<H2>Everything together at once</H2>
 			<P>
-				<BUTTON NAME="start-animation">Click here</BUTTON> to see an animation of a cube moving and how the displacement, position and time change!
+				<BUTTON NAME="start-animation">Click here</BUTTON> to see an animation of a yellowcube moving and how the displacement, position and time change!
 				<BR/>
 				The information about the cube's position, displacement and time can all be found below.
 				<BR/>
@@ -145,7 +153,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				Position: <SPAN CLASS="position-container"><B>[<SPAN CLASS="position">-3</SPAN> <VAR>m</VAR>]</B></SPAN>
 				<BR/>
 				Time: <SPAN CLASS="time-container"><B>[<SPAN CLASS="time">0</SPAN> <VAR>s</VAR>]</B></SPAN>
-				</P>
+				<BR/>
+				<IMG SRC="cube" ALT="Unfortunately, you cannot view this animation on a screen reader. Sorry." ID="cube"/>
+			</P>
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
