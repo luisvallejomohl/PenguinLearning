@@ -53,39 +53,16 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				location.replace(location.href.split('#')[0]);
 		</SCRIPT>
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
-		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.3.1.js"></SCRIPT><!--jQuery Migrate-->
 		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
 				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
 		</SCRIPT>
-		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
-	</HEAD>
-	<BODY>
-		<DIV CLASS="pink" ID="warningContainer">
-		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
-			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
-			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
-			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
-		</DIV>
-		<HEADER>
-			<A HREF="/" CLASS="qwvxxe" ID="dashboardImageLink">
-				<IMG SRC="/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
-			</A>
-			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
-				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
-				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe" STYLE="background-color:purple">DASHBOARD</A>
-			</SPAN>
-			<HR/>
-			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
-			<SCRIPT>
-				PL_DEFINE.removeLoadingMsg = function(){
-					$('#loadingMsg').remove();
-				}
-			</SCRIPT>
-			<SCRIPT>
-				var $onDOMReadyEventListener = $(document).on('ready', function(){
+		<SCRIPT>
+			var $onDOMReadyEventListener = $(document).on('ready', function(){
+				$('button[name=start-animation]').on('click', function(){
 					var _displacement_container = new PenguinsJS('.displacement');
 					var _position_container = new PenguinsJS('.position');
 					var _time_container = new PenguinsJS('.time');
@@ -117,8 +94,33 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							_displacement_container.set('innerHTML', String(displacement))
 						}
 					}, 1);
-					delete window.completed
-				})
+					delete window.completed;
+				});
+			});
+		</SCRIPT>
+		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
+	</HEAD>
+	<BODY>
+		<DIV CLASS="pink" ID="warningContainer">
+		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
+			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
+			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
+			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
+		</DIV>
+		<HEADER>
+			<A HREF="/" CLASS="qwvxxe" ID="dashboardImageLink">
+				<IMG SRC="/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
+			</A>
+			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
+				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
+				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe" STYLE="background-color:purple">DASHBOARD</A>
+			</SPAN>
+			<HR/>
+			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
+			<SCRIPT>
+				PL_DEFINE.removeLoadingMsg = function(){
+					$('#loadingMsg').remove();
+				}
 			</SCRIPT>
 		</HEADER>
 		<MIDDLE>
@@ -134,13 +136,16 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			<HR/>
 			<H2>Everything together at once</H2>
 			<P>
-			The information about the cube's position, displacement and time can all be found below.
-			Displacement: <SPAN CLASS="displacement-container"><B>[<SPAN CLASS="displacement">0</SPAN> <VAR>m</VAR>]</B></SPAN>
-			<BR/>
-			Position: <SPAN CLASS="position-container"><B>[<SPAN CLASS="position">-3</SPAN> <VAR>m</VAR>]</B></SPAN>
-			<BR/>
-			Time: <SPAN CLASS="time-container"><B>[<SPAN CLASS="time">0</SPAN> <VAR>s</VAR>]</B></SPAN>
-			</P>
+				<BUTTON NAME="start-animation">Click here</BUTTON> to see an animation of a cube moving and how the displacement, position and time change!
+				<BR/>
+				The information about the cube's position, displacement and time can all be found below.
+				<BR/>
+				Displacement: <SPAN CLASS="displacement-container"><B>[<SPAN CLASS="displacement">0</SPAN> <VAR>m</VAR>]</B></SPAN>
+				<BR/>
+				Position: <SPAN CLASS="position-container"><B>[<SPAN CLASS="position">-3</SPAN> <VAR>m</VAR>]</B></SPAN>
+				<BR/>
+				Time: <SPAN CLASS="time-container"><B>[<SPAN CLASS="time">0</SPAN> <VAR>s</VAR>]</B></SPAN>
+				</P>
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
