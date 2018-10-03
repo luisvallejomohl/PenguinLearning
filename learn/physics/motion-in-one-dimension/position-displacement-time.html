@@ -75,14 +75,15 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					var _cube = new PenguinsJS('#cube');
 					var cubeInitalPositionConfig = _cube.style('left', '53px')
 					var cubeAbsolutePositionJob = _cube.style('position', 'absolute');
+					var completed = false;
 					var timeInterval = setInterval(function(){
-						window.completed = (time === 5);
 						if(completed){
 							var timeIntervalClear = clearInterval(timeInterval);
 						}else{
 							var time = parseFloat(_time_container.get('innerHTML')[0]);
 							time += 0.1;
 							_time_container.set('innerHTML', String(time));
+							window.completed = (time === 5);
 						}
 					}, 100);
 					var positionInterval = setInterval(function(){
