@@ -62,7 +62,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		</SCRIPT>
 		<SCRIPT>
 			var $onDOMReadyEventListener = $(document).on('ready', function(){
-				$('button[name=start-animation]').on('click', function(){
+				var $onclickEventListener = $('button[name=start-animation]').on('click', function(){
 					var _displacement_container = new PenguinsJS('.displacement');
 					var _position_container = new PenguinsJS('.position');
 					var _time_container = new PenguinsJS('.time');
@@ -72,7 +72,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							var timeIntervalClear = clearInterval(timeInterval);
 						}else{
 							var time = parseFloat(_time_container.get('innerHTML')[0]);
-							time += 0.001;
+							time += 0.01;
 							_time_container.set('innerHTML', String(time));
 						}
 					}, 1);
@@ -81,7 +81,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							var timeIntervalClear = clearInterval(positionInterval);
 						}else{
 							var position = parseFloat(_position_container.get('innerHTML')[0]);
-							position += 0.002;
+							position += 0.02;
 							_position_container.set('innerHTML', String(position))
 						}
 					}, 1);
@@ -90,7 +90,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							var timeIntervalClear = clearInterval(positionInterval);
 						}else{
 							var displacement = parseFloat(_displacement_container.get('innerHTML')[0]);
-							displacement += 0.002;
+							displacement += 0.02;
 							_displacement_container.set('innerHTML', String(displacement))
 						}
 					}, 1);
