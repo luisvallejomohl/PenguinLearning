@@ -114,6 +114,16 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					}, 100);
 					delete window.completed;
 				});
+				
+				var removeJSMsg = $('#javaScript').remove();
+				var removeLibrariesMsg = eval(`
+					if(PenguinsJS && jQuery && _)
+						var librariesMsgRemoval = $('#libraries').remove()
+					;
+				`);
+				if(document.cookieEnabled)
+					var removeCookieMsg = $('#localStorage').remove();
+				
 			});
 		</SCRIPT>
 		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
@@ -131,7 +141,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			</A>
 			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
 				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
-				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe" STYLE="background-color:purple">DASHBOARD</A>
+				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
 			</SPAN>
 			<HR/>
 			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
