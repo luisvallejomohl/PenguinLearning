@@ -72,8 +72,9 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					var _displacement_container = new PenguinsJS('.displacement');
 					var _position_container = new PenguinsJS('.position');
 					var _time_container = new PenguinsJS('.time');
-					var _cube = new PenguinsJS('#cube')
-					_cube.style('position', 'absolute')
+					var _cube = new PenguinsJS('#cube');
+					var cubeInitalPositionConfig = _cube.style('left', '53px')
+					var cubeAbsolutePositionJob = _cube.style('position', 'absolute');
 					var timeInterval = setInterval(function(){
 						window.completed = (time === 5);
 						if(completed){
@@ -104,7 +105,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 								String(
 									parseFloat(
 										_cube.get('style')[0].left
-									) + 2
+									) + 10
 								) + 'px'
 							)
 						}
