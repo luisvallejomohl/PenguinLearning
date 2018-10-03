@@ -89,8 +89,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 					var _displacement_container = new PenguinsJS('.displacement');
 					var _position_container = new PenguinsJS('.position');
 					var _time_container = new PenguinsJS('.time');
-					var completed = (TIME === 5);
 					var timeInterval = setInterval(function(){
+						window.completed = (time === 5);
 						if(completed){
 							var timeIntervalClear = clearInterval(timeInterval);
 						}else{
@@ -117,6 +117,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							_displacement_container.set('innerHTML', String(position))
 						}
 					}, 1);
+					delete window.completed
 				})
 			</SCRIPT>
 		</HEADER>
