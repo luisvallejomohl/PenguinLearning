@@ -1,55 +1,185 @@
 <!DOCTYPE HTML>
-<HTML xmlns:MathML="http://www.w3.org/1998/Math/MathML">
+<!--
+PPPPPPP  EEEEEE   N     N   GGGGGGG   U     U    IIIIIII   N     N           L      EEEEEE       A       RRRRRR     N     N   IIIII N     N   GGGGGGG
+P     P  E        NN    N   G         U     U       I      NN    N           L      E           A A      R    R     NN    N     I   NN    N   G
+P     P  E        N N   N   G         U     U       I      N N   N           L      E          A   A     R    R     N N   N     I   N N   N   G
+PPPPPPP  EEEE     N  N  N   G    GGG  U     U       I      N  N  N           L      EEEE      AAAAAAA    RRRRRR     N  N  N     I   N  N  N   G    GGG
+P        E        N   N N   G     G   U     U       I      N   N N           L      E        A       A   R    R     N   N N     I   N   N N   G     G
+P        E        N    NN   G     G   U     U       I      N    NN           L      E       A         A  R    R     N    NN     I   N    NN   G     G
+P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLLLLL EEEEEE A           A R    R     N     N   IIIII N     N   GGGGGGG
+-->
+<HTML LANG="EN">
 	<HEAD>
-		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.2-x/Penguins.js"></SCRIPT>
 		<META CHARSET="ISO-8859-1"/>
-		<TITLE>Position-time graphs</TITLE>
+		<META NAME="AUTHOR" CONTENT="Luis Vallejo-Möhl"/>
+		<META NAME="MOTTO" CONTENT="A free education for anyone on Earth"/>
+		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
+		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
+		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<!--[if gt IE 8]>
+			<SCRIPT>
+				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER', 'MIDDLE',]
+				for(var item = 0; item < newHTML5BlockElements.length; item++){
+					document.createElement(newHTML5BlockElements[item]);
+				}
+			</SCRIPT>
+			<STYLE>
+				article, header, footer, middle{
+					display:block;
+				}
+			</STYLE>
+		<![endif]-->
+		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
+		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
+		<LINK HREF="/style.css" REL="STYLESHEET"/>
+		<LINK HREF="/colors.css" REL="STYLESHEET"/>
+		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
+		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
+		<SCRIPT>
+			Object.defineProperty(window, 'PL_DEFINE', {
+				value: {}
+			});
+			document.createElement('database');//Extend support for older browsers
+			if(location.protocol == 'http:'){ //If the site is insecure:
+				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
+			};
+			
+			/*If you arrived via a Facebook callback, it may 
+			have appended #_=_ to the URL. The #_=_ is just
+			extra messiness, so get rid of it.
+			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
+			*/
+			if(location.hash == '#_=_')
+				location.replace(location.href.split('#')[0]);
+		</SCRIPT>
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.2-x/Penguins.js"></SCRIPT><!--Penguins.js-->
+		<SCRIPT>
+			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
+				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
+		</SCRIPT>
+		<DATABASE>
+WDL_GET users 
+WDL_IF localStorage.users==WDL_UNDEFINED 
+WDL_CREATETABLE users 
+WDL_SAVE users 
+WDL_ENDIF # 
+</DATABASE>
+		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
-		<H1>Position-time graphs</H1>
-		<P>Our animation of the yellow cube moving is cool, but what if we want to look at the history of the cube's position over time in a single glance? We can use a graph! A position-time graph, or an
-			<MATH>
-				<mrow><mi>x</mi></mrow>
-			</MATH>
-			-
-			<MATH>
-				<mrow><mi>t</mi></mrow>
-			</MATH>
-			 graph. An
-			<MATH>
-				<mrow><mi>x</mi></mrow>
-			</MATH>
-			-
-			<MATH>
-				<mrow><mi>t</mi></mrow>
-			</MATH>
-			graph is simply a line graph with position put on the <MATH><mrow><mi>y</mi></mrow></MATH> axis and time put on the <MATH><mrow><mi>x</mi></mrow></MATH> axis.
-		</P>
-		<H2>Quick test:</H2>
-		<FORM CLASS=test>
-			The
-			<MATH>
-				<mrow>
-					<mi>x</mi>
-				</mrow>
-			</MATH>
-			-
-			<MATH>
-				<mrow>
-					<mi>t</mi>
-				</mrow>
-			</MATH> 
-			graph below shows the journey of Joe crossing the road (The origin is the edge of the road where Joe started):
-			<IMG SRC="graph1.png" ALT="This exercise doesn't work on a screen reader" WIDTH=500/>
-			How many meters had Joe travelled after 5 seconds?
+		<DIV CLASS="pink" ID="warningContainer">
+		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
+			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.fontlibrary.org and *.penguinlearning.tk are permitted.</P>
+			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
+			<P ID="localStorage">It looks like either you have disabled <A HREF="https://duckduckgo.com/?q=localStorage&t=ffab&atb=v100-3&ia=w" CLASS="qwvxxe">localStorage</A> and sessionStorage, you have disabled cookies or your browser does not support it. If you disabled localStorage/sessionStorage or cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
+		</DIV>
+		<HEADER>
+			<A HREF="/" CLASS="qwvxxe" ID="dashboardImageLink">
+				<IMG SRC="/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
+			</A>
+			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
+				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
+				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe" STYLE="background-color:purple">DASHBOARD</A>
+			</SPAN>
+			<HR/>
+			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
+			<SCRIPT>
+				PL_DEFINE.removeLoadingMsg = function(){
+					$('#loadingMsg').remove();
+				}
+			</SCRIPT>
+		</HEADER>
+		<MIDDLE>
+			<H1>Position-time graphs</H1>
+			<P>Our animation of the yellow cube moving is cool, but what if we want to look at the history of the cube's position over time in a single glance? We can use a graph! A position-time graph, or an
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow><mi>x</mi></mrow>
+				</MATH>
+				-
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow><mi>t</mi></mrow>
+				</MATH>
+				 graph. An
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow><mi>x</mi></mrow>
+				</MATH>
+				-
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow><mi>t</mi></mrow>
+				</MATH>
+				graph is simply a line graph with position put on the <MATH><mrow><mi>y</mi></mrow></MATH> axis and time put on the <MATH><mrow><mi>x</mi></mrow></MATH> axis.
+			</P>
+			<H2>Quick test:</H2>
+			<FORM ID=test>
+				The
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow>
+						<mi>x</mi>
+					</mrow>
+				</MATH>
+				-
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow>
+						<mi>t</mi>
+					</mrow>
+				</MATH> 
+				graph below shows the journey of Joe crossing the road (The origin is the edge of the road where Joe started):
+				<IMG SRC="graph1.png" ALT="This exercise doesn't work on a screen reader" WIDTH="300" STYLE="display:block; left:0px"/>
+				How many meters had Joe travelled after 5 seconds?
+				<BR/>
+				<INPUT NAME=distance/> <MATH xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>m</mi></mrow></MATH>
+				<BR/>
+				<BUTTON>Check answer</BUTTON>
+			</FORM>
+		</MIDDLE>
+		<FOOTER>
+			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
 			<BR/>
-			<INPUT NAME=distance/> <MATH><mrow><mi>m</mi></mrow></MATH>
+			This service is open source, so you can view it on <A HREF="https://github.com/luisvallejomohl/PenguinLearning" TARGET="_" CLASS="qwvxxe">GitHub</A>
 			<BR/>
-		</FORM>
+			Powered by HTML5, CSS3, JS and Github.
+			<BR/>
+			<IMG SRC="https://www.w3.org/html/logo/img/html5-topper.png" ALT="HTML was used. " CLASS="languageImage thumbnail" ID="HTML5Logo" TITLE="HTML5 logo"/>
+			<!--HTML5 Logo-->
+			<IMG SRC="https://techchurian.files.wordpress.com/2013/02/css3-logo.png" ALT="CSS was used, and" CLASS="languageImage thumbnail" ID="CSS3Logo" TITLE="CSS3 logo"/>
+			<!--CSS3 Logo-->
+			<DIV ID="javaScriptLogo" TITLE='javaScript "logo"'>
+				<BR/>
+				JS
+			</DIV>
+			<!--javaScript logo-->
+			<IMG SRC="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" ALT=" was used. We used GitHub as the hosting service." CLASS="thumbnail" TITLE="GitHub logo"/>
+			<!--GitHub logo-->
+        		<IMG SRC="https://jigsaw.w3.org/css-validator/images/vcss" ALT="According to the W3C CSS validation service, the CSS used on this page is valid!!!" CLASS="thumbnail qwvxxe" TITLE="According to the W3C CSS validation service, the CSS used on this page is valid!!!"/>
+		</FOOTER>
 	</BODY>
 	<SCRIPT>
-		(new _('GET').requestTo('/formValidator')).on('response', function(){
-			
+document.getElementById('javaScript').style.display = 'none'; /*Make the 'Please enable javaScript' message invisible*/
+if(typeof PenguinsJS != 'undefined' && typeof jQuery != 'undefined' && typeof _ != 'undefined'){ /*If all the JS Libraries are available, */
+	__('#libraries').set('outerHTML', ''); /*Make the 'We are having trouble loading javaScript libraries' message invisible*/
+}
+if(navigator.cookieEnabled){
+	document.getElementById('localStorage').style.display = 'none'; /*Make the 'You cannot log on using this browser' message invisible*/
+}
+eval(M[0]);
+	</SCRIPT>
+	<SCRIPT>
+		$('#test button').on('click', function(){
+			(new _('GET').requestTo('/testAnswers.json')).on('response', function(r){
+				var answer = JSON.parse(r).physics.motionInOneDimension.kinematicVariables.positionTimeGraphs[0];
+				answer == $('input[name=distance]').val()
+					? __('#test').addElement('P', 0, 'Correct!').style('background', 'green')
+					: __('#test').addElement('P', 0, 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again)').style('background', 'red')
+				;
+			}).send()
 		})
 	</SCRIPT>
+	<SCRIPT>
+		onload = PL_DEFINE.removeLoadingMsg;
+		setInterval(console.clear, 500);
+	</SCRIPT>
+</HTML>
 </HTML>
