@@ -1,0 +1,12 @@
+physics.motionInOneDimension.kinematicVariables.positionTimeGraphs
+{
+	"physics" : {
+		"motionInOneDimension" : {
+			"kinematicVariables" : {
+				"positionTimeGraphs" : [
+					2
+				]
+			}
+		}
+	}
+}
