@@ -1,12 +1,33 @@
 <!DOCTYPE HTML>
 <HTML xmlns:MathML="http://www.w3.org/1998/Math/MathML">
 	<HEAD>
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.2-x/Penguins.js"></SCRIPT>
 		<META CHARSET="ISO-8859-1"/>
 		<TITLE>Position-time graphs</TITLE>
 	</HEAD>
 	<BODY>
 		<H1>Position-time graphs</H1>
 		<P>Our animation of the yellow cube moving is cool, but what if we want to look at the history of the cube's position over time in a single glance? We can use a graph! A position-time graph, or an
+			<MATH>
+				<mrow><mi>x</mi></mrow>
+			</MATH>
+			-
+			<MATH>
+				<mrow><mi>t</mi></mrow>
+			</MATH>
+			 graph. An
+			<MATH>
+				<mrow><mi>x</mi></mrow>
+			</MATH>
+			-
+			<MATH>
+				<mrow><mi>t</mi></mrow>
+			</MATH>
+			graph is simply a line graph with position put on the <MATH><mrow><mi>y</mi></mrow></MATH> axis and time put on the <MATH><mrow><mi>x</mi></mrow></MATH> axis.
+		</P>
+		<H2>Quick test:</H2>
+		<FORM CLASS=test>
+			The
 			<MATH>
 				<mrow>
 					<mi>x</mi>
@@ -17,7 +38,18 @@
 				<mrow>
 					<mi>t</mi>
 				</mrow>
-			</MATH>
-		</P>
+			</MATH> 
+			graph below shows the journey of Joe crossing the road (The origin is the edge of the road where Joe started):
+			<IMG SRC="graph1.png" ALT="This exercise doesn't work on a screen reader" WIDTH=500/>
+			How many meters had Joe travelled after 5 seconds?
+			<BR/>
+			<INPUT NAME=distance/> <MATH><mrow><mi>m</mi></mrow></MATH>
+			<BR/>
+		</FORM>
 	</BODY>
+	<SCRIPT>
+		(new _('GET').requestTo('/formValidator')).on('response', function(){
+			
+		})
+	</SCRIPT>
 </HTML>
