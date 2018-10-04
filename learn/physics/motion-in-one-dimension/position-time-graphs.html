@@ -159,7 +159,8 @@ if(navigator.cookieEnabled){
 }
 	</SCRIPT>
 	<SCRIPT>
-		$('#test').on('submit', function(){
+		$('#test').on('submit', function(e){
+			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
 			(new _('GET').requestTo('/testAnswers.json')).on('response', function(r){
 				var answer = JSON.parse(r).physics.motionInOneDimension.kinematicVariables.positionTimeGraphs[0];
 				answer == $('input[name=distance]').val()
