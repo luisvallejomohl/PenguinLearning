@@ -31,7 +31,12 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<![endif]-->
 		<STYLE>
 			.msg-close{
-				float:right
+				float:right;
+				margin-right:5px;
+				color:black;
+			}
+			.msg-close:hover{
+				color:black
 			}
 		</STYLE>
 		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
@@ -169,8 +174,8 @@ if(navigator.cookieEnabled){
 			(new _('GET').requestTo('/testAnswers.json')).on('response', function(r){
 				var answer = JSON.parse(r).physics.motionInOneDimension.kinematicVariables.positionTimeGraphs[0];
 				answer == $('input[name=distance]').val()
-					? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <SPAN CLASS="msg-close">&#215;</SPAN>')
-					: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <SPAN CLASS="msg-close">&#215;</SPAN>')
+					? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+					: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 				;
 				$('.msg-close').on('click', function(){
 					__('#msg').set('outerHTML', '')
