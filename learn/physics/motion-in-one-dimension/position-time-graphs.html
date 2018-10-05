@@ -123,7 +123,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				<IMG SRC="graph1.png" ALT="This exercise doesn't work on a screen reader" WIDTH="300" STYLE="display:block; left:0px"/>
 				How many meters had Joe travelled after 5 seconds?
 				<BR/>
-				<INPUT NAME=distance/> <MATH xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>m</mi></mrow></MATH>
+				<INPUT NAME="distance"/> <MATH xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>m</mi></mrow></MATH>
 				<BR/>
 				<BUTTON>Check answer</BUTTON>
 			</FORM>
@@ -164,8 +164,8 @@ if(navigator.cookieEnabled){
 			(new _('GET').requestTo('/testAnswers.json')).on('response', function(r){
 				var answer = JSON.parse(r).physics.motionInOneDimension.kinematicVariables.positionTimeGraphs[0];
 				answer == $('input[name=distance]').val()
-					? __('#test').addElement('P', 0, 'Correct!').style('background', 'green')
-					: __('#test').addElement('P', 0, 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again)').style('background', 'red')
+					? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :)')
+					: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again)')
 				;
 			}).send()
 		})
