@@ -4,6 +4,9 @@
 			"kinematicVariables" : {
 				"positionTimeGraphs" : [
 					2
+				], 
+				"diplacementPositionTimeTest" : [
+					9
 				]
 			}
 		}
