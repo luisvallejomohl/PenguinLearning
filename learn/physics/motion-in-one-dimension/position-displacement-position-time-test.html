@@ -65,7 +65,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
 		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
 		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
-		<SCRIPT SRC="https://cdn.staticaly.com/gh/luisvallejomohl/Penguins.js/v2.0.2-x/Penguins.js"></SCRIPT><!--Penguins.js-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.2/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
 				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
@@ -96,7 +96,8 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			</SCRIPT>
 		</HEADER>
 		<MIDDLE>
-			<FORM ID=David>
+			<H1>Position, displacement and time Test</H1>
+			<FORM ID="David-return-time">
 				The
 				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
 					<mrow>
@@ -109,7 +110,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 						<mi>t</mi>
 					</mrow>
 				</MATH> 
-				graph below shows the journey of David the penguin going to get fish from the sea and then returning.
+				graph below shows the journey of <A HREF="">David the penguin</A> going to get fish from the sea and then returning.
 				<IMG SRC="graph2.png" ALT="This exercise doesn't work on a screen reader" WIDTH="300" STYLE="display:block; left:0px"/>
 				How long did David's return journey take?
 				<BR/>
@@ -118,6 +119,35 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				<BUTTON>Check answer</BUTTON>
 			</FORM>
 			<BR/>
+			<FORM ID="displacementGivenPosition">
+				<P>
+					Jane the squid had a position of 
+					<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+						<mrow>
+							<mo>[</mo>
+							<mn>3</mn>
+							<mo> </mo>
+							<mi>m</mi>
+							<mo>]</mo>
+						</mrow> 
+						<mrow>
+							<mo>[</mo>
+							<mn>10</mn>
+							<mo> </mo>
+							<mi>s</mi>
+							<mo>]</mo>
+						</mrow>
+					</MATH> ago, but now has a position of 
+					<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+						<mrow>
+							<mo>[</mo>
+							<mn>12</mn> 
+							<mi>s</mi>
+							<mo>]</mo>
+						</mrow>
+					</MATH> 
+					ago. What is the object's <EM>displacement</EM> for these 10 seconds?
+				
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
@@ -150,19 +180,18 @@ if(navigator.cookieEnabled){
 }
 	</SCRIPT>
 	<SCRIPT>
-		$('#test').on('submit', function(e){
+		$('#David-return-time').on('submit', function(e){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
-			(new _('GET').requestTo('/testAnswers.json')).on('response', function(r){
-				var answer = JSON.parse(r).physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
-				answer == $('input[name=distance]').val()
-					? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
-					: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
-				;
-				$('.msg-close').on('click', function(){
-					__('#msg').set('outerHTML', '')
-				})
-			}).send()
+			var answer = JSONAt(/'testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
+			answer == $('input[name=distance]').val()
+				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+			;
+			$('.msg-close').on('click', function(){
+				__('#msg').set('outerHTML', '')
+			})
 		});
+		$('#
 	</SCRIPT>
 	<SCRIPT>
 		onload = PL_DEFINE.removeLoadingMsg;
