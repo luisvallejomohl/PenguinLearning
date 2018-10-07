@@ -182,7 +182,7 @@ if(navigator.cookieEnabled){
 	<SCRIPT>
 		$('#David-return-time').on('submit', function(e){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
-			var answer = JSONAt(/'testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
+			var answer = JSONAt('testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
 			answer == $('input[name=distance]').val()
 				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
