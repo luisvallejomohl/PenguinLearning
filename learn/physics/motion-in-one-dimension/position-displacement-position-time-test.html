@@ -199,8 +199,8 @@ if(navigator.cookieEnabled){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
 			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
 			answer == $('#David-return-time input').val()
-				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
-				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				? __('#David-return-time').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				: __('#David-return-time').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 			;
 			$('.msg-close').on('click', function(){
 				__('#msg').set('outerHTML', '')
@@ -210,8 +210,8 @@ if(navigator.cookieEnabled){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
 			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariable.displacementPositionTimeTest[1];
 			answer == $('#Jane-displacement-calculation').find('input').val()
-				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
-				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				? __('#Jane-displacement-calculation').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				: __('#Jane-displacement-calculation').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 			;
 			$('.msg-close').on('click', function(){
 				__('#msg').set('outerHTML', '')
