@@ -67,6 +67,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
 		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.3/Penguins.js"></SCRIPT><!--Penguins.js-->
 		<SCRIPT>
+			window.__ = PenguinsJS; //Fix a bug in PJSv2.0.3
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
 				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
 		</SCRIPT>
@@ -182,7 +183,7 @@ if(navigator.cookieEnabled){
 	<SCRIPT>
 		$('#David-return-time').on('submit', function(e){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
-			var answer = JSONAt('testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
+			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
 			answer == $('input[name=distance]').val()
 				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
