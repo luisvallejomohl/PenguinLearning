@@ -163,6 +163,35 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				<BR/>
 				<BUTTON>Check answer</BUTTON>
 			</FORM>
+			<BR/>
+			<FORM ID="Mike-distance-from-school">
+				The
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow>
+						<mi>x</mi>
+					</mrow>
+				</MATH>
+				-
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow>
+						<mi>t</mi>
+					</mrow>
+				</MATH> 
+				graph below should the journey of Mike walking to school:
+				<BR/>
+				<IMG SRC="graph3.png" ALT="This excercise doesn't work on a screen reader"/>
+				<BR/>
+				His path is the shortest possible path from his house to school. How far does Mike live from school?
+				<BR/>
+				<INPUT NAME="displacement"/> 
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow>
+						<mi>m</mi>
+					</mrow>
+				</MATH>
+				<BR/>
+				<BUTTON>Check answer!</BUTTON>
+			</FORM>
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
@@ -208,10 +237,21 @@ if(navigator.cookieEnabled){
 		});
 		$('#Jane-displacement-calculation').on('submit', function(e){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
-			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariable.displacementPositionTimeTest[1];
+			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[1];
 			answer == $('#Jane-displacement-calculation').find('input').val()
 				? __('#Jane-displacement-calculation').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 				: __('#Jane-displacement-calculation').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+			;
+			$('.msg-close').on('click', function(){
+				__('#msg').set('outerHTML', '')
+			})
+		});
+		$('#Mike-distance-from-school').on('submit', function(e){
+			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
+			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[2];
+			answer == $('#Mike-distance-from-school').find('input').val()
+				? __('#Mike-distance-from-school').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				: __('#Mike-distance-from-school').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 			;
 			$('.msg-close').on('click', function(){
 				__('#msg').set('outerHTML', '')
