@@ -113,14 +113,19 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 				</MATH> 
 				graph below shows the journey of <A HREF="">David the penguin</A> going to get fish from the sea and then returning.
 				<IMG SRC="graph2.png" ALT="This exercise doesn't work on a screen reader" WIDTH="300" STYLE="display:block; left:0px"/>
-				How long did David's return journey take?
+				What was David's displacement between 200 and 700 seconds?
 				<BR/>
-				<INPUT NAME="time"/> <MATH xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi></mrow></MATH>
+				<INPUT NAME="time"/> 
+				<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+					<mrow>
+						<mi>m</mi>
+					</mrow>
+				</MATH>
 				<BR/>
 				<BUTTON>Check answer</BUTTON>
 			</FORM>
 			<BR/>
-			<FORM ID="displacementGivenPosition">
+			<FORM ID="Jane-displacement-calculation">
 				<P>
 					Jane the squid had a position of 
 					<MATH xmlns="http://www.w3.org/1998/Math/MathML">
@@ -143,12 +148,21 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 						<mrow>
 							<mo>[</mo>
 							<mn>12</mn> 
-							<mi>s</mi>
+							<mi>m</mi>
 							<mo>]</mo>
 						</mrow>
 					</MATH> 
-					ago. What is the object's <EM>displacement</EM> for these 10 seconds?
-				
+					. What is the object's <EM>displacement</EM> for these 10 seconds?
+					<BR/>
+					<INPUT NAME="displacement"/> 
+					<MATH xmlns="http://www.w3.org/1998/Math/MathML">
+						<mrow>
+							<mi>m</mi>
+						</mrow>
+					</MATH>
+				<BR/>
+				<BUTTON>Check answer</BUTTON>
+			</FORM>
 		</MIDDLE>
 		<FOOTER>
 			All content is provided under a <A HREF="https://www.gnu.org/licenses/agpl-3.0.en.html" TARGET="_" CLASS="qwvxxe">GNU Affero General Public License v3.0</A>.
@@ -184,14 +198,25 @@ if(navigator.cookieEnabled){
 		$('#David-return-time').on('submit', function(e){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
 			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
-			answer == $('input[name=distance]').val()
+			answer == $('#David-return-time').find('input[name=distance]').val()
 				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
 			;
 			$('.msg-close').on('click', function(){
 				__('#msg').set('outerHTML', '')
 			})
-		})
+		});
+		$('#Jane-displacement-calculation').on('submit', function(e){
+			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
+			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariable.displacementPositionTimeTest[1];
+			answer == $('#Jane-displacement-calculation').find('input[name=displacement]').val()
+				? __('#test').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+				: __('#test').addElement('P', 0, 'msg').style('background', 'red').set('innerHTML', 'Wrong! (Don\'t worry, you have not failed: You can always re-read the article and/or try again) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>')
+			;
+			$('.msg-close').on('click', function(){
+				__('#msg').set('outerHTML', '')
+			})
+		});
 	</SCRIPT>
 	<SCRIPT>
 		onload = PL_DEFINE.removeLoadingMsg;
