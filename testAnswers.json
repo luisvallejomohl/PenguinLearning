@@ -5,7 +5,8 @@
 				"positionTimeGraphs" : [
 					2
 				], 
-				"diplacementPositionTimeTest" : [
+				"displacementPositionTimeTest" : [
+					20, 
 					9
 				]
 			}
