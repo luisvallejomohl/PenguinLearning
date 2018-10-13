@@ -152,7 +152,7 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 							<mo>]</mo>
 						</mrow>
 					</MATH> 
-					. What is the object's <EM>displacement</EM> for these 10 seconds?
+					. What is Jane's <EM>displacement</EM> for these 10 seconds?
 					<BR/>
 					<INPUT NAME="displacement"/> 
 					<MATH xmlns="http://www.w3.org/1998/Math/MathML">
@@ -228,7 +228,7 @@ if(navigator.cookieEnabled){
 		$('#David-return-time').on('submit', function(e){
 			e.preventDefault(); //Call e.preventDefault so that the page doesn't reload
 			var answer = JSONAt('/testAnswers.json').physics.motionInOneDimension.kinematicVariables.displacementPositionTimeTest[0];
-			if(answer == $('#David-return-time input'.val()){
+			if(answer == $('#David-return-time input').val()){
 				__('#David-return-time').addElement('P', 0, 'msg').style('background', 'green').set('innerHTML', 'Correct! :) <A CLASS=qwvxxe HREF="javascript:void(0)"><SPAN CLASS="msg-close">&#215;</A></SPAN>');
 				points = 1;
 			}else{
