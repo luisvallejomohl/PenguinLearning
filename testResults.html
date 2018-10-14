@@ -1,19 +1,36 @@
 <!--/testResults.html?score= + points + '&max=3-->
 <!--This area here is just a template-->
 <HTML>
-	<BODY>
-		<H1 CLASS="message"></H1>
-		<P>You got <SPAN CLASS=score></SPAN>/<SPAN CLASS=max></SPAN>! <SPAN CLASS=msg></SPAN>
-		<SCRIPT>
-			// In the odd event that the user navigated directly to the test results page, just generate a 403 Forbidden error
-			if(location.search == '?' || location.search == ''){
-				document.body.innerHTML = '<H1>403 Forbidden</H1><HR><P>You might want to try <A HREF="/">going to the homepage.</A>';
+	<H1 CLASS="message"></H1>
+	<P>You got <SPAN CLASS=score></SPAN>/<SPAN CLASS=max></SPAN>! <SPAN CLASS=message></SPAN>
+	<SCRIPT>
+		// In the odd event that the user navigated directly to the test results page, just throw a 403 Forbidden error
+		if(location.search == '?' || location.search == ''){
+			document.write('<H1>403 Forbidden</H1><HR><P>You might want to try <A HREF="/">going to the homepage.</A>');
+		}else{
+			//Get the score
+			eval(location.search.split('&')[0].split('?')[1]);
+			//Get the maximum score
+			eval(location.search.split('&')[1]);
+			document.querySelector('.score').innerHTML = score;
+			document.querySelector('.max').innerHTML = max;
+			if(score/max >= 0.7){
+				var a = document.querySelectorAll('.message');
+				var msg = 'Congratulations!'
+				a[0].innerHTML = msg;
+				a[1].innerHTML = msg;
+			};
+			if(score/max >= 1/2){
+				var a = document.querySelectorAll('.message');
+				var msg = 'That\'s not bad!<BUTTON ID="tryAgain" ONCLICK="location.reload()">Try again</BUTTON>'
+				a[0].innerHTML = msg;
+				a[1].innerHTML = msg;
 			}else{
-				//Get the score
-				eval(location.search.split('&')[0].split('?')[1]);
-				//Get the maximum score
-				eval(location.search.split('&')[1]);
+				var a = document.querySelectorAll('.message');
+				var msg = '<BUTTON ID="tryAgain" ONCLICK="location.reload()">Try again</BUTTON>'
+				a[0].innerHTML = msg;
+				a[1].innerHTML = msg;
 			}
-		</SCRIPT>
-	</BODY>
+		}
+	</SCRIPT>
 <HTML>
