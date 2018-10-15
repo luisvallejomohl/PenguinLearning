@@ -1,8 +1,77 @@
 <!DOCTYPE HTML>
-<HTML>
+<!--
+PPPPPPP  EEEEEE   N     N   GGGGGGG   U     U    IIIIIII   N     N           L      EEEEEE       A       RRRRRR     N     N   IIIII N     N   GGGGGGG
+P     P  E        NN    N   G         U     U       I      NN    N           L      E           A A      R    R     NN    N     I   NN    N   G
+P     P  E        N N   N   G         U     U       I      N N   N           L      E          A   A     R    R     N N   N     I   N N   N   G
+PPPPPPP  EEEE     N  N  N   G    GGG  U     U       I      N  N  N           L      EEEE      AAAAAAA    RRRRRR     N  N  N     I   N  N  N   G    GGG
+P        E        N   N N   G     G   U     U       I      N   N N           L      E        A       A   R    R     N   N N     I   N   N N   G     G
+P        E        N    NN   G     G   U     U       I      N    NN           L      E       A         A  R    R     N    NN     I   N    NN   G     G
+P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLLLLL EEEEEE A           A R    R     N     N   IIIII N     N   GGGGGGG
+-->
+<HTML LANG="EN">
 	<HEAD>
 		<META CHARSET="ISO-8859-1"/>
-		<TITLE>PenguinLearning Test Results</TITLE>
+		<META NAME="AUTHOR" CONTENT="Luis Vallejo-Möhl"/>
+		<META NAME="MOTTO" CONTENT="A free education for anyone on Earth"/>
+		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
+		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
+		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<!--[if gt IE 8]>
+			<SCRIPT>
+				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER', 'MIDDLE',]
+				for(var item = 0; item < newHTML5BlockElements.length; item++){
+					document.createElement(newHTML5BlockElements[item]);
+				}
+			</SCRIPT>
+			<STYLE>
+				article, header, footer, middle{
+					display:block;
+				}
+			</STYLE>
+		<![endif]-->
+		<STYLE>
+			.msg-close{
+				float:right;
+				margin-right:5px;
+				color:black;
+			}
+			.msg-close:hover{
+				color:black
+			}
+		</STYLE>
+		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
+		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
+		<LINK HREF="/style.css" REL="STYLESHEET"/>
+		<LINK HREF="/colors.css" REL="STYLESHEET"/>
+		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
+		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
+		<SCRIPT>
+			Object.defineProperty(window, 'PL_DEFINE', {
+				value: {}
+			});
+			document.createElement('database');//Extend support for older browsers
+			if(location.protocol == 'http:'){ //If the site is insecure:
+				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
+			};
+			
+			/*If you arrived via a Facebook callback, it may 
+			have appended #_=_ to the URL. The #_=_ is just
+			extra messiness, so get rid of it.
+			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
+			*/
+			if(location.hash == '#_=_')
+				location.replace(location.href.split('#')[0]);
+		</SCRIPT>
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v2.0.3/Penguins.js"></SCRIPT><!--Penguins.js-->
+		<SCRIPT>
+			window.__ = PenguinsJS; //Fix a bug in PJS v2.0.3
+			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
+				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
+		</SCRIPT>
+		<TITLE>PenguinLearning - A free education for anyone on Earth</TITLE>
 	</HEAD>
 	<BODY>
 		<H1 CLASS="msg"><SPAN CLASS="score"></SPAN><SPAN CLASS="max"></SPAN><SPAN CLASS=exc-ma></SPAN></H1>
