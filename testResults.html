@@ -3,13 +3,13 @@
 	<P><SPAN CLASS=message></SPAN></P>
 	<BUTTON ID="tryAgain" ONCLICK="location.reload"></BUTTON>
 	<SCRIPT>
-		// In the odd event that the user navigated directly to the test results page, just throw a 403 Forbidden error
+		/*In the odd event that the user navigated directly to the test results page, just throw a 403 Forbidden error*/
 		if(location.search == '?' || location.search == ''){
 			document.write('<H1>403 Forbidden</H1><HR><P>You might want to try <A HREF="/">going to the homepage.</A>');
 		}else{
-			//Get the score
+			/*Get the score*/
 			eval(location.search.split('&')[0].split('?')[1]);
-			//Get the maximum score
+			/*Get the maximum score*/
 			eval(location.search.split('&')[1]);
 			document.querySelector('.score').innerHTML = score + '/';
 			document.querySelector('.max').innerHTML = max;
