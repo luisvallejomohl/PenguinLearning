@@ -1,8 +1,7 @@
-<!--/testResults.html?score= + points + '&max=3-->
-<!--This area here is just a template-->
 <HTML>
-	<H1 CLASS="message"></H1>
-	<P>You got <SPAN CLASS=score></SPAN>/<SPAN CLASS=max></SPAN>! <SPAN CLASS=message></SPAN>
+	<H1 CLASS="msg"><SPAN CLASS="score"></SPAN>/<SPAN CLASS="max"></SPAN><SPAN CLASS=exc-ma></SPAN></H1>
+	<P><SPAN CLASS=message></SPAN></P>
+	<BUTTON ID="tryAgain" ONCLICK="location.reload"></BUTTON>
 	<SCRIPT>
 		// In the odd event that the user navigated directly to the test results page, just throw a 403 Forbidden error
 		if(location.search == '?' || location.search == ''){
@@ -14,23 +13,14 @@
 			eval(location.search.split('&')[1]);
 			document.querySelector('.score').innerHTML = score;
 			document.querySelector('.max').innerHTML = max;
+			document.querySelector('.exc-ma').innerHTML = '!'
 			if(score/max >= 0.7){
-				var a = document.querySelectorAll('.message');
-				var msg = 'Congratulations!'
-				a[0].innerHTML = msg;
-				a[1].innerHTML = msg;
+				var a = document.querySelector('.message').innerHTML = 'Congratulaions'
 			};
 			if(score/max >= 1/2){
-				var a = document.querySelectorAll('.message');
-				var msg = 'That\'s not bad!<BUTTON ID="tryAgain" ONCLICK="location.reload()">Try again</BUTTON>'
-				a[0].innerHTML = msg;
-				a[1].innerHTML = msg;
-			}else{
-				var a = document.querySelectorAll('.message');
-				var msg = '<BUTTON ID="tryAgain" ONCLICK="location.reload()">Try again</BUTTON>'
-				a[0].innerHTML = msg;
-				a[1].innerHTML = msg;
-			}
+				var a = document.querySelector('.message').innerHTML = 'That\'s not bad!'
+			};
+			document.querySelector('#tryAgain').innerHTML = 'Try again'
 		}
 	</SCRIPT>
 <HTML>
