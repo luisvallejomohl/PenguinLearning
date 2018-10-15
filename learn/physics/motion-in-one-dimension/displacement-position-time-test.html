@@ -269,10 +269,7 @@ if(navigator.cookieEnabled){
 		$('#show-score').on('click', function(){
 			setTimeout(function(){
 				document.body.querySelector('middle').innerHTML='';
-				(__('GET').requestTo('/testResults.html?score=' + points + '&max=3'))
-				.on('response', function(r){
-					document.querySelector('middle').innerHTML = r;
-				}).send();
+				__('middle').addElement('IFRAME', 0).set('src', '/testResults.html?score=' + points + '&max=3').set('innerHTML', 'View the results <A HREF="/testResults.html?score=' + points + '&max=3" TARGET=_>here</A>, or switch to a different browser.');
 			}, 5000)
 		});
 	</SCRIPT>
