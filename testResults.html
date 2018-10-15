@@ -15,11 +15,10 @@
 			document.querySelector('.max').innerHTML = max;
 			document.querySelector('.exc-ma').innerHTML = '!';
 			if(score/max >= 0.7){
-				var a = document.querySelector('.message').innerHTML = 'Congratulaions'
-			};
-			if(score/max >= 1/2){
+				var a = document.querySelector('.message').innerHTML = 'Congratulations!'
+			}else if(score/max >= 1/2){
 				var a = document.querySelector('.message').innerHTML = 'That\'s not bad!'
-			};
+			}
 			document.querySelector('#tryAgain').innerHTML = 'Try again'
 		}
 	</SCRIPT>
