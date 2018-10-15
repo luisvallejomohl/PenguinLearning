@@ -269,7 +269,8 @@ if(navigator.cookieEnabled){
 		$('#show-score').on('click', function(){
 			setTimeout(function(){
 				document.body.querySelector('middle').innerHTML='';
-				__('middle').addElement('IFRAME', 1).set('src', '/testResults.html?score=' + points + '&max=3').style('display', 'block');			}, 5000)
+				__('middle').addElement('IFRAME', 1).set('src', '/testResults.html?score=' + points + '&max=3').style('display', 'block');
+			}, 5000)
 		});
 	</SCRIPT>
 	<SCRIPT>
