@@ -1,5 +1,5 @@
 <HTML>
-	<H1 CLASS="msg"><SPAN CLASS="score"></SPAN>/<SPAN CLASS="max"></SPAN><SPAN CLASS=exc-ma></SPAN></H1>
+	<H1 CLASS="msg"><SPAN CLASS="score"></SPAN><SPAN CLASS="max"></SPAN><SPAN CLASS=exc-ma></SPAN></H1>
 	<P><SPAN CLASS=message></SPAN></P>
 	<BUTTON ID="tryAgain" ONCLICK="location.reload"></BUTTON>
 	<SCRIPT>
@@ -11,9 +11,9 @@
 			eval(location.search.split('&')[0].split('?')[1]);
 			//Get the maximum score
 			eval(location.search.split('&')[1]);
-			document.querySelector('.score').innerHTML = score;
+			document.querySelector('.score').innerHTML = score + '/';
 			document.querySelector('.max').innerHTML = max;
-			document.querySelector('.exc-ma').innerHTML = '!'
+			document.querySelector('.exc-ma').innerHTML = '!';
 			if(score/max >= 0.7){
 				var a = document.querySelector('.message').innerHTML = 'Congratulaions'
 			};
