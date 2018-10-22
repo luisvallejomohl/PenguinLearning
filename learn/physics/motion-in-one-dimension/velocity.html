@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+PPPPPPP  EEEEEE   N     N   GGGGGGG   U     U    IIIIIII   N     N           L      EEEEEE       A       RRRRRR     N     N   IIIII N     N   GGGGGGG
+P     P  E        NN    N   G         U     U       I      NN    N           L      E           A A      R    R     NN    N     I   NN    N   G
+P     P  E        N N   N   G         U     U       I      N N   N           L      E          A   A     R    R     N N   N     I   N N   N   G
+PPPPPPP  EEEE     N  N  N   G    GGG  U     U       I      N  N  N           L      EEEE      AAAAAAA    RRRRRR     N  N  N     I   N  N  N   G    GGG
+P        E        N   N N   G     G   U     U       I      N   N N           L      E        A       A   R    R     N   N N     I   N   N N   G     G
+P        E        N    NN   G     G   U     U       I      N    NN           L      E       A         A  R    R     N    NN     I   N    NN   G     G
+P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLLLLL EEEEEE A           A R    R     N     N   IIIII N     N   GGGGGGG
+-->
+<HTML LANG="EN">
+	<HEAD>
+		<META CHARSET="ISO-8859-1"/>
+		<META NAME="AUTHOR" CONTENT="Luis Vallejo-Möhl"/>
+		<META NAME="MOTTO" CONTENT="A free education for anyone on Earth"/>
+		<META NAME="VIEWPORT" CONTENT="width=device-width, initial-scale=1.0"/>
+		<META NAME="KEYWORDS" CONTENT="PenguinLearning, A free education for anyone on Earth, PenguinLearning - A free education for anyone on Earth, PenguinLearning.tk"/>
+		<META NAME="DESCRIPTION" CONTENT="A free education for anyone on Earth"/>
+		<!--[if gt IE 8]>
+			<SCRIPT>
+				var newHTML5BlockElements = ['ARTICLE', 'HEADER', 'FOOTER', 'MIDDLE',]
+				for(var item = 0; item < newHTML5BlockElements.length; item++){
+					document.createElement(newHTML5BlockElements[item]);
+				}
+			</SCRIPT>
+			<STYLE>
+				article, header, footer, middle{
+					display:block;
+				}
+			</STYLE>
+		<![endif]-->
+		<META NAME="google-site-verification" CONTENT="DwQbwBKbvZuJUkvUzwhRBowrBxRQgl_k-ZIu0M-SU5o"/><!--Google site verification-->
+		<LINK HREF="https://fontlibrary.org/face/quebec" REL="STYLESHEET"/>
+		<LINK HREF="/style.css" REL="STYLESHEET"/>
+		<LINK HREF="/colors.css" REL="STYLESHEET"/>
+		<LINK HREF="/adblocker.css" REL="STYLESHEET"/>
+		<LINK HREF="/favicon.ico" REL="SHORTCUT ICON"/>
+		<SCRIPT>
+			Object.defineProperty(window, 'PL_DEFINE', {
+				value: {}
+			});
+			document.createElement('database');//Extend support for older browsers
+			if(location.protocol == 'http:'){ //If the site is insecure:
+				location.protocol = 'https:'; //Make the page secure, because we care about privacy on PenguinLearning
+			};
+			
+			/*If you arrived via a Facebook callback, it may 
+			have appended #_=_ to the URL. The #_=_ is just
+			extra messiness, so get rid of it.
+			https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
+			*/
+			if(location.hash == '#_=_')
+				location.replace(location.href.split('#')[0]);
+		</SCRIPT>
+		<SCRIPT SRC="https://code.jquery.com/jquery-2.1.4.js"></SCRIPT><!--jQuery-->
+		<SCRIPT SRC="https://code.jquery.com/jquery-migrate-1.4.1.js"></SCRIPT><!--jQuery Migrate-->
+		<SCRIPT SRC="https://cdn.rawgit.com/jashkenas/underscore/1.9.1/underscore.js"></SCRIPT><!--Underscore.js-->
+		<SCRIPT SRC="https://cdn.rawgit.com/luisvallejomohl/Penguins.js/v1.2.1/Penguins.js"></SCRIPT><!--Penguins.js-->
+		<SCRIPT>
+			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
+				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
+		</SCRIPT>
+		<TITLE>Motion in 1 dimension | Physics | PenguinLearning</TITLE>
+	</HEAD>
+	<BODY>
+		<DIV CLASS="pink" ID="warningContainer">
+		        <P ID="resources">If you are seeing this message, it means we are having trouble loading external stylesheets into PenguinLearning. If you're behind a web filter, make sure the domains penguinlearning.github.io, *.rawgit.com and *.githubusercontent are permitted.</P>
+			<P ID="libraries">We are having trouble loading JS libraries. If you are behind a web filter, make sure the domains *.rawgit.com, code.jquery.com and underscorejs.org are permitted.</P>
+			<P ID="javaScript">To create an account and use all the functionality available on PenguinLearning, please enable javaScript.</P>
+			<P ID="localStorage">It looks like you have disabled cookies or your browser does not support them. If you disabled cookies, please enable it, otherwise switch to a different browser to create an account and log in.</P>
+		</DIV>
+		<HEADER>
+			<A HREF="/" CLASS="qwvxxe" ID="dashboardImageLink">
+				<IMG SRC="/David(Born%2011%20June).jpg" ALT="Welcome to PenguinLearning"  TITLE="Go to the home page" ID="David" CLASS="thumbnail"/>
+			</A>
+			<SPAN CLASS="lightblue" ID="horizontalButtonContainer">
+				<A HREF="/learn" ID="learnlink" CLASS="qwvxxe">LEARN</A> 
+				<A HREF="/" ID="dashboardLink" CLASS="qwvxxe">DASHBOARD</A>
+			</SPAN>
+			<HR/>
+			<FONT SIZE=20 ID="loadingMsg"><I>Loading...</I></FONT>
+			<SCRIPT>
+				PL_DEFINE.removeLoadingMsg = function(){
+					$('#loadingMsg').remove();
+				}
+			</SCRIPT>
+		</HEADER>
+		<MIDDLE>
+			<ARTICLE>
+			<H1>Velocity</H1>
+			<P>Velocity is defined to be the <B>rate of change of position</B>. Therefore, it has units of 
+				<MATH XMLNS="http://www.w3.org/1998/Math/MathML">
+					<mfrac>
+						<mrow>
+							<mi>m</mi>
+						</mrow>
+						<!--<mo>/<mo>-->
+						<mrow>
+							<mi>s</mi>
+						</mrow>
+					</mfrac>
+				</MATH>
+				(If this you do not see something like m/s, try switching to Firefox).
+				It is the slope of the tangent to an 
+				<MATH XMLNS="http://www.w3.org/1998/Math/MathML">
+					<mi>x</mi>
+				</MATH>
+				 - 
+				<MATH XMLNS="http://www.w3.org/1998/Math/MathML">
+					<mi>t</mi>
+				</MATH>
+				graph, or the derivative of position with respect to time if you know calculus!
+			</P>
+			</ARTICLE>
+		</MIDDLE>
+	</BODY>
+</HTML>
