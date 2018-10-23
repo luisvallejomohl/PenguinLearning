@@ -60,6 +60,71 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 			if(navigator.cookieEnabled == undefined || ($.browser.msie && (parseInt($.browser.version) < 9))) //If the browser is not supported:
 				__('#warning-container').add('<P>PenguinLearning is not supported on Chrome < 59 or Firefox < 8 or IE < 9 or Microsoft Edge. Sorry (We recommend Firefox 64).</P>'); //Tell the user to switch browser
 		</SCRIPT>
+		<SCRIPT>
+			var $onDOMReadyEventListener = $(document).on('ready', function(){
+				var $onclickEventListener = $('button[name=start-animation]').on('click', function(){
+					var _displacement_container = new PenguinsJS('.displacement');
+					var _position_container = new PenguinsJS('.position');
+					var _time_container = new PenguinsJS('.time');
+					var _cube = new PenguinsJS('#cube');
+					var cubeDisplayInlineBlockJob = _cube.style('display', 'inline-block');
+					var cubeInitalPositionConfig = _cube.style('left', '53px');
+					var cubeAbsolutePositionJob = _cube.style('position', 'absolute');
+					var completed = false;
+					var timeInterval = setInterval(function(){
+						if(completed){
+							var timeIntervalClear = clearInterval(timeInterval);
+						}else{
+							var time = parseFloat(_time_container.get('innerHTML')[0]);
+							time += 0.1;
+							_time_container.set('innerHTML', String(time));
+							window.completed = (time >= 5);
+						}
+					}, 100);
+					var positionInterval = setInterval(function(){
+						if(completed){
+							var positionIntervalClear = clearInterval(positionInterval);
+						}else{
+							var position = parseFloat(_position_container.get('innerHTML')[0]);
+							position += 0.2;
+							_position_container.set('innerHTML', String(position))
+						}
+					}, 100);
+					var displacementInterval = setInterval(function(){
+						if(completed){
+							var displacementIntervalClear = clearInterval(displacementInterval);
+						}else{
+							var displacement = parseFloat(_displacement_container.get('innerHTML')[0]);
+							displacement += 0.2;
+							_displacement_container.set('innerHTML', String(displacement));
+							_cube.style('left', 
+								String(
+									parseFloat(
+										_cube.get('style')[0].left
+									) + 5
+								) + 'px'
+							)
+						}
+					}, 100);
+					var cubeStoppingTimeout = setTimeout(function(){
+						var displacementIntervalClearing = clearInterval(displacementInterval);
+						var timeIntervalClearing = clearInterval(timeInterval);
+						var positionIntervalClearing = clearInterval(positionInterval);
+					}, 5000);
+					delete window.completed;
+				});
+				
+				var removeJSMsg = $('#javaScript').remove();
+				var removeLibrariesMsg = eval(`
+					if(PenguinsJS && jQuery && _)
+						var librariesMsgRemoval = $('#libraries').remove()
+					;
+				`);
+				if(navigator.cookieEnabled)
+					var removeCookieMsg = $('#localStorage').remove();
+				
+			});
+		</SCRIPT>
 		<TITLE>Motion in 1 dimension | Physics | PenguinLearning</TITLE>
 	</HEAD>
 	<BODY>
@@ -116,8 +181,42 @@ P        EEEEEE   N     N   GGGGGGG   UUUUUUU    IIIIIII   N     N           LLL
 						<mo>&rarr;</mo>
 					</mover>
 				</MATH>
-				. 
+				. Not surprisingly, the symbol for initial velocity is 
+				<MATH XMLNS="http://www.w3.org/1998/Math/MathML">
+					<mover>
+						<msub>
+							<mi>v/mi>
+							<mn>0</mn>
+						</msub>
+						<mo>&rarr;</mo>
+					</mover>
+				</MATH>
 			</P>
+			<HR/>
+			<H2>Everything together at once</H2>
+			<P>
+				<BUTTON NAME="start-animation">Click here</BUTTON> to see an animation of a yellow cube moving and how the displacement, position and time change!
+				<BR/>
+				The information about the cube's position, displacement, velocity and time can all be found below.
+				<BR/>
+				Velocity: <SPAN CLASS="velocity-container">
+				<MATH XMLNS="http://www.w3.org/1998/Math/MathML">
+					<mo>[</mo>
+					<mn>2</mn>
+					<mo> </mo>
+					<mfrac>
+						<mi>m</mi>
+						<mi>s</mi>
+					</mfrac>
+					<mo>]</mo>
+				</MATH>
+				Displacement: <SPAN CLASS="displacement-container"><B>[<SPAN CLASS="displacement">0</SPAN> <VAR>m</VAR>]</B></SPAN>
+				<BR/>
+				Position: <SPAN CLASS="position-container"><B>[<SPAN CLASS="position">-3</SPAN> <VAR>m</VAR>]</B></SPAN>
+				<BR/>
+				Time: <SPAN CLASS="time-container"><B>[<SPAN CLASS="time">0</SPAN> <VAR>s</VAR>]</B></SPAN>
+				<BR/>
+				<IMG SRC="Cube.png" ALT="Unfortunately, you cannot view this animation on a screen reader. Sorry." ID="cube"/>
 			</ARTICLE>
 		</MIDDLE>
 		<FOOTER>
